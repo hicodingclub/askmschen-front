@@ -58,6 +58,14 @@ hr {
     width: 25%;
 }
 
+#profile-pic-mobile {
+    width: 70%;
+    margin-right: auto;
+    margin-left: auto;
+    display: none;
+    margin-top: 20px;
+}
+
 .mission-content {
     font-family: 'Raleway', sans-serif;
     width: 70%;
@@ -82,6 +90,7 @@ hr {
     justify-content: space-around;
     margin-top: 30px;
     margin-bottom: 30px;
+    flex-wrap: wrap;
 }
 
 .links-container img {
@@ -139,4 +148,29 @@ hr {
     text-align: center;
     font-family: 'Raleway', sans-serif;
     font-size: 25px;
+}
+
+@media (max-width: 768px) {
+    .title {
+        font-size: 26px;
+    }
+    .mission-title {
+        font-size: 22px;
+    }
+    .mission-statement {
+        font-size: 16px;
+    }
+    .profile-pic {
+        display: none;
+    }
+    #profile-pic-mobile {
+        display: block;
+    }
+    .testimonial-title {
+        font-size: 16px;
+    }
+    .links-container img {
+        width: 40%;
+        margin-bottom: 10px;
+    }
 }

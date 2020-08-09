@@ -34,6 +34,15 @@
     font-family: 'Raleway', sans-serif;
 }
 
+.flex-container {
+    display: flex;
+    justify-content: center;
+}
+
+.verticle-section {
+    margin: 0 2% 0 2%;
+}
+
 .section {
     margin-top: 10px;
     padding-top: 20px;
@@ -58,4 +67,10 @@ hr {
     width: 70%;
     margin-top: 40px;
     margin-bottom: 40px;
+}
+
+@media (max-width: 880px) {
+    #recent-post {
+        display: none;
+    }
 }

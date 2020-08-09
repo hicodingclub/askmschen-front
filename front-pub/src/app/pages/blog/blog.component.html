@@ -6,13 +6,56 @@
         </div>
     </div>
 </div>
-<div class="section">
-    <div class="title">
-        Latest Posts
-    </div>
-    <app-blog-list-widget-galleryBottomTitle [options]="{disableCatetory: true, disablePagination: true,
+
+<div class="flex-container">
+    <div class="verticle-section">
+        <div class="section">
+            <div class="title">
+                Most Popular Posts
+            </div>
+            <app-blog-list-widget-galleryBottomTitle [options]="{disableCatetory: true, disablePagination: true,
+            disbleActionButtons: true, disableListSearch: true, disableTitle: true, disableRefs: true,
+            disableListHead: true, disableTitleRow: true}" [style]="{title: {'font-size': '1.5rem', 'color': '#4a4a4a', 'line-height': '85%', 
+            'font-family': 'Georgia', 'text-align': 'left', 'margin': '5px 0 5px 0'}, subtitle: {'font-size': '0.75rem', 'font-family': 'Georgia', 
+            'text-align': 'left'}}" [queryParams]="{perPage: 5, listSortOrder: 'desc', listSortField: 'publishDate'}" [searchObj]="{'hot': true}">
+            </app-blog-list-widget-galleryBottomTitle>
+            <div style="text-align: center; font-family: Georgia; font-size: 25px;"><a routerLink="/publicinfo/blog/list">View All Blogs</a></div>
+        </div>
+
+        <hr>
+
+        <div class="section">
+            <div class="title">
+                College Admission Information Blog
+            </div>
+            <app-blog-list-widget-galleryBottomTitle [options]="{disableCatetory: true, disablePagination: true,
         disbleActionButtons: true, disableListSearch: true, disableTitle: true, disableRefs: true,
-        disableListHead: true, disableTitleRow: true}" [style]="{title: {'font-size': '1.5rem'}, subtitle: {'font-size': '0.75rem'}}" [queryParams]="{perPage: 5, listSortOrder: 'desc', listSortField: 'publishDate'}">
-    </app-blog-list-widget-galleryBottomTitle>
-    <div style="text-align: center; font-family: Georgia; font-size: 20px;"><a routerLink="/publicinfo/blog/list">Full Blog List</a></div>
+        disableListHead: true, disableTitleRow: true}" [style]="{title: {'font-size': '1.5rem', 'color': '#4a4a4a', 'line-height': '85%', 
+        'font-family': 'Georgia', 'text-align': 'left', 'margin': '5px 0 5px 0'}, subtitle: {'font-size': '0.75rem', 'font-family': 'Georgia', 
+        'text-align': 'left'}}" [queryParams]="{perPage: 5, listSortOrder: 'desc', listSortField: 'publishDate'}" [searchObj]="{'topicTags': ['admission']}">
+            </app-blog-list-widget-galleryBottomTitle>
+        </div>
+
+        <div class="section">
+            <div class="title">
+                College Essay Blog
+            </div>
+            <app-blog-list-widget-galleryBottomTitle [options]="{disableCatetory: true, disablePagination: true,
+        disbleActionButtons: true, disableListSearch: true, disableTitle: true, disableRefs: true,
+        disableListHead: true, disableTitleRow: true}" [style]="{title: {'font-size': '1.5rem', 'color': '#4a4a4a', 'line-height': '85%', 
+        'font-family': 'Georgia', 'text-align': 'left', 'margin': '5px 0 5px 0'}, subtitle: {'font-size': '0.75rem', 'font-family': 'Georgia', 
+        'text-align': 'left'}}" [queryParams]="{perPage: 5, listSortOrder: 'desc', listSortField: 'publishDate'}" [searchObj]="{'topicTags': ['essay']}">
+            </app-blog-list-widget-galleryBottomTitle>
+        </div>
+    </div>
+
+    <div class="verticle-section" id="recent-post">
+        <div class="title">
+            Recent Posts
+        </div>
+        <app-blog-list [options]="{disableCatetory: true, disablePagination: true,
+            disbleActionButtons: true, disableListSearch: true, disableTitle: true, disableRefs: true,
+            disableListHead: true, disableTitleRow: true}" [queryParams]="{perPage: 8, listSortOrder: 'desc', listSortField: 'publishDate'}">
+        </app-blog-list>
+    </div>
 </div>
