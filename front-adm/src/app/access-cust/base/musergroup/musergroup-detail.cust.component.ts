@@ -8,7 +8,7 @@ import { MusergroupComponent } from '../../../access/musergroup/musergroup.compo
 export class MusergroupDetailCustComponent extends MusergroupComponent {
 }
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Sat Aug 08 2020 20:37:59 GMT-0700 (Pacific Daylight Time)
+**Date: Sun Aug 09 2020 13:04:37 GMT-0700 (Pacific Daylight Time)
 
 import {
   Input,

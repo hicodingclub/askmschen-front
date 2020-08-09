@@ -18,6 +18,15 @@ import {
   BlogEditComponent
 } from './blog/blog-edit/blog-edit.component';
 import {
+  SubscriptionListComponent
+} from './subscription/subscription-list/subscription-list.component';
+import {
+  SubscriptionDetailComponent
+} from './subscription/subscription-detail/subscription-detail.component';
+import {
+  SubscriptionEditComponent
+} from './subscription/subscription-edit/subscription-edit.component';
+import {
   AuthGuard
 } from '@hicoder/angular-auth';
 export const newsRoutingCorePath = [{
@@ -56,6 +65,27 @@ export const blogRoutingCorePath = [{
 }, {
   path: 'new',
   component: BlogEditComponent,
+  canActivate: [AuthGuard]
+}, {
+  path: '**',
+  redirectTo: 'list',
+  pathMatch: 'full'
+}];
+export const subscriptionRoutingCorePath = [{
+  path: 'list',
+  component: SubscriptionListComponent,
+  canActivate: [AuthGuard]
+}, {
+  path: 'detail/:id',
+  component: SubscriptionDetailComponent,
+  canActivate: [AuthGuard]
+}, {
+  path: 'edit/:id',
+  component: SubscriptionEditComponent,
+  canActivate: [AuthGuard]
+}, {
+  path: 'new',
+  component: SubscriptionEditComponent,
   canActivate: [AuthGuard]
 }, {
   path: '**',

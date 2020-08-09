@@ -18,6 +18,9 @@ import {
   FileUploadModule
 } from '@hicoder/angular-file';
 import {
+  ActionEmailModule
+} from '@hicoder/angular-action-email';
+import {
   MddsRichtextEditorModule
 } from '@hicoder/angular-richtext';
 import {
@@ -84,6 +87,30 @@ import {
 import {
   BlogEditCustComponent
 } from '../publicinfo-cust/base/blog/blog-edit.cust.component';
+import {
+  SubscriptionComponent
+} from './subscription/subscription.component';
+import {
+  SubscriptionListComponent
+} from './subscription/subscription-list/subscription-list.component';
+import {
+  SubscriptionListCustComponent
+} from '../publicinfo-cust/base/subscription/subscription-list.cust.component';
+import {
+  SubscriptionDetailComponent
+} from './subscription/subscription-detail/subscription-detail.component';
+import {
+  SubscriptionDetailCustComponent
+} from '../publicinfo-cust/base/subscription/subscription-detail.cust.component';
+import {
+  SubscriptionDetailFieldComponent
+} from './subscription/subscription-detail/subscription-detail-field.component';
+import {
+  SubscriptionEditComponent
+} from './subscription/subscription-edit/subscription-edit.component';
+import {
+  SubscriptionEditCustComponent
+} from '../publicinfo-cust/base/subscription/subscription-edit.cust.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -91,6 +118,7 @@ import {
     NgbModule,
     MddsCoreModule,
     FileUploadModule,
+    ActionEmailModule,
     MddsRichtextEditorModule,
     PublicinfoRoutingCoreModule,
   ],
@@ -114,6 +142,14 @@ import {
     BlogDetailFieldComponent,
     BlogEditComponent,
     BlogEditCustComponent,
+    SubscriptionComponent,
+    SubscriptionListComponent,
+    SubscriptionListCustComponent,
+    SubscriptionDetailCustComponent,
+    SubscriptionDetailComponent,
+    SubscriptionDetailFieldComponent,
+    SubscriptionEditComponent,
+    SubscriptionEditCustComponent,
   ],
   exports: [
     PublicinfoComponent,
@@ -127,6 +163,10 @@ import {
     BlogDetailWidgetPostComponent,
     BlogDetailFieldComponent,
     BlogEditComponent,
+    SubscriptionListComponent,
+    SubscriptionDetailComponent,
+    SubscriptionDetailFieldComponent,
+    SubscriptionEditComponent,
   ],
   providers: [{
     provide: NgbDateParserFormatter,
@@ -137,6 +177,7 @@ import {
     NewsEditComponent,
     BlogDetailWidgetPostComponent,
     BlogEditComponent,
+    SubscriptionEditComponent,
   ]
 })
 export class PublicinfoCoreModule {}

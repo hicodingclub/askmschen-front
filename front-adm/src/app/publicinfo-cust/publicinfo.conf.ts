@@ -8,6 +8,7 @@ import {
 import {
   newsRoutingCorePath,
   blogRoutingCorePath,
+  subscriptionRoutingCorePath,
 } from '../publicinfo/publicinfo-routing.core.path';
 export const PublicinfoCoreRoutes: Routes = [{
   // Lazy Load: and add to app routing:
@@ -33,6 +34,13 @@ export const PublicinfoCoreRoutes: Routes = [{
     data: {
       mraLevel: 1,
       item: 'blog'
+    }
+  }, {
+    path: 'subscription',
+    children: subscriptionRoutingCorePath,
+    data: {
+      mraLevel: 1,
+      item: 'subscription'
     }
   }, ]
 }, ];
@@ -46,9 +54,8 @@ export const PublicinfoRoutes: Routes = [{
   // non lazy load config. Include module in app module.
   // path: 'publicinfo/cust',
   children: PublicinfoRoutingCustPath,
-}, ];
-/*>>> Please check this recent updates and merge with existing ones***
-**Date: Sat Aug 08 2020 20:38:02 GMT-0700 (Pacific Daylight Time)
+}, ];/*>>> Please check this recent updates and merge with existing ones***
+**Date: Sun Aug 09 2020 13:04:42 GMT-0700 (Pacific Daylight Time)
 
 import {
   Routes
@@ -60,6 +67,7 @@ import {
 import {
   newsRoutingCorePath,
   blogRoutingCorePath,
+  subscriptionRoutingCorePath,
 } from '../publicinfo/publicinfo-routing.core.path';
 export const PublicinfoCoreRoutes: Routes = [{
   // Lazy Load: and add to app routing:
@@ -85,6 +93,13 @@ export const PublicinfoCoreRoutes: Routes = [{
     data: {
       mraLevel: 1,
       item: 'blog'
+    }
+  }, {
+    path: 'subscription',
+    children: subscriptionRoutingCorePath,
+    data: {
+      mraLevel: 1,
+      item: 'subscription'
     }
   }, ]
 }, ];
