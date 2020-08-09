@@ -29,7 +29,7 @@ import { MraNgbDateFormatterService } from '../roles/roles.directive';
 })
 export class RolesExtModule { }
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Fri Aug 07 2020 22:50:19 GMT-0700 (Pacific Daylight Time)
+**Date: Sat Aug 08 2020 20:38:00 GMT-0700 (Pacific Daylight Time)
 
 import {
   NgModule

@@ -1,0 +1,54 @@
+.detail {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.card-title,
+.card-subtitle {
+  text-align: center;
+}
+
+.card-text {
+  margin-top: 2rem;
+}
+
+.card label {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+/*
+.card span {
+	margin-left: 1rem;
+}
+*/
+.referred-by-links {
+  text-align: left;
+}
+
+.referred-by-links a {
+  margin-left: 1rem;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.badge-click {
+  cursor: pointer;
+}
+
+div.badge-click:hover {
+  background-color: #495057 !important;
+  text-decoration: underline;
+}
+
+.post-head-picture {
+  width: 100%;
+  height: 20rem;
+  overflow: hidden;
+}
+
+.transparent-border {
+  border-color: rgba(0, 0, 0, 0);
+}

@@ -1,0 +1,260 @@
+<div class="edit" *ngIf="detail">
+  <div class="card" style="text-align: left;">
+    <div class="card-body">
+      <h4 class="card-title" *ngIf="!embeddedView && !options['title']">{{action}} Blog</h4>
+      <h4 class="card-title" *ngIf="options['title']" [ngStyle]="style['card-title']">
+        {{options['title']}}
+      </h4>
+      <p *ngIf="options['subtitle']" [ngStyle]="style['card-subtitle']">
+        {{options['subtitle']}}
+      </p>
+      <form (ngSubmit)="onSubmit()" #editForm="ngForm">
+        <ng-template [ngIf]="action == 'Edit'">
+          <ng-template [ngIf]="!hiddenFields.includes('title')">
+            <fieldset class="form-group">
+              <label for="EditTitle">Title</label>
+              <div class="input-group">
+                <input type="text" class="form-control rounded" id="EditTitle" required maxlength="100" [(ngModel)]="detail['title']" name="EditTitle" #EditTitle="ngModel">
+                <div *ngIf="detail['title']" class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('title')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+                </div>
+              </div>
+              <div [hidden]="EditTitle.valid || EditTitle.pristine || EditTitle.errors.minlength" class="alert alert-danger">
+                <div *ngIf="EditTitle.errors && EditTitle.errors.required"> Title is required. </div>
+                <div *ngIf="EditTitle.errors && EditTitle.errors.maxlength"> Title must be at most 100 characters long. </div>
+              </div>
+            </fieldset>
+          </ng-template>
+          <ng-template [ngIf]="!hiddenFields.includes('content')">
+            <fieldset class="form-group">
+              <label for="EditContent">Content</label>
+              <lib-richtext-editor [(ngModel)]="detail['content']" name="EditContent" [required]="true" #EditContent="ngModel">
+              </lib-richtext-editor>
+              <div [hidden]="EditContent.valid" class="alert alert-danger">
+                <div *ngIf="EditContent.errors && EditContent.errors.required"> Content is required. </div>
+              </div>
+            </fieldset>
+          </ng-template>
+          <ng-template [ngIf]="!hiddenFields.includes('signaturePicture')">
+            <fieldset class="form-group">
+              <label for="EditSignaturePicture">Signature Picture</label>
+              <div class="form-check" [ngClass]="{'ng-valid': detail['signaturePicture'],
+                            'ng-invalid': !detail['signaturePicture']}">
+                <input type="text" class="form-control rounded" id="EditSignaturePicture" style="display: none;" required [(ngModel)]="detail['signaturePicture']" name="EditSignaturePicture" #EditSignaturePicture="ngModel">
+                <div style="display: inline-block; width: 80%;">
+                  <lib-mdds-file-select [(downloadUrl)]="detail['signaturePicture']" [aspectRatio]=""></lib-mdds-file-select>
+                </div>
+                <span *ngIf="detail['signaturePicture']" class="icon-clear" (click)="clearValueFromDetail('signaturePicture')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+                </span>
+              </div>
+              <div [hidden]="EditSignaturePicture.valid || EditSignaturePicture.pristine" class="alert alert-danger">
+                <div *ngIf="EditSignaturePicture.errors && EditSignaturePicture.errors.required"> SignaturePicture is required. </div>
+              </div>
+            </fieldset>
+          </ng-template>
+          <ng-template [ngIf]="!hiddenFields.includes('topicTags')">
+            <fieldset class="form-group">
+              <label for="EditTopicTags">Topic Tags</label>
+              <div class="form-check" ngModelGroup="EditTopicTags" #EditTopicTags="ngModelGroup">
+                <div class="badge-group" *ngIf="detail['topicTags'] && detail['topicTags']['selection']">
+                  <div class="badge badge-pill badge-secondary" *ngFor="let element of detail['topicTags']['selection']; let i = index;">
+                    {{element}}
+                    <i class="fas fa-times-circle icon-clear-badge" (click)="clearValueFromArrayField('topicTags', i)" title="Remove"></i>
+                  </div>
+                  <span *ngIf="arraySelected('topicTags')" class="icon-clear" (click)="clearValueFromDetail('topicTags')">
+                    <i class="fas fa-times-circle" title="Clear"></i>
+                  </span>
+                </div>
+                <hr>
+                <div class="new-area">
+                  <div *ngIf="editHintFields['topicTags'].length > 0" style="font-size: 0.9rem;">Select from Available Topic Tags: </div>
+                  <ng-template ngFor let-hintEle [ngForOf]="editHintFields['topicTags']" let-i="index">
+                    <div class="badge badge-pill badge-primary pointer" *ngIf="!detail['topicTags']['selection'].includes(hintEle['_id'])" (click)="onAddArrayItemValue('topicTags', hintEle['_id'])">
+                      {{hintEle['_id']}}
+                    </div>
+                  </ng-template>
+                  <div class="mt-1">
+                    <a class="pointer" routerLink="." (click)="onAddArrayItemClicked('topicTags')" style="font-size: 0.75rem;">
+                      <i class="fas fa-plus-square" title="New"></i> New </a>
+                  </div>
+                </div>
+                <div *ngIf="detail['topicTags']['adding']" class="new-modal">
+                  <div class="card text-center new-card">
+                    <div class="card-body">
+                      <input type="search" class="form-control border" id="EditTopicTagsNew" #EditTopicTagsNew="ngModel" [(ngModel)]="detail['topicTags']['new']" [ngModelOptions]="{standalone: true}" (keydown.enter)="$event.target.blur();onAddArrayItem('topicTags');false">
+                      <div [hidden]="EditTopicTagsNew.valid
+                      || EditTopicTagsNew.pristine 
+                      || EditTopicTagsNew.errors.minlength" class="alert alert-danger small p-1">
+                      </div>
+                      <div class="d-flex my-3 justify-content-center">
+                        <button class="btn btn-outline-primary mx-1" [disabled]="!EditTopicTagsNew.valid" (click)="onAddArrayItem('topicTags')">Confirm</button>
+                        <button class="btn btn-outline-secondary mx-1" (click)="onAddArrayItemCancelled('topicTags')">Cancel</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- fake hidden input ngModel for directive to check the values-->
+                <input type="checkbox" name="EditTopicTagsSelection" style="display:none" id="EditTopicTagsSelection" [(ngModel)]="detail['topicTags']['selection'].length" #EditTopicTagsSelection="ngModel">
+              </div>
+              <div [hidden]="EditTopicTags.valid || EditTopicTags.pristine" class="alert alert-danger">
+              </div>
+            </fieldset>
+          </ng-template>
+          <ng-template [ngIf]="!hiddenFields.includes('hot')">
+            <fieldset class="form-group">
+              <label for="EditHot">Hot</label>
+              <div class="form-check" [ngClass]="{'ng-valid': true} ">
+                <div class="form-check-inline">
+                  <input type="radio" name="EditHot" class="form-check-input" id="EditHotYes" [value]="true" [(ngModel)]="detail['hot']" #EditHot="ngModel">
+                  <label class="form-check-label">Yes</label>
+                </div>
+                <div class="form-check-inline">
+                  <input type="radio" name="EditHot" class="form-check-input" id="EditHotNo" [value]="false" [(ngModel)]="detail['hot']" #EditHot="ngModel">
+                  <label class="form-check-label">No</label>
+                </div>
+                <div *ngIf="detail['hot'] == true || detail['hot'] == false" class="form-check-inline" (click)="clearValueFromDetail('hot')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+                </div>
+              </div>
+              <div [hidden]="EditHot.valid || EditHot.pristine" class="alert alert-danger">
+              </div>
+            </fieldset>
+          </ng-template>
+        </ng-template>
+        <ng-template [ngIf]="action == 'Create' || action == 'Add' ">
+          <ng-template [ngIf]="!hiddenFields.includes('title')">
+            <fieldset class="form-group">
+              <label for="EditTitle">Title</label>
+              <div class="input-group">
+                <input type="text" class="form-control rounded" id="EditTitle" required maxlength="100" [(ngModel)]="detail['title']" name="EditTitle" #EditTitle="ngModel">
+                <div *ngIf="detail['title']" class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('title')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+                </div>
+              </div>
+              <div [hidden]="EditTitle.valid || EditTitle.pristine || EditTitle.errors.minlength" class="alert alert-danger">
+                <div *ngIf="EditTitle.errors && EditTitle.errors.required"> Title is required. </div>
+                <div *ngIf="EditTitle.errors && EditTitle.errors.maxlength"> Title must be at most 100 characters long. </div>
+              </div>
+            </fieldset>
+          </ng-template>
+          <ng-template [ngIf]="!hiddenFields.includes('content')">
+            <fieldset class="form-group">
+              <label for="EditContent">Content</label>
+              <lib-richtext-editor [(ngModel)]="detail['content']" name="EditContent" [required]="true" #EditContent="ngModel">
+              </lib-richtext-editor>
+              <div [hidden]="EditContent.valid" class="alert alert-danger">
+                <div *ngIf="EditContent.errors && EditContent.errors.required"> Content is required. </div>
+              </div>
+            </fieldset>
+          </ng-template>
+          <ng-template [ngIf]="!hiddenFields.includes('author')">
+            <fieldset class="form-group">
+              <label for="EditAuthor">Author</label>
+              <div class="input-group">
+                <input type="text" class="form-control rounded" id="EditAuthor" required maxlength="50" [(ngModel)]="detail['author']" name="EditAuthor" #EditAuthor="ngModel">
+                <div *ngIf="detail['author']" class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('author')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+                </div>
+              </div>
+              <div [hidden]="EditAuthor.valid || EditAuthor.pristine || EditAuthor.errors.minlength" class="alert alert-danger">
+                <div *ngIf="EditAuthor.errors && EditAuthor.errors.required"> Author is required. </div>
+                <div *ngIf="EditAuthor.errors && EditAuthor.errors.maxlength"> Author must be at most 50 characters long. </div>
+              </div>
+            </fieldset>
+          </ng-template>
+          <ng-template [ngIf]="!hiddenFields.includes('signaturePicture')">
+            <fieldset class="form-group">
+              <label for="EditSignaturePicture">Signature Picture</label>
+              <div class="form-check" [ngClass]="{'ng-valid': detail['signaturePicture'],
+                            'ng-invalid': !detail['signaturePicture']}">
+                <input type="text" class="form-control rounded" id="EditSignaturePicture" style="display: none;" required [(ngModel)]="detail['signaturePicture']" name="EditSignaturePicture" #EditSignaturePicture="ngModel">
+                <div style="display: inline-block; width: 80%;">
+                  <lib-mdds-file-select [(downloadUrl)]="detail['signaturePicture']" [aspectRatio]=""></lib-mdds-file-select>
+                </div>
+                <span *ngIf="detail['signaturePicture']" class="icon-clear" (click)="clearValueFromDetail('signaturePicture')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+                </span>
+              </div>
+              <div [hidden]="EditSignaturePicture.valid || EditSignaturePicture.pristine" class="alert alert-danger">
+                <div *ngIf="EditSignaturePicture.errors && EditSignaturePicture.errors.required"> SignaturePicture is required. </div>
+              </div>
+            </fieldset>
+          </ng-template>
+          <ng-template [ngIf]="!hiddenFields.includes('topicTags')">
+            <fieldset class="form-group">
+              <label for="EditTopicTags">Topic Tags</label>
+              <div class="form-check" ngModelGroup="EditTopicTags" #EditTopicTags="ngModelGroup">
+                <div class="badge-group" *ngIf="detail['topicTags'] && detail['topicTags']['selection']">
+                  <div class="badge badge-pill badge-secondary" *ngFor="let element of detail['topicTags']['selection']; let i = index;">
+                    {{element}}
+                    <i class="fas fa-times-circle icon-clear-badge" (click)="clearValueFromArrayField('topicTags', i)" title="Remove"></i>
+                  </div>
+                  <span *ngIf="arraySelected('topicTags')" class="icon-clear" (click)="clearValueFromDetail('topicTags')">
+                    <i class="fas fa-times-circle" title="Clear"></i>
+                  </span>
+                </div>
+                <hr>
+                <div class="new-area">
+                  <div *ngIf="editHintFields['topicTags'].length > 0" style="font-size: 0.9rem;">Select from Available Topic Tags: </div>
+                  <ng-template ngFor let-hintEle [ngForOf]="editHintFields['topicTags']" let-i="index">
+                    <div class="badge badge-pill badge-primary pointer" *ngIf="!detail['topicTags']['selection'].includes(hintEle['_id'])" (click)="onAddArrayItemValue('topicTags', hintEle['_id'])">
+                      {{hintEle['_id']}}
+                    </div>
+                  </ng-template>
+                  <div class="mt-1">
+                    <a class="pointer" routerLink="." (click)="onAddArrayItemClicked('topicTags')" style="font-size: 0.75rem;">
+                      <i class="fas fa-plus-square" title="New"></i> New </a>
+                  </div>
+                </div>
+                <div *ngIf="detail['topicTags']['adding']" class="new-modal">
+                  <div class="card text-center new-card">
+                    <div class="card-body">
+                      <input type="search" class="form-control border" id="EditTopicTagsNew" #EditTopicTagsNew="ngModel" [(ngModel)]="detail['topicTags']['new']" [ngModelOptions]="{standalone: true}" (keydown.enter)="$event.target.blur();onAddArrayItem('topicTags');false">
+                      <div [hidden]="EditTopicTagsNew.valid
+                      || EditTopicTagsNew.pristine 
+                      || EditTopicTagsNew.errors.minlength" class="alert alert-danger small p-1">
+                      </div>
+                      <div class="d-flex my-3 justify-content-center">
+                        <button class="btn btn-outline-primary mx-1" [disabled]="!EditTopicTagsNew.valid" (click)="onAddArrayItem('topicTags')">Confirm</button>
+                        <button class="btn btn-outline-secondary mx-1" (click)="onAddArrayItemCancelled('topicTags')">Cancel</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- fake hidden input ngModel for directive to check the values-->
+                <input type="checkbox" name="EditTopicTagsSelection" style="display:none" id="EditTopicTagsSelection" [(ngModel)]="detail['topicTags']['selection'].length" #EditTopicTagsSelection="ngModel">
+              </div>
+              <div [hidden]="EditTopicTags.valid || EditTopicTags.pristine" class="alert alert-danger">
+              </div>
+            </fieldset>
+          </ng-template>
+          <ng-template [ngIf]="!hiddenFields.includes('hot')">
+            <fieldset class="form-group">
+              <label for="EditHot">Hot</label>
+              <div class="form-check" [ngClass]="{'ng-valid': true} ">
+                <div class="form-check-inline">
+                  <input type="radio" name="EditHot" class="form-check-input" id="EditHotYes" [value]="true" [(ngModel)]="detail['hot']" #EditHot="ngModel">
+                  <label class="form-check-label">Yes</label>
+                </div>
+                <div class="form-check-inline">
+                  <input type="radio" name="EditHot" class="form-check-input" id="EditHotNo" [value]="false" [(ngModel)]="detail['hot']" #EditHot="ngModel">
+                  <label class="form-check-label">No</label>
+                </div>
+                <div *ngIf="detail['hot'] == true || detail['hot'] == false" class="form-check-inline" (click)="clearValueFromDetail('hot')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+                </div>
+              </div>
+              <div [hidden]="EditHot.valid || EditHot.pristine" class="alert alert-danger">
+              </div>
+            </fieldset>
+          </ng-template>
+        </ng-template>
+        <div class="action-buttons-center">
+          <button type="submit" class="btn btn-success" [disabled]="!editForm.form.valid">Submit</button>
+          <button *ngIf="!options['disableCancel']" class="btn btn-outline-success" type="button" (click)="editCancel()">Cancel</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
