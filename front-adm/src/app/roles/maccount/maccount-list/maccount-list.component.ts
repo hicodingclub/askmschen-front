@@ -54,6 +54,7 @@ export class MaccountListComponent extends MaccountListCustComponent implements 
       'firstname': 'Firstname',
       'lastname': 'Lastname',
       'since': 'Since',
+      'regtype': 'Regtype',
       'status': 'Status',
     };
     this.enums['status'] = ['Enabled', 'Disabled', 'Pending', ];
@@ -62,6 +63,7 @@ export class MaccountListComponent extends MaccountListCustComponent implements 
     this.stringFields.push('phone');
     this.stringFields.push('firstname');
     this.stringFields.push('lastname');
+    this.stringFields.push('regtype');
     this.stringFields.push('status');
     this.dateFields = ['since', ];
     this.listViewFilter = 'table';

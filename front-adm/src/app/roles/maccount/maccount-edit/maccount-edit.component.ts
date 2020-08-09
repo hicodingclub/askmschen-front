@@ -62,6 +62,7 @@ export class MaccountEditComponent extends MaccountEditCustComponent implements 
       'phone': 'Phone',
       'firstname': 'Firstname',
       'lastname': 'Lastname',
+      'regtype': 'Regtype',
       'status': 'Status',
       'password': 'Password',
     };
@@ -71,6 +72,7 @@ export class MaccountEditComponent extends MaccountEditCustComponent implements 
     this.stringFields.push('phone');
     this.stringFields.push('firstname');
     this.stringFields.push('lastname');
+    this.stringFields.push('regtype');
     this.stringFields.push('status');
     this.stringFields.push('password');
     const detail = {};

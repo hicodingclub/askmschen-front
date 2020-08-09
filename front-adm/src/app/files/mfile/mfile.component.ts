@@ -20,7 +20,7 @@ import {
 import {
   MfileService
 } from './mfile.service';
-const itemCamelName = 'picture';
+const itemCamelName = 'file';
 export {
   ViewType
 };

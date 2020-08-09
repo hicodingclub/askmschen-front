@@ -1,1 +1,1 @@
-#hg angular-gen -m <model_name> -o src/app ../../backend/models/<dir name>/index-public.js
+hg angular-gen -m publicinfo -v public -o src/app ../../backend/models/publicInfo/index-public.js

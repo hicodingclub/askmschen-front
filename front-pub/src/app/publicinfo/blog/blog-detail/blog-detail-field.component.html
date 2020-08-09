@@ -1,0 +1,23 @@
+<div *ngIf="detail && showFields.includes('signaturePicture')">
+  <lib-mdds-file-display [downloadUrl]="detail['signaturePicture']" [isLarge]="false" [aspectRatio]=""></lib-mdds-file-display>
+</div>
+<div *ngIf="detail && showFields.includes('title')">
+  {{detail['title']}}
+</div>
+<div *ngIf="detail && showFields.includes('author')">
+  {{detail['author']}}
+</div>
+<div *ngIf="detail && showFields.includes('publishDate')"> {{detail['publishDate']? (detail['publishDate']['originalValue'] | date:'medium') : ''}}
+</div>
+<div *ngIf="detail && showFields.includes('content')">
+  <div libMddsRichtextShow="blogDetailContent" [content]="detail['content']"></div>
+</div>
+<div *ngIf="detail && showFields.includes('topicTags')">
+  <div *ngIf="detail['topicTags'] && detail['topicTags']['selection']">
+    <ng-template ngFor let-element [ngForOf]="detail['topicTags']['selection']" let-idx="index">
+      <div class="badge badge-pill badge-secondary">
+        {{element}}
+      </div>
+    </ng-template>
+  </div>
+</div>

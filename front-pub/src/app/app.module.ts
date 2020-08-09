@@ -15,15 +15,22 @@ import { authentication_interfaces } from "./injection-tokens/auth.conf";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
-import { HomepageComponent } from "./homepage/homepage.component";
+import { HomepageComponent } from "./pages/homepage/homepage.component";
+import { ContactComponent } from "./pages/contact/contact.component";
+import { BlogComponent } from "./pages/blog/blog.component";
+
+import { PublicinfoModule } from './publicinfo/publicinfo.module';
+
+
 
 @NgModule({
-  declarations: [AppComponent, HomepageComponent],
+  declarations: [AppComponent, HomepageComponent, ContactComponent, BlogComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
     AuthenticationModule,
+    PublicinfoModule,
   ],
   providers: [
     { provide: AUTHENTICATION_INTERFACES, useValue: authentication_interfaces },

@@ -49,6 +49,7 @@ export class MaccountDetailComponent extends MaccountDetailCustComponent impleme
       'firstname': 'Firstname',
       'lastname': 'Lastname',
       'since': 'Since',
+      'regtype': 'Regtype',
       'status': 'Status',
     };
     this.enums['status'] = ['Enabled', 'Disabled', 'Pending', ];
@@ -57,6 +58,7 @@ export class MaccountDetailComponent extends MaccountDetailCustComponent impleme
     this.stringFields.push('phone');
     this.stringFields.push('firstname');
     this.stringFields.push('lastname');
+    this.stringFields.push('regtype');
     this.stringFields.push('status');
     this.dateFields = ['since', ];
   }

@@ -15,6 +15,9 @@
 </div>
 <div *ngIf="detail && showFields.includes('since')"> {{detail['since']? (detail['since']['originalValue'] | date:'medium') : ''}}
 </div>
+<div *ngIf="detail && showFields.includes('regtype')">
+  {{detail['regtype']}}
+</div>
 <div *ngIf="detail && showFields.includes('status')">
   {{detail['status']}}
 </div>

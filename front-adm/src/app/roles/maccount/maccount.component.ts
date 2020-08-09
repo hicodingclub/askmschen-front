@@ -99,6 +99,7 @@ export class MaccountComponent extends MddsBaseComponent implements OnInit {
     this.briefFieldsInfo.push(['firstname', 'Firstname']);
     this.briefFieldsInfo.push(['lastname', 'Lastname']);
     this.briefFieldsInfo.push(['since', 'Since']);
+    this.briefFieldsInfo.push(['regtype', 'Regtype']);
     this.briefFieldsInfo.push(['status', 'Status']);
     this.requiredFields = ['username', 'password', ];
     this.emailFields = [

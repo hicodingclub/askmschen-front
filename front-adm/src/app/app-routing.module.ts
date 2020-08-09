@@ -13,6 +13,7 @@ const routes: Routes = [
   { path: 'roles', loadChildren: () => import('./roles/roles.module').then(m => m.RolesModule) },
 
   { path: 'home',  component: HomeComponent, canActivate: [AuthGuard] },
+  { path: 'publicinfo', loadChildren: () => import('./publicinfo/publicinfo.module').then(m => m.PublicinfoModule) },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

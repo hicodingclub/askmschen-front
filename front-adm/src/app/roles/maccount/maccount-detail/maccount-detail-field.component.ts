@@ -41,6 +41,7 @@ implements OnInit {
       'firstname': 'Firstname',
       'lastname': 'Lastname',
       'since': 'Since',
+      'regtype': 'Regtype',
       'status': 'Status',
     };
     this.enums['status'] = ['Enabled', 'Disabled', 'Pending', ];
@@ -49,6 +50,7 @@ implements OnInit {
     this.stringFields.push('phone');
     this.stringFields.push('firstname');
     this.stringFields.push('lastname');
+    this.stringFields.push('regtype');
     this.stringFields.push('status');
     this.dateFields = ['since', ];
   }

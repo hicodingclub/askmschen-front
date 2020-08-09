@@ -20,7 +20,7 @@ import {
 import {
   MfilegroupService
 } from './mfilegroup.service';
-const itemCamelName = 'picture Group';
+const itemCamelName = 'file Group';
 export {
   ViewType
 };

@@ -1,0 +1,18 @@
+<div class="header-container">
+    <div class="header-image">
+        <div class="header-text">
+            <div class="header-title">Ms. Chen Blog</div>
+            <div class="header-subtitle">View the latest college admission posts from Ms. Chen</div>
+        </div>
+    </div>
+</div>
+<div class="section">
+    <div class="title">
+        Latest Posts
+    </div>
+    <app-blog-list-widget-galleryBottomTitle [options]="{disableCatetory: true, disablePagination: true,
+        disbleActionButtons: true, disableListSearch: true, disableTitle: true, disableRefs: true,
+        disableListHead: true, disableTitleRow: true}" [style]="{title: {'font-size': '1.5rem'}, subtitle: {'font-size': '0.75rem'}}" [queryParams]="{perPage: 5, listSortOrder: 'desc', listSortField: 'publishDate'}">
+    </app-blog-list-widget-galleryBottomTitle>
+    <div style="text-align: center; font-family: Georgia; font-size: 20px;"><a routerLink="/publicinfo/blog/list">Full Blog List</a></div>
+</div>

@@ -78,6 +78,19 @@
               </div>
             </fieldset>
           </ng-template>
+          <ng-template [ngIf]="!hiddenFields.includes('regtype')">
+            <fieldset class="form-group">
+              <label for="EditRegtype">Regtype</label>
+              <div class="input-group">
+                <input type="text" class="form-control rounded" id="EditRegtype" [(ngModel)]="detail['regtype']" name="EditRegtype" #EditRegtype="ngModel">
+                <div *ngIf="detail['regtype']" class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('regtype')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+                </div>
+              </div>
+              <div [hidden]="EditRegtype.valid || EditRegtype.pristine || EditRegtype.errors.minlength" class="alert alert-danger">
+              </div>
+            </fieldset>
+          </ng-template>
           <ng-template [ngIf]="!hiddenFields.includes('status')">
             <fieldset class="form-group">
               <label for="EditStatus">Status</label>
@@ -169,6 +182,19 @@
               </div>
               <div [hidden]="EditLastname.valid || EditLastname.pristine || EditLastname.errors.minlength" class="alert alert-danger">
                 <div *ngIf="EditLastname.errors && EditLastname.errors.maxlength"> Lastname must be at most 100 characters long. </div>
+              </div>
+            </fieldset>
+          </ng-template>
+          <ng-template [ngIf]="!hiddenFields.includes('regtype')">
+            <fieldset class="form-group">
+              <label for="EditRegtype">Regtype</label>
+              <div class="input-group">
+                <input type="text" class="form-control rounded" id="EditRegtype" [(ngModel)]="detail['regtype']" name="EditRegtype" #EditRegtype="ngModel">
+                <div *ngIf="detail['regtype']" class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('regtype')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+                </div>
+              </div>
+              <div [hidden]="EditRegtype.valid || EditRegtype.pristine || EditRegtype.errors.minlength" class="alert alert-danger">
               </div>
             </fieldset>
           </ng-template>

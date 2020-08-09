@@ -12,7 +12,7 @@
     <div class="row" *ngIf="!options['disableListSearch']">
       <div class="col">
         <div class="input-group">
-          <input type="search" class="form-control border border-secondary" id="maccountTextSearch" #maccountTextSearch [(ngModel)]="searchText" (search)="$event.target.blur();searchList();" placeholder="Search for username, email, phone, firstname, lastname, status">
+          <input type="search" class="form-control border border-secondary" id="maccountTextSearch" #maccountTextSearch [(ngModel)]="searchText" (search)="$event.target.blur();searchList();" placeholder="Search for username, email, phone, firstname, lastname, regtype, status">
           <div *ngIf="searchText" class="input-group-append icon-search-clear">
             <span>
               <i class="fas fa-times-circle" (click)="onSearchTextClear()" title="Clear"></i>
@@ -125,6 +125,8 @@
               <a class="dropdown-item pointer" (click)="setListSortAndRefresh('lastname', 'Lastname', 'desc')">Lastname<i class="fas fa-arrow-down"></i></a>
               <a class="dropdown-item pointer" (click)="setListSortAndRefresh('since', 'Since', 'asc')">Since<i class="fas fa-arrow-up"></i></a>
               <a class="dropdown-item pointer" (click)="setListSortAndRefresh('since', 'Since', 'desc')">Since<i class="fas fa-arrow-down"></i></a>
+              <a class="dropdown-item pointer" (click)="setListSortAndRefresh('regtype', 'Regtype', 'asc')">Regtype<i class="fas fa-arrow-up"></i></a>
+              <a class="dropdown-item pointer" (click)="setListSortAndRefresh('regtype', 'Regtype', 'desc')">Regtype<i class="fas fa-arrow-down"></i></a>
               <a class="dropdown-item pointer" (click)="setListSortAndRefresh('status', 'Status', 'asc')">Status<i class="fas fa-arrow-up"></i></a>
               <a class="dropdown-item pointer" (click)="setListSortAndRefresh('status', 'Status', 'desc')">Status<i class="fas fa-arrow-down"></i></a>
             </div>
@@ -217,6 +219,11 @@
               <i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
             </span>
           </th>
+          <th class="pointer" scope="col" (click)="toggleListSort('regtype', 'Regtype')"> Regtype <span *ngIf="listSortField === 'regtype'">
+              <i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
+              <i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
+            </span>
+          </th>
           <th class="pointer" scope="col" (click)="toggleListSort('status', 'Status')"> Status <span *ngIf="listSortField === 'status'">
               <i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
               <i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
@@ -249,6 +256,9 @@
             </td>
             <td (click)="clickOneItem(i)" [ngClass]="{'pointer': clickItemAction}">
               {{detail['since']? (detail['since']['originalValue'] | date:'medium') : ''}}
+            </td>
+            <td (click)="clickOneItem(i)" [ngClass]="{'pointer': clickItemAction}">
+              {{detail['regtype']}}
             </td>
             <td (click)="clickOneItem(i)" [ngClass]="{'pointer': clickItemAction}">
               {{detail['status']}}
@@ -303,6 +313,12 @@
                 <div *ngIf="fieldHasValue(detail['since'])" class="mr-3 d-inline-flex flex-wrap">
                   <div><label>Since:</label></div>
                   <div class="ml-3"> {{detail['since']? (detail['since']['originalValue'] | date:'medium') : ''}}
+                  </div>
+                </div>
+                <div *ngIf="fieldHasValue(detail['regtype'])" class="mr-3 d-inline-flex flex-wrap">
+                  <div><label>Regtype:</label></div>
+                  <div class="ml-3">
+                    {{detail['regtype']}}
                   </div>
                 </div>
                 <div *ngIf="fieldHasValue(detail['status'])" class="mr-3 d-inline-flex flex-wrap">
@@ -364,6 +380,11 @@
               <div *ngIf="fieldHasValue(detail['since'])" class="d-flex flex-wrap">
                 <div class=""><label>Since:</label></div>
                 <div class="ml-3"> {{detail['since']? (detail['since']['originalValue'] | date:'medium') : ''}}</div>
+              </div>
+              <div *ngIf="fieldHasValue(detail['regtype'])" class="d-flex flex-wrap">
+                <div class=""><label>Regtype:</label></div>
+                <div class="ml-3">
+                  {{detail['regtype']}}</div>
               </div>
               <div *ngIf="fieldHasValue(detail['status'])" class="d-flex flex-wrap">
                 <div class=""><label>Status:</label></div>

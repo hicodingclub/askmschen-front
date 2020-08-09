@@ -7,7 +7,7 @@ import { Router, NavigationEnd } from '@angular/router';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  public orgName: string = '(Organization Name)';
+  public orgName: string = 'Ask Ms. Chen';
   public yyyy: number;
 
   public currentUrl: string = '';
