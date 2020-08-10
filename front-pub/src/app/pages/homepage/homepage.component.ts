@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomepageComponent implements OnInit {
 
+  public showSubscription: boolean = true;
+
   public imageObject: [any] = [ {
     imageURL: 'assets/images/work.jpg',
     heading: 'We Work Together for a Better Tomorrow',
@@ -16,5 +18,12 @@ export class HomepageComponent implements OnInit {
   }
 
   ngOnInit() {
+  }
+
+  subscriptionDone(result: boolean) {
+      this.showSubscription = false;
+      setTimeout(() => {
+        this.showSubscription = true;
+      }, 10);
   }
 }

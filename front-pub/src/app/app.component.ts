@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
+import { HostListener } from "@angular/core";
+
 
 @Component({
   selector: 'app-root',
@@ -9,6 +11,8 @@ import { Router, NavigationEnd } from '@angular/router';
 export class AppComponent {
   public orgName: string = 'Ask Ms. Chen';
   public yyyy: number;
+  public showTopBackground: boolean = false;
+  public backgroundPercent: number = 0;
 
   public currentUrl: string = '';
 
@@ -30,4 +34,29 @@ export class AppComponent {
       }
     });
   }
+
+  @HostListener("window:scroll", [])
+  onWindowScroll() {
+
+    const number = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+
+    if (number < 500) {
+       this.showTopBackground = false;
+    } else {
+      this.showTopBackground = true;
+      this.backgroundPercent = Math.min((number-500)/300, 1);
+    }
+
+  }
+
+  setMyStyles() {
+    let styles = {};
+    if(this.showTopBackground){
+      styles = {
+        'background-color' : 'rgba(23, 162, 184, ' + this.backgroundPercent + ')'
+      };
+    }
+    return styles;
+  }
+
 }

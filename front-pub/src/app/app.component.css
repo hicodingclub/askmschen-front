@@ -1,5 +1,5 @@
 .header {
-    background-color: #17a2b8;
+    background-color: transparent;
     /*#1975d2*/
     height: 100px;
     color: #e8f1fa;
@@ -34,7 +34,6 @@
     font-family: Georgia;
     font-weight: bold;
     font-size: 3rem;
-    -webkit-text-stroke-color: 1px #0fa6c2;
 }
 
 .logo-text span {
@@ -56,6 +55,20 @@
     padding-top: 0;
 }
 
+.dropdown-menu {
+    border-radius: 0;
+    border: none;
+    background-color: #17a2b8;
+}
+
+.dropdown-item {
+    color: white;
+}
+
+.dropdown-item:hover {
+    background-color: #16889a
+}
+
 .auth-icon {
     margin-left: auto;
     margin-right: 2rem;
@@ -64,7 +77,6 @@
 
 .content {
     position: relative;
-    padding-top: 100px;
     /*same height with .header*/
     width: 100%;
     min-height: calc(100vh - 70px);

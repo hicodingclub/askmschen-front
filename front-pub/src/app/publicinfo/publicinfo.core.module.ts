@@ -75,6 +75,15 @@ import {
 import {
   BlogDetailFieldComponent
 } from './blog/blog-detail/blog-detail-field.component';
+import {
+  SubscriptionComponent
+} from './subscription/subscription.component';
+import {
+  SubscriptionEditComponent
+} from './subscription/subscription-edit/subscription-edit.component';
+import {
+  SubscriptionEditCustComponent
+} from '../publicinfo-cust/base/subscription/subscription-edit.cust.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -102,6 +111,9 @@ import {
     BlogDetailComponent,
     BlogDetailWidgetPostComponent,
     BlogDetailFieldComponent,
+    SubscriptionComponent,
+    SubscriptionEditComponent,
+    SubscriptionEditCustComponent,
   ],
   exports: [
     PublicinfoComponent,
@@ -114,6 +126,7 @@ import {
     BlogDetailComponent,
     BlogDetailWidgetPostComponent,
     BlogDetailFieldComponent,
+    SubscriptionEditComponent,
   ],
   providers: [{
     provide: NgbDateParserFormatter,
@@ -123,6 +136,7 @@ import {
     NewsDetailWidgetPostComponent,
     BlogListWidgetGalleryBottomTitleComponent,
     BlogDetailWidgetPostComponent,
+    SubscriptionEditComponent,
   ]
 })
 export class PublicinfoCoreModule {}

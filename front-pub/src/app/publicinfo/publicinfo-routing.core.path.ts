@@ -12,6 +12,9 @@ import {
   BlogDetailWidgetPostComponent
 } from './blog/blog-detail/blog-detail-widget-post.component';
 import {
+  SubscriptionEditComponent
+} from './subscription/subscription-edit/subscription-edit.component';
+import {
   AuthGuard
 } from '@hicoder/angular-auth';
 export const newsRoutingCorePath = [{
@@ -36,3 +39,7 @@ export const blogRoutingCorePath = [{
   redirectTo: 'list',
   pathMatch: 'full'
 }];
+export const subscriptionRoutingCorePath = [{
+  path: 'new',
+  component: SubscriptionEditComponent
+}, ];
