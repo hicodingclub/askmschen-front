@@ -40,11 +40,11 @@ export class AppComponent {
 
     const number = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
 
-    if (number < 500) {
+    if (number < 300) {
        this.showTopBackground = false;
     } else {
       this.showTopBackground = true;
-      this.backgroundPercent = Math.min((number-500)/300, 1);
+      this.backgroundPercent = Math.min((number-300)/300, 1);
     }
 
   }

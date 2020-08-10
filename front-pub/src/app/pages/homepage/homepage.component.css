@@ -103,6 +103,10 @@ hr {
     width: 20%;
 }
 
+.links-container img:hover {
+    cursor: pointer;
+}
+
 
 /*testimonial*/
 
