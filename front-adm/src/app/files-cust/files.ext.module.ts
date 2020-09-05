@@ -29,7 +29,7 @@ import { MraNgbDateFormatterService } from '../files/files.directive';
 })
 export class FilesExtModule { }
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Sun Aug 09 2020 13:04:36 GMT-0700 (Pacific Daylight Time)
+**Date: Fri Sep 04 2020 21:56:43 GMT-0700 (Pacific Daylight Time)
 
 import {
   NgModule
@@ -48,8 +48,9 @@ import {
   NgbDateParserFormatter
 } from '@ng-bootstrap/ng-bootstrap';
 import {
+  MDDS_NGB_DATE_FORMAT,
   MraNgbDateFormatterService
-} from '../files/files.directive';
+} from '@hicoder/angular-core';
 @NgModule({
   imports: [
     CommonModule,
@@ -60,6 +61,9 @@ import {
   declarations: [],
   exports: [],
   providers: [{
+    provide: MDDS_NGB_DATE_FORMAT,
+    useValue: 'MM/DD/YYYY'
+  }, {
     provide: NgbDateParserFormatter,
     useClass: MraNgbDateFormatterService
   }, ],

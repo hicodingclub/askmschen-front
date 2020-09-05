@@ -1,7 +1,7 @@
 <div class="detail" *ngIf="detail">
-  <div *ngIf="!options['disableActionButtions']">
-    <div *ngIf="!disableActionButtions && !options['disableActionButtions']" class="action-buttons">
-      <a *ngIf="!options['disableActionList']" routerLink="../../list" class="action-go-list"><i class="fas fa-list" title="List"></i><!--  span>&nbsp;&nbsp;{{ItemCamelName}} List</span--></a>
+  <div *ngIf="!options['disableActionButtons']">
+    <div *ngIf="!disableActionButtons && !options['disableActionButtons']" class="action-buttons">
+      <a *ngIf="!options['disableActionList']" [routerLink]="[listRouterLink]" class="action-go-list"><i class="fas fa-list" title="List"></i><!--  span>&nbsp;&nbsp;{{ItemCamelName}} List</span--></a>
       <a *ngIf="!options['disableActionEdit']" [routerLink]="['../../edit', detail['_id'] ]" [skipLocationChange]="false" class="btn btn-outline-primary">Edit</a>
       <a *ngIf="!options['disableActionNew']" [routerLink]="['../../new']" [queryParams]="{cid: detail['_id']}" [skipLocationChange]="false" class="btn btn-outline-primary">New</a>
       <a *ngIf="!options['disableActionDelete']" routerLink="." class="btn btn-outline-primary" (click)="onDelete(detail['_id'], null)">Delete</a>
@@ -20,51 +20,57 @@
       </div>
       <div class="card-body">
         <div>
-          <div class="d-inline-flex flex-wrap mr-5" style="min-width: 160px;">
+          <div *ngIf="fieldHasValue(detail['email'])" class="d-inline-flex flex-wrap mx-2" style="min-width: 160px;">
             <div><label>Email:</label></div>
-            <div class="ml-3">
-              {{detail['email']}}</div>
+            <div class="ml-2">
+              {{detail['email']}}
+            </div>
           </div>
         </div>
         <div>
-          <div class="d-inline-flex flex-wrap mr-5" style="min-width: 160px;">
+          <div *ngIf="fieldHasValue(detail['phone'])" class="d-inline-flex flex-wrap mx-2" style="min-width: 160px;">
             <div><label>Phone:</label></div>
-            <div class="ml-3">
-              {{detail['phone']}}</div>
+            <div class="ml-2">
+              {{detail['phone']}}
+            </div>
           </div>
         </div>
         <div>
-          <div class="d-inline-flex flex-wrap mr-5" style="min-width: 160px;">
+          <div *ngIf="fieldHasValue(detail['firstname'])" class="d-inline-flex flex-wrap mx-2" style="min-width: 160px;">
             <div><label>Firstname:</label></div>
-            <div class="ml-3">
-              {{detail['firstname']}}</div>
+            <div class="ml-2">
+              {{detail['firstname']}}
+            </div>
           </div>
         </div>
         <div>
-          <div class="d-inline-flex flex-wrap mr-5" style="min-width: 160px;">
+          <div *ngIf="fieldHasValue(detail['lastname'])" class="d-inline-flex flex-wrap mx-2" style="min-width: 160px;">
             <div><label>Lastname:</label></div>
-            <div class="ml-3">
-              {{detail['lastname']}}</div>
+            <div class="ml-2">
+              {{detail['lastname']}}
+            </div>
           </div>
         </div>
         <div>
-          <div class="d-inline-flex flex-wrap mr-5" style="min-width: 160px;">
+          <div *ngIf="fieldHasValue(detail['since'])" class="d-inline-flex flex-wrap mx-2" style="min-width: 160px;">
             <div><label>Since:</label></div>
-            <div class="ml-3"> {{detail['since']? (detail['since']['originalValue'] | date:'medium') : ''}}</div>
+            <div class="ml-2"> {{detail['since']? (detail['since']['originalValue'] | date:'medium') : ''}}</div>
           </div>
         </div>
         <div>
-          <div class="d-inline-flex flex-wrap mr-5" style="min-width: 160px;">
+          <div *ngIf="fieldHasValue(detail['regtype'])" class="d-inline-flex flex-wrap mx-2" style="min-width: 160px;">
             <div><label>Regtype:</label></div>
-            <div class="ml-3">
-              {{detail['regtype']}}</div>
+            <div class="ml-2">
+              {{detail['regtype']}}
+            </div>
           </div>
         </div>
         <div>
-          <div class="d-inline-flex flex-wrap mr-5" style="min-width: 160px;">
+          <div *ngIf="fieldHasValue(detail['status'])" class="d-inline-flex flex-wrap mx-2" style="min-width: 160px;">
             <div><label>Status:</label></div>
-            <div class="ml-3">
-              {{detail['status']}}</div>
+            <div class="ml-2">
+              {{detail['status']}}
+            </div>
           </div>
         </div>
       </div>

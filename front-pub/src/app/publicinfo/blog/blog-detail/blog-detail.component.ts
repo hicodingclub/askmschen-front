@@ -36,7 +36,7 @@ export class BlogDetailComponent extends BlogDetailCustComponent implements OnIn
   // @Input()
   // public searchObj:any;
   // @Input()
-  // public disableActionButtions:boolean;
+  // public disableActionButtons:boolean;
   // @Output()
   // public eventEmitter: EventEmitter<any> = new EventEmitter();
   constructor(public blogService: BlogService, public injector: Injector, public router: Router, public route: ActivatedRoute, public location: Location) {
@@ -50,10 +50,7 @@ export class BlogDetailComponent extends BlogDetailCustComponent implements OnIn
       'content': 'Content',
       'topicTags': 'Topic Tags',
     };
-    this.stringFields.push('signaturePicture');
-    this.stringFields.push('title');
-    this.stringFields.push('author');
-    this.stringFields.push('content');
+    this.stringFields = ['signaturePicture', 'title', 'author', 'content', ];
     this.dateFields = ['publishDate', ];
     this.arrayFields = [
       ['topicTags', 'SchemaString'],

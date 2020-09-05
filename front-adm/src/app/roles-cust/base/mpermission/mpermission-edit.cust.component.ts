@@ -8,7 +8,7 @@ import { MpermissionComponent } from '../../../roles/mpermission/mpermission.com
 export class MpermissionEditCustComponent extends MpermissionComponent {        
 }
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Sun Aug 09 2020 13:04:40 GMT-0700 (Pacific Daylight Time)
+**Date: Fri Sep 04 2020 21:56:45 GMT-0700 (Pacific Daylight Time)
 
 import {
   Input,

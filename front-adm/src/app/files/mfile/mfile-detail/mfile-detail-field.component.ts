@@ -32,7 +32,7 @@ implements OnInit {
   // @Input() showFieldsStr: string;
   showFields: string[];
   constructor(public mfileService: MfileService, public injector: Injector, public router: Router, public route: ActivatedRoute, public location: Location) {
-    super(null, mfileService, injector, router, route, location);
+    super(mfileService, injector, router, route, location);
     this.view = ViewType.DETAIL;
     this.fieldDisplayNames = {
       'name': 'Name',

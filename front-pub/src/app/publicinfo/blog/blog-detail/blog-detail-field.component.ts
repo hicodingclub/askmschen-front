@@ -42,10 +42,7 @@ implements OnInit {
       'content': 'Content',
       'topicTags': 'Topic Tags',
     };
-    this.stringFields.push('signaturePicture');
-    this.stringFields.push('title');
-    this.stringFields.push('author');
-    this.stringFields.push('content');
+    this.stringFields = ['signaturePicture', 'title', 'author', 'content', ];
     this.dateFields = ['publishDate', ];
     this.arrayFields = [
       ['topicTags', 'SchemaString'],

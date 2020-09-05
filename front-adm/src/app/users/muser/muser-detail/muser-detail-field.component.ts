@@ -27,12 +27,15 @@ export class MuserDetailFieldComponent extends MuserComponent
           super(
                 muserService, injector, router, route, location);
           this.view = ViewType.DETAIL;
-          
+
           this.enums['status'] = ['Enabled', 'Disabled', 'Pending', ];
 
           this.stringFields.push('username');
           this.stringFields.push('email');
           this.stringFields.push('phone');
+          this.stringFields.push('firstname');
+          this.stringFields.push('lastname');
+          this.stringFields.push('photo');
           this.stringFields.push('status');
 
 

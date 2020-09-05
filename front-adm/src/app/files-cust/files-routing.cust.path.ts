@@ -5,7 +5,7 @@ export const FilesRoutingCustPath = [
   // your customization goes here
 ];
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Sun Aug 09 2020 13:04:36 GMT-0700 (Pacific Daylight Time)
+**Date: Fri Sep 04 2020 21:56:43 GMT-0700 (Pacific Daylight Time)
 
 // Path under files/cust/
 export const FilesRoutingCustPath = [

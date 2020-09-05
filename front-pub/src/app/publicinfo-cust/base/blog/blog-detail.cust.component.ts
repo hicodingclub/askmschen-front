@@ -9,7 +9,7 @@ import {
   template: '',
 })
 export class BlogDetailCustComponent extends BlogComponent {}/*>>> Please check this recent updates and merge with existing ones***
-**Date: Sun Aug 09 2020 17:16:36 GMT-0700 (Pacific Daylight Time)
+**Date: Fri Sep 04 2020 23:23:57 GMT-0700 (Pacific Daylight Time)
 
 import {
   Input,

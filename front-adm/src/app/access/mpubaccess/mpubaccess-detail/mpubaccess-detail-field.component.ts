@@ -32,7 +32,7 @@ implements OnInit {
   // @Input() showFieldsStr: string;
   showFields: string[];
   constructor(public mpubaccessService: MpubaccessService, public injector: Injector, public router: Router, public route: ActivatedRoute, public location: Location) {
-    super(null, mpubaccessService, injector, router, route, location);
+    super(mpubaccessService, injector, router, route, location);
     this.view = ViewType.DETAIL;
     this.fieldDisplayNames = {
       'group': 'Group',

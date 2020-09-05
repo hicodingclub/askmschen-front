@@ -60,7 +60,7 @@ export const RolesRoutes: Routes = [
     children: RolesRoutingCustPath,
   },
 ];/*>>> Please check this recent updates and merge with existing ones***
-**Date: Sun Aug 09 2020 13:04:39 GMT-0700 (Pacific Daylight Time)
+**Date: Fri Sep 04 2020 21:56:45 GMT-0700 (Pacific Daylight Time)
 
 import {
   Routes

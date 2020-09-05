@@ -1,7 +1,7 @@
 <div class="detail" *ngIf="detail">
-  <div *ngIf="!options['disableActionButtions']">
-    <div *ngIf="!disableActionButtions && !options['disableActionButtions']" class="action-buttons">
-      <a *ngIf="!options['disableActionList']" routerLink="../../list" class="action-go-list"><i class="fas fa-list" title="List"></i><!--  span>&nbsp;&nbsp;{{ItemCamelName}} List</span--></a>
+  <div *ngIf="!options['disableActionButtons']">
+    <div *ngIf="!disableActionButtons && !options['disableActionButtons']" class="action-buttons">
+      <a *ngIf="!options['disableActionList']" [routerLink]="[listRouterLink]" class="action-go-list"><i class="fas fa-list" title="List"></i><!--  span>&nbsp;&nbsp;{{ItemCamelName}} List</span--></a>
       <a *ngIf="!options['disableActionEdit']" [routerLink]="['../../edit', detail['_id'] ]" [skipLocationChange]="false" class="btn btn-outline-primary">Edit</a>
       <a *ngIf="!options['disableActionNew']" [routerLink]="['../../new']" [queryParams]="{cid: detail['_id']}" [skipLocationChange]="false" class="btn btn-outline-primary">New</a>
       <a *ngIf="!options['disableActionDelete']" routerLink="." class="btn btn-outline-primary" (click)="onDelete(detail['_id'], null)">Delete</a>
@@ -26,25 +26,27 @@
       </div>
       <div class="card-body">
         <div>
-          <div class="d-inline-flex flex-wrap mr-5" style="min-width: 160px;">
+          <div *ngIf="fieldHasValue(detail['module'])" class="d-inline-flex flex-wrap mx-2" style="min-width: 160px;">
             <div><label>Module:</label></div>
-            <div class="ml-3">
+            <div class="ml-2">
               <a routerLink="." (click)="onDisplayRefClicked('module', detail['module'], $event)">
                 {{detail['module']?detail['module']['valueMedium']:""}}
-              </a></div>
+              </a>
+            </div>
           </div>
         </div>
         <div>
-          <div class="d-inline-flex flex-wrap mr-5" style="min-width: 160px;">
+          <div *ngIf="fieldHasValue(detail['modulePermission'])" class="d-inline-flex flex-wrap mx-2" style="min-width: 160px;">
             <div><label>Module Permission:</label></div>
-            <div class="ml-3">
-              {{detail['modulePermission']}}</div>
+            <div class="ml-2">
+              {{detail['modulePermission']}}
+            </div>
           </div>
         </div>
         <div>
-          <div class="d-inline-flex flex-wrap mr-5" style="min-width: 160px;">
+          <div *ngIf="fieldHasValue(detail['resourcePermission'])" class="d-inline-flex flex-wrap mx-2" style="min-width: 160px;">
             <div><label>Resource Permission:</label></div>
-            <div class="ml-3">
+            <div class="ml-2">
               <div *ngIf="detail['resourcePermission'] && detail['resourcePermission']['selection']">
                 <ng-template ngFor let-element [ngForOf]="objectKeys(detail['resourcePermission']['selection'])" let-idx="index">
                   <div class="d-flex">

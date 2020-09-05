@@ -26,7 +26,7 @@ import {
   entryComponents: [],
 })
 export class PublicinfoCustModule {}/*>>> Please check this recent updates and merge with existing ones***
-**Date: Sun Aug 09 2020 13:04:42 GMT-0700 (Pacific Daylight Time)
+**Date: Fri Sep 04 2020 21:56:46 GMT-0700 (Pacific Daylight Time)
 
 import {
   NgModule

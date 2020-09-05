@@ -1,7 +1,7 @@
 // Import components for each schema
 import {
-  NewsListComponent
-} from './news/news-list/news-list.component';
+  NewsListGeneralComponent
+} from './news/news-list/news-list-general.component';
 import {
   NewsDetailWidgetPostComponent
 } from './news/news-detail/news-detail-widget-post.component';
@@ -9,8 +9,8 @@ import {
   NewsEditComponent
 } from './news/news-edit/news-edit.component';
 import {
-  BlogListComponent
-} from './blog/blog-list/blog-list.component';
+  BlogListGeneralComponent
+} from './blog/blog-list/blog-list-general.component';
 import {
   BlogDetailWidgetPostComponent
 } from './blog/blog-detail/blog-detail-widget-post.component';
@@ -18,8 +18,8 @@ import {
   BlogEditComponent
 } from './blog/blog-edit/blog-edit.component';
 import {
-  SubscriptionListComponent
-} from './subscription/subscription-list/subscription-list.component';
+  SubscriptionListGeneralComponent
+} from './subscription/subscription-list/subscription-list-general.component';
 import {
   SubscriptionDetailComponent
 } from './subscription/subscription-detail/subscription-detail.component';
@@ -31,7 +31,7 @@ import {
 } from '@hicoder/angular-auth';
 export const newsRoutingCorePath = [{
   path: 'list',
-  component: NewsListComponent,
+  component: NewsListGeneralComponent,
   canActivate: [AuthGuard]
 }, {
   path: 'detail/:id',
@@ -52,7 +52,7 @@ export const newsRoutingCorePath = [{
 }];
 export const blogRoutingCorePath = [{
   path: 'list',
-  component: BlogListComponent,
+  component: BlogListGeneralComponent,
   canActivate: [AuthGuard]
 }, {
   path: 'detail/:id',
@@ -73,7 +73,7 @@ export const blogRoutingCorePath = [{
 }];
 export const subscriptionRoutingCorePath = [{
   path: 'list',
-  component: SubscriptionListComponent,
+  component: SubscriptionListGeneralComponent,
   canActivate: [AuthGuard]
 }, {
   path: 'detail/:id',

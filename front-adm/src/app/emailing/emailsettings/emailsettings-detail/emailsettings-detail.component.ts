@@ -36,7 +36,7 @@ export class EmailsettingsDetailComponent extends EmailsettingsDetailCustCompone
   // @Input()
   // public searchObj:any;
   // @Input()
-  // public disableActionButtions:boolean;
+  // public disableActionButtons:boolean;
   // @Output()
   // public eventEmitter: EventEmitter<any> = new EventEmitter();
   constructor(public emailsettingsService: EmailsettingsService, public injector: Injector, public router: Router, public route: ActivatedRoute, public location: Location) {

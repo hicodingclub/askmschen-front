@@ -27,9 +27,6 @@ import {
 import {
   MfileService
 } from '../mfile.service';
-import {
-  ComponentFactoryResolver
-} from '@angular/core';
 @Component({
   selector: 'app-mfile-edit',
   templateUrl: './mfile-edit.component.html',
@@ -56,8 +53,8 @@ export class MfileEditComponent extends MfileEditCustComponent implements OnInit
     month: 1,
     day: 1
   };
-  constructor(public componentFactoryResolver: ComponentFactoryResolver, public mfileService: MfileService, public injector: Injector, public router: Router, public route: ActivatedRoute, public location: Location) {
-    super(componentFactoryResolver, mfileService, injector, router, route, location);
+  constructor(public mfileService: MfileService, public injector: Injector, public router: Router, public route: ActivatedRoute, public location: Location) {
+    super(mfileService, injector, router, route, location);
     this.view = ViewType.EDIT;
     this.fieldDisplayNames = {
       'name': 'Name',

@@ -1,13 +1,13 @@
 // Import components for each schema
 import {
-  NewsListComponent
-} from './news/news-list/news-list.component';
+  NewsListGeneralComponent
+} from './news/news-list/news-list-general.component';
 import {
   NewsDetailWidgetPostComponent
 } from './news/news-detail/news-detail-widget-post.component';
 import {
-  BlogListComponent
-} from './blog/blog-list/blog-list.component';
+  BlogListGeneralComponent
+} from './blog/blog-list/blog-list-general.component';
 import {
   BlogDetailWidgetPostComponent
 } from './blog/blog-detail/blog-detail-widget-post.component';
@@ -19,7 +19,7 @@ import {
 } from '@hicoder/angular-auth';
 export const newsRoutingCorePath = [{
   path: 'list',
-  component: NewsListComponent
+  component: NewsListGeneralComponent
 }, {
   path: 'detail/:id',
   component: NewsDetailWidgetPostComponent
@@ -30,7 +30,7 @@ export const newsRoutingCorePath = [{
 }];
 export const blogRoutingCorePath = [{
   path: 'list',
-  component: BlogListComponent
+  component: BlogListGeneralComponent
 }, {
   path: 'detail/:id',
   component: BlogDetailWidgetPostComponent

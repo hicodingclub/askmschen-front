@@ -1,14 +1,14 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 
 import { NgbModule, NgbDateParserFormatter } from '@ng-bootstrap/ng-bootstrap';
-import { MraNgbDateFormatterService } from './users.directive';
+import {
+  MDDS_NGB_DATE_FORMAT,
+  MraNgbDateFormatterService
+} from '@hicoder/angular-core';
 
-
-
-
+import { FileUploadModule } from '@hicoder/angular-file';
 
 import { ActionEmailModule } from '@hicoder/angular-action-email';
 
@@ -25,9 +25,8 @@ import { users_server_root_uri } from '../users.conf';
 
 import { MuserListComponent } from './muser/muser-list/muser-list.component';
 
-
-
 import { MuserDetailComponent } from './muser/muser-detail/muser-detail.component';
+
 import { MuserDetailFieldComponent } from './muser/muser-detail/muser-detail-field.component';
 import { MuserEditComponent } from './muser/muser-edit/muser-edit.component';
 
@@ -36,14 +35,13 @@ import { MuserService } from './muser/muser.service';
 import { MuserPassComponent } from './muser/muser-edit/muser-pass.component';
 import { PassswordEqualValidator } from './muser/muser-edit/muser-pass.component';
 
-
 @NgModule({
   imports: [
     CommonModule,
-    HttpClientModule,
     FormsModule,
     NgbModule,
     MddsCoreModule,
+    FileUploadModule,
     ActionEmailModule,
 
     UsersRoutingModule
@@ -53,9 +51,9 @@ import { PassswordEqualValidator } from './muser/muser-edit/muser-pass.component
     
 
     MuserListComponent,
-    
-    
+
     MuserDetailComponent,
+
     MuserDetailFieldComponent,
     MuserEditComponent,
 
@@ -63,16 +61,17 @@ import { PassswordEqualValidator } from './muser/muser-edit/muser-pass.component
     MuserPassComponent,
     PassswordEqualValidator,
 
+
+
   ],
   exports: [
     UsersComponent,
 
     MuserListComponent,
-    
-    
-    
+
     MuserDetailComponent,
-MuserDetailFieldComponent,
+
+    MuserDetailFieldComponent,
     MuserEditComponent,
 
 
@@ -80,12 +79,17 @@ MuserDetailFieldComponent,
   ],
   providers: [
     { provide: Users_SERVER_ROOT_URI, useValue: users_server_root_uri },
-
-    {provide: NgbDateParserFormatter, useClass: MraNgbDateFormatterService},
-
+    {
+      provide: MDDS_NGB_DATE_FORMAT,
+      useValue: 'MM-DD-YYYY'
+    }, {
+      provide: NgbDateParserFormatter,
+      useClass: MraNgbDateFormatterService
+    },
     MuserService,
   ],
-  entryComponents: [MuserEditComponent,
+  entryComponents: [
+    MuserEditComponent,
   ]
 })
 export class UsersModule { }

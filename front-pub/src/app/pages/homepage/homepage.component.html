@@ -108,10 +108,14 @@
 
     <div class="section">
         <div class="title">Latest Updates</div>
-        <app-news-list [options]="{disableCatetory: true, disablePagination: true,
+        <app-news-list-general
+        [options]="{
+            includeSubDetail: false,
+            disableCatetory: true, disablePagination: true,
             disbleActionButtons: true, disableListSearch: true, disableTitle: true, disableRefs: true,
-            disableListHead: true, disableTitleRow: true}" [queryParams]="{perPage: 3, listSortOrder: 'desc', listSortField: 'publishDate'}">
-        </app-news-list>
+            disableListHead: true, disableTitleRow: true}"
+        [queryParams]="{perPage: 3, listSortOrder: 'desc', listSortField: 'publishDate'}">
+        </app-news-list-general>
         <div style="text-align: center; font-family: Georgia; font-size: 20px;"><a routerLink="/publicinfo/news">More Posts</a></div>
 
     </div>

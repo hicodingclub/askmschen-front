@@ -9,7 +9,7 @@ export class MpubmoduleListCustComponent extends MpubmoduleComponent {
 }
 
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Sun Aug 09 2020 13:04:37 GMT-0700 (Pacific Daylight Time)
+**Date: Fri Sep 04 2020 21:56:44 GMT-0700 (Pacific Daylight Time)
 
 import {
   Input,
