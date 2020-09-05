@@ -8,6 +8,20 @@ import {
   FormsModule
 } from '@angular/forms';
 import {
+  NgbModule,
+  NgbDateParserFormatter,
+} from '@ng-bootstrap/ng-bootstrap';
+import {
+  MDDS_NGB_DATE_FORMAT,
+  MraNgbDateFormatterService,
+} from '@hicoder/angular-core';
+import {
+  FileUploadModule,
+} from '@hicoder/angular-file';
+import {
+  ActionEmailModule,
+} from '@hicoder/angular-action-email';
+import {
   AccessRoutingCoreModule
 } from './access-routing.core.module';
 import {
@@ -18,47 +32,47 @@ import {
 } from './access.component';
 // Import components for each schema
 import {
-  MusergroupComponent
-} from './musergroup/musergroup.component';
+  MpubroleComponent
+} from './mpubrole/mpubrole.component';
 import {
-  MusergroupListComponent
-} from './musergroup/musergroup-list/musergroup-list.component';
+  MpubroleListComponent
+} from './mpubrole/mpubrole-list/mpubrole-list.component';
 import {
-  MusergroupListViewComponent
-} from './musergroup/musergroup-list/musergroup-list-view.component';
+  MpubroleListViewComponent
+} from './mpubrole/mpubrole-list/mpubrole-list-view.component';
 import {
-  MusergroupListCustComponent
-} from '../access-cust/base/musergroup/musergroup-list.cust.component';
+  MpubroleListCustComponent
+} from '../access-cust/base/mpubrole/mpubrole-list.cust.component';
 import {
-  MusergroupListGeneralComponent
-} from './musergroup/musergroup-list/musergroup-list-general.component';
+  MpubroleListGeneralComponent
+} from './mpubrole/mpubrole-list/mpubrole-list-general.component';
 import {
-  MusergroupListSelectComponent
-} from './musergroup/musergroup-list/musergroup-list-select.component';
+  MpubroleListSelectComponent
+} from './mpubrole/mpubrole-list/mpubrole-list-select.component';
 import {
-  MusergroupListViewWidgetTableComponent
-} from './musergroup/musergroup-list/musergroup-list-view-widget-table.component';
+  MpubroleListViewWidgetTableComponent
+} from './mpubrole/mpubrole-list/mpubrole-list-view-widget-table.component';
 import {
-  MusergroupListViewWidgetListComponent
-} from './musergroup/musergroup-list/musergroup-list-view-widget-list.component';
+  MpubroleListViewWidgetListComponent
+} from './mpubrole/mpubrole-list/mpubrole-list-view-widget-list.component';
 import {
-  MusergroupListViewWidgetGridComponent
-} from './musergroup/musergroup-list/musergroup-list-view-widget-grid.component';
+  MpubroleListViewWidgetGridComponent
+} from './mpubrole/mpubrole-list/mpubrole-list-view-widget-grid.component';
 import {
-  MusergroupDetailComponent
-} from './musergroup/musergroup-detail/musergroup-detail.component';
+  MpubroleDetailComponent
+} from './mpubrole/mpubrole-detail/mpubrole-detail.component';
 import {
-  MusergroupDetailCustComponent
-} from '../access-cust/base/musergroup/musergroup-detail.cust.component';
+  MpubroleDetailCustComponent
+} from '../access-cust/base/mpubrole/mpubrole-detail.cust.component';
 import {
-  MusergroupDetailFieldComponent
-} from './musergroup/musergroup-detail/musergroup-detail-field.component';
+  MpubroleDetailFieldComponent
+} from './mpubrole/mpubrole-detail/mpubrole-detail-field.component';
 import {
-  MusergroupEditComponent
-} from './musergroup/musergroup-edit/musergroup-edit.component';
+  MpubroleEditComponent
+} from './mpubrole/mpubrole-edit/mpubrole-edit.component';
 import {
-  MusergroupEditCustComponent
-} from '../access-cust/base/musergroup/musergroup-edit.cust.component';
+  MpubroleEditCustComponent
+} from '../access-cust/base/mpubrole/mpubrole-edit.cust.component';
 import {
   MpubmoduleComponent
 } from './mpubmodule/mpubmodule.component';
@@ -102,53 +116,137 @@ import {
   MpubmoduleEditCustComponent
 } from '../access-cust/base/mpubmodule/mpubmodule-edit.cust.component';
 import {
-  MpubaccessComponent
-} from './mpubaccess/mpubaccess.component';
+  MpubpermissionComponent
+} from './mpubpermission/mpubpermission.component';
 import {
-  MpubaccessListComponent
-} from './mpubaccess/mpubaccess-list/mpubaccess-list.component';
+  MpubpermissionListComponent
+} from './mpubpermission/mpubpermission-list/mpubpermission-list.component';
 import {
-  MpubaccessListViewComponent
-} from './mpubaccess/mpubaccess-list/mpubaccess-list-view.component';
+  MpubpermissionListViewComponent
+} from './mpubpermission/mpubpermission-list/mpubpermission-list-view.component';
 import {
-  MpubaccessListCustComponent
-} from '../access-cust/base/mpubaccess/mpubaccess-list.cust.component';
+  MpubpermissionListCustComponent
+} from '../access-cust/base/mpubpermission/mpubpermission-list.cust.component';
 import {
-  MpubaccessListGeneralComponent
-} from './mpubaccess/mpubaccess-list/mpubaccess-list-general.component';
+  MpubpermissionListGeneralComponent
+} from './mpubpermission/mpubpermission-list/mpubpermission-list-general.component';
 import {
-  MpubaccessListSubComponent
-} from './mpubaccess/mpubaccess-list/mpubaccess-list-sub.component';
+  MpubpermissionListSubComponent
+} from './mpubpermission/mpubpermission-list/mpubpermission-list-sub.component';
 import {
-  MpubaccessListViewWidgetTableComponent
-} from './mpubaccess/mpubaccess-list/mpubaccess-list-view-widget-table.component';
+  MpubpermissionListViewWidgetTableComponent
+} from './mpubpermission/mpubpermission-list/mpubpermission-list-view-widget-table.component';
 import {
-  MpubaccessListViewWidgetListComponent
-} from './mpubaccess/mpubaccess-list/mpubaccess-list-view-widget-list.component';
+  MpubpermissionListViewWidgetListComponent
+} from './mpubpermission/mpubpermission-list/mpubpermission-list-view-widget-list.component';
 import {
-  MpubaccessListViewWidgetGridComponent
-} from './mpubaccess/mpubaccess-list/mpubaccess-list-view-widget-grid.component';
+  MpubpermissionListViewWidgetGridComponent
+} from './mpubpermission/mpubpermission-list/mpubpermission-list-view-widget-grid.component';
 import {
-  MpubaccessDetailComponent
-} from './mpubaccess/mpubaccess-detail/mpubaccess-detail.component';
+  MpubpermissionDetailComponent
+} from './mpubpermission/mpubpermission-detail/mpubpermission-detail.component';
 import {
-  MpubaccessDetailCustComponent
-} from '../access-cust/base/mpubaccess/mpubaccess-detail.cust.component';
+  MpubpermissionDetailCustComponent
+} from '../access-cust/base/mpubpermission/mpubpermission-detail.cust.component';
 import {
-  MpubaccessDetailFieldComponent
-} from './mpubaccess/mpubaccess-detail/mpubaccess-detail-field.component';
+  MpubpermissionDetailFieldComponent
+} from './mpubpermission/mpubpermission-detail/mpubpermission-detail-field.component';
 import {
-  MpubaccessEditComponent
-} from './mpubaccess/mpubaccess-edit/mpubaccess-edit.component';
+  MpubpermissionEditComponent
+} from './mpubpermission/mpubpermission-edit/mpubpermission-edit.component';
 import {
-  MpubaccessEditCustComponent
-} from '../access-cust/base/mpubaccess/mpubaccess-edit.cust.component';
+  MpubpermissionEditCustComponent
+} from '../access-cust/base/mpubpermission/mpubpermission-edit.cust.component';
 import {
-  MusergroupDetailPopComponent
-} from './musergroup/musergroup-detail/musergroup-detail-pop.component';
+  MuserComponent
+} from './muser/muser.component';
 import {
-  MusergroupDetailSelComponent
-} from './musergroup/musergroup-detail/musergroup-detail-sel.component';
+  MuserListComponent
+} from './muser/muser-list/muser-list.component';
+import {
+  MuserListViewComponent
+} from './muser/muser-list/muser-list-view.component';
+import {
+  MuserListCustComponent
+} from '../access-cust/base/muser/muser-list.cust.component';
+import {
+  MuserListGeneralComponent
+} from './muser/muser-list/muser-list-general.component';
+import {
+  MuserListSelectComponent
+} from './muser/muser-list/muser-list-select.component';
+import {
+  MuserListViewWidgetTableComponent
+} from './muser/muser-list/muser-list-view-widget-table.component';
+import {
+  MuserListViewWidgetListComponent
+} from './muser/muser-list/muser-list-view-widget-list.component';
+import {
+  MuserListViewWidgetGridComponent
+} from './muser/muser-list/muser-list-view-widget-grid.component';
+import {
+  MuserDetailComponent
+} from './muser/muser-detail/muser-detail.component';
+import {
+  MuserDetailCustComponent
+} from '../access-cust/base/muser/muser-detail.cust.component';
+import {
+  MuserDetailFieldComponent
+} from './muser/muser-detail/muser-detail-field.component';
+import {
+  MuserEditComponent
+} from './muser/muser-edit/muser-edit.component';
+import {
+  MuserEditCustComponent
+} from '../access-cust/base/muser/muser-edit.cust.component';
+import {
+  MuserroleComponent
+} from './muserrole/muserrole.component';
+import {
+  MuserroleListComponent
+} from './muserrole/muserrole-list/muserrole-list.component';
+import {
+  MuserroleListViewComponent
+} from './muserrole/muserrole-list/muserrole-list-view.component';
+import {
+  MuserroleListCustComponent
+} from '../access-cust/base/muserrole/muserrole-list.cust.component';
+import {
+  MuserroleListGeneralComponent
+} from './muserrole/muserrole-list/muserrole-list-general.component';
+import {
+  MuserroleListSubComponent
+} from './muserrole/muserrole-list/muserrole-list-sub.component';
+import {
+  MuserroleListViewWidgetTableComponent
+} from './muserrole/muserrole-list/muserrole-list-view-widget-table.component';
+import {
+  MuserroleListViewWidgetListComponent
+} from './muserrole/muserrole-list/muserrole-list-view-widget-list.component';
+import {
+  MuserroleListViewWidgetGridComponent
+} from './muserrole/muserrole-list/muserrole-list-view-widget-grid.component';
+import {
+  MuserroleDetailComponent
+} from './muserrole/muserrole-detail/muserrole-detail.component';
+import {
+  MuserroleDetailCustComponent
+} from '../access-cust/base/muserrole/muserrole-detail.cust.component';
+import {
+  MuserroleDetailFieldComponent
+} from './muserrole/muserrole-detail/muserrole-detail-field.component';
+import {
+  MuserroleEditComponent
+} from './muserrole/muserrole-edit/muserrole-edit.component';
+import {
+  MuserroleEditCustComponent
+} from '../access-cust/base/muserrole/muserrole-edit.cust.component';
+import {
+  MpubroleDetailPopComponent
+} from './mpubrole/mpubrole-detail/mpubrole-detail-pop.component';
+import {
+  MpubroleDetailSelComponent
+} from './mpubrole/mpubrole-detail/mpubrole-detail-sel.component';
 import {
   MpubmoduleDetailPopComponent
 } from './mpubmodule/mpubmodule-detail/mpubmodule-detail-pop.component';
@@ -156,31 +254,43 @@ import {
   MpubmoduleDetailSelComponent
 } from './mpubmodule/mpubmodule-detail/mpubmodule-detail-sel.component';
 import {
-  MpubaccessDetailSubComponent
-} from './mpubaccess/mpubaccess-detail/mpubaccess-detail-sub.component';
+  MuserDetailPopComponent
+} from './muser/muser-detail/muser-detail-pop.component';
+import {
+  MuserDetailSelComponent
+} from './muser/muser-detail/muser-detail-sel.component';
+import {
+  MpubpermissionDetailSubComponent
+} from './mpubpermission/mpubpermission-detail/mpubpermission-detail-sub.component';
+import {
+  MuserDetailSubComponent
+} from './muser/muser-detail/muser-detail-sub.component';
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
+    NgbModule,
+    FileUploadModule,
+    ActionEmailModule,
     AccessRoutingCoreModule,
   ],
   declarations: [
     AccessComponent,
     AccessRefSelectDirective,
-    MusergroupComponent,
-    MusergroupListComponent,
-    MusergroupListViewComponent,
-    MusergroupListCustComponent,
-    MusergroupListGeneralComponent,
-    MusergroupListSelectComponent,
-    MusergroupListViewWidgetTableComponent,
-    MusergroupListViewWidgetListComponent,
-    MusergroupListViewWidgetGridComponent,
-    MusergroupDetailCustComponent,
-    MusergroupDetailComponent,
-    MusergroupDetailFieldComponent,
-    MusergroupEditComponent,
-    MusergroupEditCustComponent,
+    MpubroleComponent,
+    MpubroleListComponent,
+    MpubroleListViewComponent,
+    MpubroleListCustComponent,
+    MpubroleListGeneralComponent,
+    MpubroleListSelectComponent,
+    MpubroleListViewWidgetTableComponent,
+    MpubroleListViewWidgetListComponent,
+    MpubroleListViewWidgetGridComponent,
+    MpubroleDetailCustComponent,
+    MpubroleDetailComponent,
+    MpubroleDetailFieldComponent,
+    MpubroleEditComponent,
+    MpubroleEditCustComponent,
     MpubmoduleComponent,
     MpubmoduleListComponent,
     MpubmoduleListViewComponent,
@@ -195,60 +305,115 @@ import {
     MpubmoduleDetailFieldComponent,
     MpubmoduleEditComponent,
     MpubmoduleEditCustComponent,
-    MpubaccessComponent,
-    MpubaccessListComponent,
-    MpubaccessListViewComponent,
-    MpubaccessListCustComponent,
-    MpubaccessListGeneralComponent,
-    MpubaccessListSubComponent,
-    MpubaccessListViewWidgetTableComponent,
-    MpubaccessListViewWidgetListComponent,
-    MpubaccessListViewWidgetGridComponent,
-    MpubaccessDetailCustComponent,
-    MpubaccessDetailComponent,
-    MpubaccessDetailFieldComponent,
-    MpubaccessEditComponent,
-    MpubaccessEditCustComponent,
-    MusergroupDetailPopComponent,
-    MusergroupDetailSelComponent,
+    MpubpermissionComponent,
+    MpubpermissionListComponent,
+    MpubpermissionListViewComponent,
+    MpubpermissionListCustComponent,
+    MpubpermissionListGeneralComponent,
+    MpubpermissionListSubComponent,
+    MpubpermissionListViewWidgetTableComponent,
+    MpubpermissionListViewWidgetListComponent,
+    MpubpermissionListViewWidgetGridComponent,
+    MpubpermissionDetailCustComponent,
+    MpubpermissionDetailComponent,
+    MpubpermissionDetailFieldComponent,
+    MpubpermissionEditComponent,
+    MpubpermissionEditCustComponent,
+    MuserComponent,
+    MuserListComponent,
+    MuserListViewComponent,
+    MuserListCustComponent,
+    MuserListGeneralComponent,
+    MuserListSelectComponent,
+    MuserListViewWidgetTableComponent,
+    MuserListViewWidgetListComponent,
+    MuserListViewWidgetGridComponent,
+    MuserDetailCustComponent,
+    MuserDetailComponent,
+    MuserDetailFieldComponent,
+    MuserEditComponent,
+    MuserEditCustComponent,
+    MuserroleComponent,
+    MuserroleListComponent,
+    MuserroleListViewComponent,
+    MuserroleListCustComponent,
+    MuserroleListGeneralComponent,
+    MuserroleListSubComponent,
+    MuserroleListViewWidgetTableComponent,
+    MuserroleListViewWidgetListComponent,
+    MuserroleListViewWidgetGridComponent,
+    MuserroleDetailCustComponent,
+    MuserroleDetailComponent,
+    MuserroleDetailFieldComponent,
+    MuserroleEditComponent,
+    MuserroleEditCustComponent,
+    MpubroleDetailPopComponent,
+    MpubroleDetailSelComponent,
     MpubmoduleDetailPopComponent,
     MpubmoduleDetailSelComponent,
-    MpubaccessDetailSubComponent,
+    MuserDetailPopComponent,
+    MuserDetailSelComponent,
+    MpubpermissionDetailSubComponent,
+    MuserDetailSubComponent,
   ],
   exports: [
     AccessComponent,
-    MusergroupListGeneralComponent,
-    MusergroupListSelectComponent,
-    MusergroupDetailComponent,
-    MusergroupDetailFieldComponent,
-    MusergroupEditComponent,
+    MpubroleListGeneralComponent,
+    MpubroleListSelectComponent,
+    MpubroleDetailComponent,
+    MpubroleDetailFieldComponent,
+    MpubroleEditComponent,
     MpubmoduleListGeneralComponent,
     MpubmoduleListSelectComponent,
     MpubmoduleDetailComponent,
     MpubmoduleDetailFieldComponent,
     MpubmoduleEditComponent,
-    MpubaccessListGeneralComponent,
-    MpubaccessListSubComponent,
-    MpubaccessDetailComponent,
-    MpubaccessDetailFieldComponent,
-    MpubaccessEditComponent,
-    MusergroupDetailPopComponent,
-    MusergroupDetailSelComponent,
+    MpubpermissionListGeneralComponent,
+    MpubpermissionListSubComponent,
+    MpubpermissionDetailComponent,
+    MpubpermissionDetailFieldComponent,
+    MpubpermissionEditComponent,
+    MuserListGeneralComponent,
+    MuserListSelectComponent,
+    MuserDetailComponent,
+    MuserDetailFieldComponent,
+    MuserEditComponent,
+    MuserroleListGeneralComponent,
+    MuserroleListSubComponent,
+    MuserroleDetailComponent,
+    MuserroleDetailFieldComponent,
+    MuserroleEditComponent,
+    MpubroleDetailPopComponent,
+    MpubroleDetailSelComponent,
     MpubmoduleDetailPopComponent,
     MpubmoduleDetailSelComponent,
-    MpubaccessDetailSubComponent,
+    MuserDetailPopComponent,
+    MuserDetailSelComponent,
+    MpubpermissionDetailSubComponent,
+    MuserDetailSubComponent,
   ],
-  providers: [],
+  providers: [{
+    provide: MDDS_NGB_DATE_FORMAT,
+    useValue: 'MM-DD-YYYY'
+  }, {
+    provide: NgbDateParserFormatter,
+    useClass: MraNgbDateFormatterService
+  }, ],
   entryComponents: [
-    MusergroupListSelectComponent,
-    MusergroupDetailPopComponent,
-    MusergroupDetailSelComponent,
+    MpubroleListSelectComponent,
+    MpubroleDetailPopComponent,
+    MpubroleDetailSelComponent,
     MpubmoduleListSelectComponent,
     MpubmoduleDetailPopComponent,
     MpubmoduleDetailSelComponent,
-    MusergroupEditComponent,
+    MuserListSelectComponent,
+    MuserDetailPopComponent,
+    MuserDetailSelComponent,
+    MpubroleEditComponent,
     MpubmoduleEditComponent,
-    MpubaccessEditComponent,
+    MpubpermissionEditComponent,
+    MuserEditComponent,
+    MuserroleEditComponent,
   ]
 })
 export class AccessCoreModule {}

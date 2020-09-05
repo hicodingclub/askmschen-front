@@ -60,7 +60,7 @@ export class MpubmoduleEditComponent extends MpubmoduleEditCustComponent impleme
       'module': 'Module',
       'resources': 'Resources',
     };
-    this.stringFields.push('module');
+    this.stringFields = ['module', ];
     this.arrayFields = [
       ['resources', 'SchemaString'],
     ];

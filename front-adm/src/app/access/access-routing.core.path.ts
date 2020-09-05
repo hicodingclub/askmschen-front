@@ -1,13 +1,13 @@
 // Import components for each schema
 import {
-  MusergroupListGeneralComponent
-} from './musergroup/musergroup-list/musergroup-list-general.component';
+  MpubroleListGeneralComponent
+} from './mpubrole/mpubrole-list/mpubrole-list-general.component';
 import {
-  MusergroupDetailComponent
-} from './musergroup/musergroup-detail/musergroup-detail.component';
+  MpubroleDetailComponent
+} from './mpubrole/mpubrole-detail/mpubrole-detail.component';
 import {
-  MusergroupEditComponent
-} from './musergroup/musergroup-edit/musergroup-edit.component';
+  MpubroleEditComponent
+} from './mpubrole/mpubrole-edit/mpubrole-edit.component';
 import {
   MpubmoduleListGeneralComponent
 } from './mpubmodule/mpubmodule-list/mpubmodule-list-general.component';
@@ -18,56 +18,96 @@ import {
   MpubmoduleEditComponent
 } from './mpubmodule/mpubmodule-edit/mpubmodule-edit.component';
 import {
-  MpubaccessListGeneralComponent
-} from './mpubaccess/mpubaccess-list/mpubaccess-list-general.component';
+  MpubpermissionListGeneralComponent
+} from './mpubpermission/mpubpermission-list/mpubpermission-list-general.component';
 import {
-  MpubaccessDetailComponent
-} from './mpubaccess/mpubaccess-detail/mpubaccess-detail.component';
+  MpubpermissionDetailComponent
+} from './mpubpermission/mpubpermission-detail/mpubpermission-detail.component';
 import {
-  MpubaccessEditComponent
-} from './mpubaccess/mpubaccess-edit/mpubaccess-edit.component';
+  MpubpermissionEditComponent
+} from './mpubpermission/mpubpermission-edit/mpubpermission-edit.component';
 import {
-  MpubaccessListSubComponent
-} from './mpubaccess/mpubaccess-list/mpubaccess-list-sub.component';
+  MpubpermissionListSubComponent
+} from './mpubpermission/mpubpermission-list/mpubpermission-list-sub.component';
+import {
+  MuserListGeneralComponent
+} from './muser/muser-list/muser-list-general.component';
+import {
+  MuserDetailComponent
+} from './muser/muser-detail/muser-detail.component';
+import {
+  MuserEditComponent
+} from './muser/muser-edit/muser-edit.component';
+import {
+  MuserroleListGeneralComponent
+} from './muserrole/muserrole-list/muserrole-list-general.component';
+import {
+  MuserroleDetailComponent
+} from './muserrole/muserrole-detail/muserrole-detail.component';
+import {
+  MuserroleEditComponent
+} from './muserrole/muserrole-edit/muserrole-edit.component';
+import {
+  MuserroleListSubComponent
+} from './muserrole/muserrole-list/muserrole-list-sub.component';
 import {
   AuthGuard
 } from '@hicoder/angular-auth';
-const mpubaccessSubPath = [{
+const mpubpermissionSubPath = [{
   path: 'list',
-  component: MpubaccessListSubComponent
+  component: MpubpermissionListSubComponent
 }];
-const musergroupDetailPath = [{
-  path: 'mpubaccess',
-  children: mpubaccessSubPath,
+const muserroleSubPath = [{
+  path: 'list',
+  component: MuserroleListSubComponent
+}];
+const mpubroleDetailPath = [{
+  path: 'mpubpermission',
+  children: mpubpermissionSubPath,
   data: {
     'mraLevel': 2,
-    'item': 'mpubaccess'
+    'item': 'mpubpermission'
+  }
+}, {
+  path: 'muserrole',
+  children: muserroleSubPath,
+  data: {
+    'mraLevel': 2,
+    'item': 'muserrole'
   }
 }, ];
 const mpubmoduleDetailPath = [{
-  path: 'mpubaccess',
-  children: mpubaccessSubPath,
+  path: 'mpubpermission',
+  children: mpubpermissionSubPath,
   data: {
     'mraLevel': 2,
-    'item': 'mpubaccess'
+    'item': 'mpubpermission'
   }
 }, ];
-export const musergroupRoutingCorePath = [{
+const muserDetailPath = [{
+  path: 'muserrole',
+  children: muserroleSubPath,
+  data: {
+    'mraLevel': 2,
+    'item': 'muserrole'
+  }
+}, ];
+export const mpubroleRoutingCorePath = [{
   path: 'list',
-  component: MusergroupListGeneralComponent,
+  component: MpubroleListGeneralComponent,
   canActivate: [AuthGuard]
 }, {
   path: 'detail/:id',
-  component: MusergroupDetailComponent,
-  children: musergroupDetailPath,
+  component: MpubroleDetailComponent,
+  children: mpubroleDetailPath,
   canActivate: [AuthGuard]
 }, {
   path: 'edit/:id',
-  component: MusergroupEditComponent,
+  component: MpubroleEditComponent,
   canActivate: [AuthGuard]
 }, {
   path: 'new',
-  component: MusergroupEditComponent,
+  component: MpubroleEditComponent,
   canActivate: [AuthGuard]
 }, {
   path: '**',
@@ -96,21 +136,64 @@ export const mpubmoduleRoutingCorePath = [{
   redirectTo: 'list',
   pathMatch: 'full'
 }];
-export const mpubaccessRoutingCorePath = [{
+export const mpubpermissionRoutingCorePath = [{
   path: 'list',
-  component: MpubaccessListGeneralComponent,
+  component: MpubpermissionListGeneralComponent,
   canActivate: [AuthGuard]
 }, {
   path: 'detail/:id',
-  component: MpubaccessDetailComponent,
+  component: MpubpermissionDetailComponent,
   canActivate: [AuthGuard]
 }, {
   path: 'edit/:id',
-  component: MpubaccessEditComponent,
+  component: MpubpermissionEditComponent,
   canActivate: [AuthGuard]
 }, {
   path: 'new',
-  component: MpubaccessEditComponent,
+  component: MpubpermissionEditComponent,
+  canActivate: [AuthGuard]
+}, {
+  path: '**',
+  redirectTo: 'list',
+  pathMatch: 'full'
+}];
+export const muserRoutingCorePath = [{
+  path: 'list',
+  component: MuserListGeneralComponent,
+  canActivate: [AuthGuard]
+}, {
+  path: 'detail/:id',
+  component: MuserDetailComponent,
+  children: muserDetailPath,
+  canActivate: [AuthGuard]
+}, {
+  path: 'edit/:id',
+  component: MuserEditComponent,
+  canActivate: [AuthGuard]
+}, {
+  path: 'new',
+  component: MuserEditComponent,
+  canActivate: [AuthGuard]
+}, {
+  path: '**',
+  redirectTo: 'list',
+  pathMatch: 'full'
+}];
+export const muserroleRoutingCorePath = [{
+  path: 'list',
+  component: MuserroleListGeneralComponent,
+  canActivate: [AuthGuard]
+}, {
+  path: 'detail/:id',
+  component: MuserroleDetailComponent,
+  canActivate: [AuthGuard]
+}, {
+  path: 'edit/:id',
+  component: MuserroleEditComponent,
+  canActivate: [AuthGuard]
+}, {
+  path: 'new',
+  component: MuserroleEditComponent,
   canActivate: [AuthGuard]
 }, {
   path: '**',

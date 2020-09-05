@@ -20,7 +20,7 @@ import {
 import {
   MpubmoduleService
 } from './mpubmodule.service';
-const itemCamelName = 'public Module';
+const itemCamelName = 'system Module';
 export {
   ViewType
 };

@@ -14,8 +14,8 @@
         </div>
         <div class="card-body">
           <div *ngIf="fieldHasValue(detail['resources'])" class="d-flex flex-wrap">
-            <div class=""><label>Resources:</label></div>
-            <div class="ml-3">
+            <div class="mr-3"><label>Resources:</label></div>
+            <div>
               <div *ngIf="detail['resources'] && detail['resources']['selection']">
                 <ng-template ngFor let-element [ngForOf]="detail['resources']['selection']" let-idx="index">
                   <div class="badge badge-pill badge-secondary">

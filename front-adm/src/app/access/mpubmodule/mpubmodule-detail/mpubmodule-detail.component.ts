@@ -46,7 +46,7 @@ export class MpubmoduleDetailComponent extends MpubmoduleDetailCustComponent imp
       'module': 'Module',
       'resources': 'Resources',
     };
-    this.stringFields.push('module');
+    this.stringFields = ['module', ];
     this.arrayFields = [
       ['resources', 'SchemaString'],
     ];
@@ -67,7 +67,7 @@ export class MpubmoduleDetailComponent extends MpubmoduleDetailCustComponent imp
   ngAfterViewInit() {
     //Load first reference, if not others activated
     if (!this.options['disableRefLink'] && !this.isChildRouterActivated()) {
-      this.router.navigate(['./mpubaccess/list', {}], {
+      this.router.navigate(['./mpubpermission/list', {}], {
         relativeTo: this.route,
         queryParamsHandling: 'preserve',
       });
