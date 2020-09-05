@@ -30,7 +30,12 @@
                     <a class="nav-link" routerLinkActive="active" routerLink="/contact">Product</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" routerLinkActive="active" routerLink="/blog">Blog</a>
+                    <a class="nav-link"
+                        [ngClass]="{'active': currentUrl === '/blog' || currentUrl.startsWith('/publicinfo/blog') }"
+                        routerLink="/blog"
+                    >
+                        Blog
+                    </a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

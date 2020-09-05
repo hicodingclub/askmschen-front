@@ -163,7 +163,8 @@ hr {
 }
 
 .contact {
-    text-align: center;
+    display: flex;
+    justify-content: center;
     font-family: 'Raleway', sans-serif;
     font-size: 25px;
 }

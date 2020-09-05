@@ -140,9 +140,13 @@
             <img src="../../../assets/social-media/bilibili.png" width="70px">
         </div>
 
-        <div class="contact">Email Us: abcdefg@gmail.com</div>
-        <div class="contact">Call Us: 123456789</div>
-
+        <div class="contact">
+            <div>
+                <div ><i class="fas fa-envelope-open-text"></i> Email Us: abcdefg@gmail.com</div>
+                <div><i class="fas fa-phone-volume" style="width: 1.5rem;"></i> Call Us: 123456789</div>   
+            </div>
+        </div>
+ 
         <div class="subscription-container">
             <div class="mission-title" style="font-family: 'Raleway', sans-serif">Subscribe to Ms. Chen's Newsletter</div>
             <app-subscription-edit *ngIf="showSubscription" [options]="{disableCancel: true}" [embeddedView]="true" (done)="subscriptionDone($event)"></app-subscription-edit>
