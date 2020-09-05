@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router, NavigationEnd } from '@angular/router';
 import { HostListener } from "@angular/core";
+import { urlArray } from "./routes-with-clear-top";
 
 
 @Component({
@@ -13,6 +14,7 @@ export class AppComponent {
   public yyyy: number;
   public showTopBackground: boolean = false;
   public backgroundPercent: number = 0;
+  public fullTop: boolean = true;
 
   public currentUrl: string = '';
 
@@ -50,13 +52,23 @@ export class AppComponent {
   }
 
   setMyStyles() {
-    let styles = {};
-    if(this.showTopBackground){
+    if(urlArray.includes(this.router.url)){
+      this.fullTop = false;
+      let styles = {};
+      if(this.showTopBackground){
+        styles = {
+          'background-color' : 'rgba(23, 162, 184, ' + this.backgroundPercent + ')'
+        };
+      }
+      return styles;
+    } else {
+      this.fullTop = true;
+      let styles = {};
       styles = {
-        'background-color' : 'rgba(23, 162, 184, ' + this.backgroundPercent + ')'
+        'background-color' : 'rgb(23, 162, 184)'
       };
+      return styles;
     }
-    return styles;
   }
 
 }
