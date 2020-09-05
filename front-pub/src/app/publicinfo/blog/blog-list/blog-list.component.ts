@@ -73,9 +73,16 @@ export class BlogListComponent extends BlogListCustComponent implements OnInit {
       'signaturePicture': 'Signature Picture',
       'title': 'Title',
       'publishDate': 'Publish Date',
+      'topicTags': 'Topic Tags',
     };
     this.stringFields = ['signaturePicture', 'title', ];
     this.dateFields = ['publishDate', ];
+    this.arrayFields = [
+      ['topicTags', 'SchemaString'],
+    ];
+    this.editHintFields = {
+      'topicTags': [],
+    };
     this.setListSort('publishDate', 'Publish Date', 'desc');
     const listCategories = [];
     this.listCategory1 = listCategories[0] || {};

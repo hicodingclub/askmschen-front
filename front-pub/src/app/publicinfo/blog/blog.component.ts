@@ -95,6 +95,7 @@ export class BlogComponent extends MddsBaseComponent implements OnInit {
     this.briefFieldsInfo.push(['signaturePicture', 'Signature Picture']);
     this.briefFieldsInfo.push(['title', 'Title']);
     this.briefFieldsInfo.push(['publishDate', 'Publish Date']);
+    this.briefFieldsInfo.push(['topicTags', 'Topic Tags']);
     this.requiredFields = ['signaturePicture', 'title', 'author', 'content', ];
     this.schemaName = 'blog';
     this.dateFormat = 'MM-DD-YYYY';

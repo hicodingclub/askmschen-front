@@ -9,7 +9,7 @@ import {
   template: '',
 })
 export class NewsDetailCustComponent extends NewsComponent {}/*>>> Please check this recent updates and merge with existing ones***
-**Date: Fri Sep 04 2020 23:23:57 GMT-0700 (Pacific Daylight Time)
+**Date: Fri Sep 04 2020 23:53:08 GMT-0700 (Pacific Daylight Time)
 
 import {
   Input,

@@ -77,6 +77,33 @@
                     </div>
                   </div>
                 </div>
+                <div class="container two-column-search small">
+                  <div class="row col-gutter align-items-center">
+                    <div class="col-12 col-sm-3">
+                      <label for="blogEditTopicTags"> Topic Tags </label>
+                    </div>
+                    <div class="col-11 col-sm-8">
+                      <div class="badge-group" *ngIf="detail['topicTags'] && detail['topicTags']['selection']">
+                        <div class="badge badge-pill badge-secondary" *ngFor="let element of detail['topicTags']['selection']; let i = index;">
+                          {{element}}
+                          <i class="fas fa-times-circle icon-clear-badge" (click)="clearValueFromArrayField('topicTags', i)" title="Remove"></i>
+                        </div>
+                      </div>
+                      <hr>
+                      <div class="available-hints">
+                        <div *ngIf="editHintFields['topicTags'].length > 0" class="small">Select from Available Topic Tags: </div>
+                        <ng-template ngFor let-hintEle [ngForOf]="editHintFields['topicTags']" let-i="index">
+                          <div class="badge badge-pill badge-primary pointer" *ngIf="!detail['topicTags']['selection'].includes(hintEle['_id'])" (click)="onAddArrayItemValue('topicTags', hintEle['_id'])">
+                            {{hintEle['_id']}}
+                          </div>
+                        </ng-template>
+                      </div>
+                    </div>
+                    <div class="col-1">
+                      <div class="pointer" (click)="clearValueFromDetail('topicTags')" *ngIf="checkValueDefinedFromDetail('topicTags')"><i class="fas fa-times-circle" title="Clear"></i></div>
+                    </div>
+                  </div>
+                </div>
               </div>
               <div class="action-buttons">
                 <button type="button" class="btn btn-outline-success" (click)="onSearchClear()">Reset</button>
