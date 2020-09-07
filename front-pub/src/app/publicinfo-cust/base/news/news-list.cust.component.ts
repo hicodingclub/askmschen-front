@@ -14,7 +14,7 @@ export class NewsListCustComponent extends NewsComponent {
     disableViewSwitch: true,
   };
 }/*>>> Please check this recent updates and merge with existing ones***
-**Date: Fri Sep 04 2020 23:53:08 GMT-0700 (Pacific Daylight Time)
+**Date: Mon Sep 07 2020 12:16:41 GMT-0700 (Pacific Daylight Time)
 
 import {
   Input,

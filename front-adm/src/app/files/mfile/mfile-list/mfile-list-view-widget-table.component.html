@@ -19,7 +19,11 @@
             <i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
           </span>
         </th>
-        <th scope="col"> Link </th>
+        <th class="pointer" scope="col" (click)="toggleListSort('link')"> Link <span *ngIf="listSortField === 'link'">
+            <i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
+            <i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
+          </span>
+        </th>
         <th class="pointer" scope="col" (click)="toggleListSort('createdAt')"> Created at <span *ngIf="listSortField === 'createdAt'">
             <i *ngIf="listSortOrder === 'asc'" class="fas fa-arrow-up th-sort-arrow"></i>
             <i *ngIf="listSortOrder === 'desc'" class="fas fa-arrow-down th-sort-arrow"></i>
@@ -68,8 +72,8 @@
             </div>
           </td>
           <td (click)="clickOneItem(i)" [ngClass]="{'pointer': clickItemAction}">
-            <div class="table-picture-cell">
-              <lib-mdds-file-display [downloadUrl]="detail['link']" [isLarge]="false" [aspectRatio]=""></lib-mdds-file-display>
+            <div class="">
+              <a href="{{detail['link']}}">{{detail['link']}}</a>
             </div>
           </td>
           <td (click)="clickOneItem(i)" [ngClass]="{'pointer': clickItemAction}">

@@ -77,8 +77,7 @@ export class NewsListComponent extends NewsListCustComponent implements OnInit {
       'title': 'Title',
       'publishDate': 'Publish Date',
     };
-    this.stringFields.push('signaturePicture');
-    this.stringFields.push('title');
+    this.stringFields = ['signaturePicture', 'title', ];
     this.dateFields = ['publishDate', ];
     this.setListSort('publishDate', 'Publish Date', 'desc');
     const listCategories = [];

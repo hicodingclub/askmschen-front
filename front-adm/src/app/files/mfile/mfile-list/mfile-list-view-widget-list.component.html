@@ -5,9 +5,6 @@
                         'selected-row': clickItemAction === 'select' && checkedItem[i]}">
       <div class="list-info">
         <div class="list-fields" [ngClass]="{pointer: clickItemAction}" (click)="clickOneItem(i)">
-          <div class="list-head-picture">
-            <lib-mdds-file-display [downloadUrl]="detail['link']" [isLarge]="false" [aspectRatio]=""></lib-mdds-file-display>
-          </div>
           <div class="list-body-fields">
             <h5>
               <div class="mr-1 d-inline-block">
@@ -16,14 +13,14 @@
             </h5>
             <div>
               <div *ngIf="fieldHasValue(detail['type'])" class="mr-3 d-inline-flex flex-wrap">
-                <div><label>Type:</label></div>
-                <div class="ml-3">
+                <div class="mr-3"><label>Type:</label></div>
+                <div>
                   {{detail['type']}}
                 </div>
               </div>
               <div *ngIf="fieldHasValue(detail['labels'])" class="mr-3 d-inline-flex flex-wrap">
-                <div><label>Labels:</label></div>
-                <div class="ml-3">
+                <div class="mr-3"><label>Labels:</label></div>
+                <div>
                   <div *ngIf="detail['labels'] && detail['labels']['selection']">
                     <ng-template ngFor let-element [ngForOf]="detail['labels']['selection']" let-idx="index">
                       <div class="badge badge-pill badge-secondary">
@@ -34,19 +31,25 @@
                 </div>
               </div>
               <div *ngIf="fieldHasValue(detail['size'])" class="mr-3 d-inline-flex flex-wrap">
-                <div><label>Size:</label></div>
-                <div class="ml-3">
+                <div class="mr-3"><label>Size:</label></div>
+                <div>
                   {{detail['size']}}
                 </div>
               </div>
+              <div *ngIf="fieldHasValue(detail['link'])" class="mr-3 d-inline-flex flex-wrap">
+                <div class="mr-3"><label>Link:</label></div>
+                <div>
+                  <a href="{{detail['link']}}">{{detail['link']}}</a>
+                </div>
+              </div>
               <div *ngIf="fieldHasValue(detail['createdAt'])" class="mr-3 d-inline-flex flex-wrap">
-                <div><label>Created at:</label></div>
-                <div class="ml-3"> {{detail['createdAt']? (detail['createdAt']['originalValue'] | date:'medium') : ''}}
+                <div class="mr-3"><label>Created at:</label></div>
+                <div> {{detail['createdAt']? (detail['createdAt']['originalValue'] | date:'medium') : ''}}
                 </div>
               </div>
               <div *ngIf="fieldHasValue(detail['hasThumbnail'])" class="mr-3 d-inline-flex flex-wrap">
-                <div><label>Has Thumbnail:</label></div>
-                <div class="ml-3">{{detail['hasThumbnail']}}
+                <div class="mr-3"><label>Has Thumbnail:</label></div>
+                <div>{{detail['hasThumbnail']}}
                 </div>
               </div>
             </div>

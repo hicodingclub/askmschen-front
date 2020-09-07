@@ -16,8 +16,8 @@
             <div>
               <div *ngIf="referenceFieldsMap['module'] != parentItem">
                 <div *ngIf="fieldHasValue(detail['module'])" class="mr-3 d-inline-flex flex-wrap">
-                  <div><label>Module:</label></div>
-                  <div class="ml-3">
+                  <div class="mr-3"><label>Module:</label></div>
+                  <div>
                     <a routerLink="." (click)="onDisplayRefClicked('module', detail['module'], $event)">
                       {{detail['module']?detail['module']['valueMedium']:""}}
                     </a>
@@ -25,8 +25,8 @@
                 </div>
               </div>
               <div *ngIf="fieldHasValue(detail['modulePermission'])" class="mr-3 d-inline-flex flex-wrap">
-                <div><label>Module Permission:</label></div>
-                <div class="ml-3">
+                <div class="mr-3"><label>Module Permission:</label></div>
+                <div>
                   {{detail['modulePermission']}}
                 </div>
               </div>

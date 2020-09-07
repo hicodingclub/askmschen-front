@@ -72,7 +72,7 @@ export class MpermissionListComponent extends MpermissionListCustComponent imple
       'module': 'Module',
       'modulePermission': 'Module Permission',
     };
-    this.stringFields.push('modulePermission');
+    this.stringFields = ['modulePermission', ];
     this.referenceFields = ['role', 'module', ];
     const listCategories = [];
     this.listCategory1 = listCategories[0] || {};

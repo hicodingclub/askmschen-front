@@ -16,7 +16,7 @@ import {
   MraNgbDateFormatterService,
 } from '@hicoder/angular-core';
 import {
-  FileUploadModule,
+  FilesModule,
 } from '@hicoder/angular-file';
 import {
   MddsRichtextEditorModule,
@@ -111,7 +111,7 @@ import {
     CommonModule,
     FormsModule,
     NgbModule,
-    FileUploadModule,
+    FilesModule,
     MddsRichtextEditorModule,
     PublicinfoRoutingCoreModule,
   ],

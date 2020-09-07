@@ -64,10 +64,7 @@ export class BlogEditComponent extends BlogEditCustComponent implements OnInit, 
       'hot': 'Hot',
       'author': 'Author',
     };
-    this.stringFields.push('title');
-    this.stringFields.push('content');
-    this.stringFields.push('signaturePicture');
-    this.stringFields.push('author');
+    this.stringFields = ['title', 'content', 'signaturePicture', 'author', ];
     this.arrayFields = [
       ['topicTags', 'SchemaString'],
     ];

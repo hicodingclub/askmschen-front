@@ -46,8 +46,7 @@ export class SubscriptionDetailComponent extends SubscriptionDetailCustComponent
       'name': 'Name',
       'email': 'Email',
     };
-    this.stringFields.push('name');
-    this.stringFields.push('email');
+    this.stringFields = ['name', 'email', ];
   }
   ngOnInit() {
     super.ngOnInit();

@@ -62,10 +62,7 @@ export class NewsEditComponent extends NewsEditCustComponent implements OnInit, 
       'signaturePicture': 'Signature Picture',
       'author': 'Author',
     };
-    this.stringFields.push('title');
-    this.stringFields.push('content');
-    this.stringFields.push('signaturePicture');
-    this.stringFields.push('author');
+    this.stringFields = ['title', 'content', 'signaturePicture', 'author', ];
     const detail = {};
     this.detail = this.formatDetail(detail);
   }

@@ -49,11 +49,7 @@ export class EmailtemplateDetailComponent extends EmailtemplateDetailCustCompone
       'content': 'Content',
       'tag': 'Tag',
     };
-    this.stringFields.push('templateName');
-    this.stringFields.push('fromEmail');
-    this.stringFields.push('subject');
-    this.stringFields.push('content');
-    this.stringFields.push('tag');
+    this.stringFields = ['templateName', 'fromEmail', 'subject', 'content', 'tag', ];
   }
   ngOnInit() {
     super.ngOnInit();

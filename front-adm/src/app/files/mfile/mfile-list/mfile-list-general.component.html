@@ -12,7 +12,7 @@
     <div class="row" *ngIf="!options['disableListSearch']">
       <div class="col">
         <div class="input-group">
-          <input type="search" class="form-control border border-secondary" id="mfileTextSearch" #mfileTextSearch [(ngModel)]="searchText" (search)="$event.target.blur();searchList();" placeholder="Search for name, type">
+          <input type="search" class="form-control border border-secondary" id="mfileTextSearch" #mfileTextSearch [(ngModel)]="searchText" (search)="$event.target.blur();searchList();" placeholder="Search for name, type, link">
           <div *ngIf="searchText" class="input-group-append icon-search-clear">
             <span>
               <i class="fas fa-times-circle" (click)="onSearchTextClear()" title="Clear"></i>
@@ -189,6 +189,8 @@
               <a class="dropdown-item pointer" (click)="setListSortAndRefresh('type', 'Type', 'desc')">Type<i class="fas fa-arrow-down"></i></a>
               <a class="dropdown-item pointer" (click)="setListSortAndRefresh('size', 'Size', 'asc')">Size<i class="fas fa-arrow-up"></i></a>
               <a class="dropdown-item pointer" (click)="setListSortAndRefresh('size', 'Size', 'desc')">Size<i class="fas fa-arrow-down"></i></a>
+              <a class="dropdown-item pointer" (click)="setListSortAndRefresh('link', 'Link', 'asc')">Link<i class="fas fa-arrow-up"></i></a>
+              <a class="dropdown-item pointer" (click)="setListSortAndRefresh('link', 'Link', 'desc')">Link<i class="fas fa-arrow-down"></i></a>
               <a class="dropdown-item pointer" (click)="setListSortAndRefresh('createdAt', 'Created at', 'asc')">Created at<i class="fas fa-arrow-up"></i></a>
               <a class="dropdown-item pointer" (click)="setListSortAndRefresh('createdAt', 'Created at', 'desc')">Created at<i class="fas fa-arrow-down"></i></a>
               <a class="dropdown-item pointer" (click)="setListSortAndRefresh('hasThumbnail', 'Has Thumbnail', 'asc')">Has Thumbnail<i class="fas fa-arrow-up"></i></a>
@@ -204,13 +206,13 @@
             <label for="list-view">
               <i class="fa fa-list-ul"></i>
             </label>
-            <input *ngIf="listViews.includes('grid')" type="radio" name="view-filter" id="grid-view" class="view-radio" (click)="setListViewFilter('grid')" [checked]="isShowListView('grid')">
-            <label for="grid-view">
-              <i class="fa fa-th"></i>
-            </label>
             <input *ngIf="listViews.includes('table')" type="radio" name="view-filter" id="table-view" class="view-radio" (click)="setListViewFilter('table')" [checked]="isShowListView('table')">
             <label for="table-view">
               <i class="fa fa-th-list"></i>
+            </label>
+            <input *ngIf="listViews.includes('grid')" type="radio" name="view-filter" id="grid-view" class="view-radio" (click)="setListViewFilter('grid')" [checked]="isShowListView('grid')">
+            <label for="grid-view">
+              <i class="fa fa-th"></i>
             </label>
           </div>
         </div>
@@ -259,13 +261,13 @@
       <app-mfile-list-view-widget-list [style]="style" [options]="options" [inputData]="inputData" [viewInputs]="viewInputs" [list]="list" [clickItemAction]="clickItemAction" [clickedId]="clickedId" [checkedItem]="checkedItem" [parentItem]="parentItem" [referenceFieldsMap]="referenceFieldsMap" [listSortOrder]="listSortOrder" [listSortField]="listSortField" [page]="page" [perPage]="perPage" [archivedSearch]="archivedSearch" [enums]="enums" [clickItemAction]="clickItemAction" [cardHasLink]="cardHasLink" [cardHasSelect]="cardHasSelect" [canArchive]="canArchive" [canCheck]="canCheck" [canDelete]="canDelete" [canUpdate]="canUpdate" [includeSubDetail]="includeSubDetail" (uiEvents)="viewUIEvent($event)">
       </app-mfile-list-view-widget-list>
     </ng-template>
-    <ng-template [ngIf]="isShowListView('grid')">
-      <app-mfile-list-view-widget-grid [style]="style" [options]="options" [inputData]="inputData" [viewInputs]="viewInputs" [list]="list" [clickItemAction]="clickItemAction" [clickedId]="clickedId" [checkedItem]="checkedItem" [parentItem]="parentItem" [referenceFieldsMap]="referenceFieldsMap" [listSortOrder]="listSortOrder" [listSortField]="listSortField" [page]="page" [perPage]="perPage" [archivedSearch]="archivedSearch" [enums]="enums" [clickItemAction]="clickItemAction" [cardHasLink]="cardHasLink" [cardHasSelect]="cardHasSelect" [canArchive]="canArchive" [canCheck]="canCheck" [canDelete]="canDelete" [canUpdate]="canUpdate" [includeSubDetail]="includeSubDetail" (uiEvents)="viewUIEvent($event)">
-      </app-mfile-list-view-widget-grid>
-    </ng-template>
     <ng-template [ngIf]="isShowListView('table')">
       <app-mfile-list-view-widget-table [style]="style" [options]="options" [inputData]="inputData" [viewInputs]="viewInputs" [list]="list" [clickItemAction]="clickItemAction" [clickedId]="clickedId" [checkedItem]="checkedItem" [parentItem]="parentItem" [referenceFieldsMap]="referenceFieldsMap" [listSortOrder]="listSortOrder" [listSortField]="listSortField" [page]="page" [perPage]="perPage" [archivedSearch]="archivedSearch" [enums]="enums" [clickItemAction]="clickItemAction" [cardHasLink]="cardHasLink" [cardHasSelect]="cardHasSelect" [canArchive]="canArchive" [canCheck]="canCheck" [canDelete]="canDelete" [canUpdate]="canUpdate" [includeSubDetail]="includeSubDetail" (uiEvents)="viewUIEvent($event)">
       </app-mfile-list-view-widget-table>
+    </ng-template>
+    <ng-template [ngIf]="isShowListView('grid')">
+      <app-mfile-list-view-widget-grid [style]="style" [options]="options" [inputData]="inputData" [viewInputs]="viewInputs" [list]="list" [clickItemAction]="clickItemAction" [clickedId]="clickedId" [checkedItem]="checkedItem" [parentItem]="parentItem" [referenceFieldsMap]="referenceFieldsMap" [listSortOrder]="listSortOrder" [listSortField]="listSortField" [page]="page" [perPage]="perPage" [archivedSearch]="archivedSearch" [enums]="enums" [clickItemAction]="clickItemAction" [cardHasLink]="cardHasLink" [cardHasSelect]="cardHasSelect" [canArchive]="canArchive" [canCheck]="canCheck" [canDelete]="canDelete" [canUpdate]="canUpdate" [includeSubDetail]="includeSubDetail" (uiEvents)="viewUIEvent($event)">
+      </app-mfile-list-view-widget-grid>
     </ng-template>
   </div>
   <div class="container">

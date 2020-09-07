@@ -39,7 +39,7 @@ export class MfileListSubComponent extends MfileListComponent implements OnInit 
   public parentItemId;
   constructor(public mfileService: MfileService, public injector: Injector, public router: Router, public route: ActivatedRoute, public location: Location) {
     super(mfileService, injector, router, route, location);
-    this.listViews = ['list', 'grid', 'table', ];
+    this.listViews = ['list', 'table', ];
     this.listViewFilter = 'list';
   }
   ngOnInit() {

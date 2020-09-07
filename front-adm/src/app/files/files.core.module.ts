@@ -16,7 +16,7 @@ import {
   MraNgbDateFormatterService,
 } from '@hicoder/angular-core';
 import {
-  FileUploadModule,
+  FilesModule,
 } from '@hicoder/angular-file';
 import {
   FilesRoutingCoreModule
@@ -28,6 +28,87 @@ import {
   FilesRefSelectDirective
 } from './files.component';
 // Import components for each schema
+import {
+  MpictureComponent
+} from './mpicture/mpicture.component';
+import {
+  MpictureListComponent
+} from './mpicture/mpicture-list/mpicture-list.component';
+import {
+  MpictureListViewComponent
+} from './mpicture/mpicture-list/mpicture-list-view.component';
+import {
+  MpictureListCustComponent
+} from '../files-cust/base/mpicture/mpicture-list.cust.component';
+import {
+  MpictureListGeneralComponent
+} from './mpicture/mpicture-list/mpicture-list-general.component';
+import {
+  MpictureListSubComponent
+} from './mpicture/mpicture-list/mpicture-list-sub.component';
+import {
+  MpictureListViewWidgetListComponent
+} from './mpicture/mpicture-list/mpicture-list-view-widget-list.component';
+import {
+  MpictureListViewWidgetTableComponent
+} from './mpicture/mpicture-list/mpicture-list-view-widget-table.component';
+import {
+  MpictureListViewWidgetGridComponent
+} from './mpicture/mpicture-list/mpicture-list-view-widget-grid.component';
+import {
+  MpictureDetailFieldComponent
+} from './mpicture/mpicture-detail/mpicture-detail-field.component';
+import {
+  MpictureEditComponent
+} from './mpicture/mpicture-edit/mpicture-edit.component';
+import {
+  MpictureEditCustComponent
+} from '../files-cust/base/mpicture/mpicture-edit.cust.component';
+import {
+  MpicturegroupComponent
+} from './mpicturegroup/mpicturegroup.component';
+import {
+  MpicturegroupListComponent
+} from './mpicturegroup/mpicturegroup-list/mpicturegroup-list.component';
+import {
+  MpicturegroupListViewComponent
+} from './mpicturegroup/mpicturegroup-list/mpicturegroup-list-view.component';
+import {
+  MpicturegroupListCustComponent
+} from '../files-cust/base/mpicturegroup/mpicturegroup-list.cust.component';
+import {
+  MpicturegroupListGeneralComponent
+} from './mpicturegroup/mpicturegroup-list/mpicturegroup-list-general.component';
+import {
+  MpicturegroupListSelectComponent
+} from './mpicturegroup/mpicturegroup-list/mpicturegroup-list-select.component';
+import {
+  MpicturegroupListViewWidgetTableComponent
+} from './mpicturegroup/mpicturegroup-list/mpicturegroup-list-view-widget-table.component';
+import {
+  MpicturegroupListViewWidgetListComponent
+} from './mpicturegroup/mpicturegroup-list/mpicturegroup-list-view-widget-list.component';
+import {
+  MpicturegroupListViewWidgetGridComponent
+} from './mpicturegroup/mpicturegroup-list/mpicturegroup-list-view-widget-grid.component';
+import {
+  MpicturegroupListViewWidgetIndexComponent
+} from './mpicturegroup/mpicturegroup-list/mpicturegroup-list-view-widget-index.component';
+import {
+  MpicturegroupDetailComponent
+} from './mpicturegroup/mpicturegroup-detail/mpicturegroup-detail.component';
+import {
+  MpicturegroupDetailCustComponent
+} from '../files-cust/base/mpicturegroup/mpicturegroup-detail.cust.component';
+import {
+  MpicturegroupDetailFieldComponent
+} from './mpicturegroup/mpicturegroup-detail/mpicturegroup-detail-field.component';
+import {
+  MpicturegroupEditComponent
+} from './mpicturegroup/mpicturegroup-edit/mpicturegroup-edit.component';
+import {
+  MpicturegroupEditCustComponent
+} from '../files-cust/base/mpicturegroup/mpicturegroup-edit.cust.component';
 import {
   MfileComponent
 } from './mfile/mfile.component';
@@ -50,11 +131,11 @@ import {
   MfileListViewWidgetListComponent
 } from './mfile/mfile-list/mfile-list-view-widget-list.component';
 import {
-  MfileListViewWidgetGridComponent
-} from './mfile/mfile-list/mfile-list-view-widget-grid.component';
-import {
   MfileListViewWidgetTableComponent
 } from './mfile/mfile-list/mfile-list-view-widget-table.component';
+import {
+  MfileListViewWidgetGridComponent
+} from './mfile/mfile-list/mfile-list-view-widget-grid.component';
 import {
   MfileDetailFieldComponent
 } from './mfile/mfile-detail/mfile-detail-field.component';
@@ -110,11 +191,20 @@ import {
   MfilegroupEditCustComponent
 } from '../files-cust/base/mfilegroup/mfilegroup-edit.cust.component';
 import {
+  MpicturegroupDetailPopComponent
+} from './mpicturegroup/mpicturegroup-detail/mpicturegroup-detail-pop.component';
+import {
+  MpicturegroupDetailSelComponent
+} from './mpicturegroup/mpicturegroup-detail/mpicturegroup-detail-sel.component';
+import {
   MfilegroupDetailPopComponent
 } from './mfilegroup/mfilegroup-detail/mfilegroup-detail-pop.component';
 import {
   MfilegroupDetailSelComponent
 } from './mfilegroup/mfilegroup-detail/mfilegroup-detail-sel.component';
+import {
+  MpicturegroupDetailSubComponent
+} from './mpicturegroup/mpicturegroup-detail/mpicturegroup-detail-sub.component';
 import {
   MfilegroupDetailSubComponent
 } from './mfilegroup/mfilegroup-detail/mfilegroup-detail-sub.component';
@@ -123,12 +213,39 @@ import {
     CommonModule,
     FormsModule,
     NgbModule,
-    FileUploadModule,
+    FilesModule,
     FilesRoutingCoreModule,
   ],
   declarations: [
     FilesComponent,
     FilesRefSelectDirective,
+    MpictureComponent,
+    MpictureListComponent,
+    MpictureListViewComponent,
+    MpictureListCustComponent,
+    MpictureListGeneralComponent,
+    MpictureListSubComponent,
+    MpictureListViewWidgetListComponent,
+    MpictureListViewWidgetTableComponent,
+    MpictureListViewWidgetGridComponent,
+    MpictureDetailFieldComponent,
+    MpictureEditComponent,
+    MpictureEditCustComponent,
+    MpicturegroupComponent,
+    MpicturegroupListComponent,
+    MpicturegroupListViewComponent,
+    MpicturegroupListCustComponent,
+    MpicturegroupListGeneralComponent,
+    MpicturegroupListSelectComponent,
+    MpicturegroupListViewWidgetTableComponent,
+    MpicturegroupListViewWidgetListComponent,
+    MpicturegroupListViewWidgetGridComponent,
+    MpicturegroupListViewWidgetIndexComponent,
+    MpicturegroupDetailCustComponent,
+    MpicturegroupDetailComponent,
+    MpicturegroupDetailFieldComponent,
+    MpicturegroupEditComponent,
+    MpicturegroupEditCustComponent,
     MfileComponent,
     MfileListComponent,
     MfileListViewComponent,
@@ -136,8 +253,8 @@ import {
     MfileListGeneralComponent,
     MfileListSubComponent,
     MfileListViewWidgetListComponent,
-    MfileListViewWidgetGridComponent,
     MfileListViewWidgetTableComponent,
+    MfileListViewWidgetGridComponent,
     MfileDetailFieldComponent,
     MfileEditComponent,
     MfileEditCustComponent,
@@ -156,12 +273,24 @@ import {
     MfilegroupDetailFieldComponent,
     MfilegroupEditComponent,
     MfilegroupEditCustComponent,
+    MpicturegroupDetailPopComponent,
+    MpicturegroupDetailSelComponent,
     MfilegroupDetailPopComponent,
     MfilegroupDetailSelComponent,
+    MpicturegroupDetailSubComponent,
     MfilegroupDetailSubComponent,
   ],
   exports: [
     FilesComponent,
+    MpictureListGeneralComponent,
+    MpictureListSubComponent,
+    MpictureDetailFieldComponent,
+    MpictureEditComponent,
+    MpicturegroupListGeneralComponent,
+    MpicturegroupListSelectComponent,
+    MpicturegroupDetailComponent,
+    MpicturegroupDetailFieldComponent,
+    MpicturegroupEditComponent,
     MfileListGeneralComponent,
     MfileListSubComponent,
     MfileDetailFieldComponent,
@@ -171,8 +300,11 @@ import {
     MfilegroupDetailComponent,
     MfilegroupDetailFieldComponent,
     MfilegroupEditComponent,
+    MpicturegroupDetailPopComponent,
+    MpicturegroupDetailSelComponent,
     MfilegroupDetailPopComponent,
     MfilegroupDetailSelComponent,
+    MpicturegroupDetailSubComponent,
     MfilegroupDetailSubComponent,
   ],
   providers: [{
@@ -183,9 +315,13 @@ import {
     useClass: MraNgbDateFormatterService
   }, ],
   entryComponents: [
+    MpicturegroupListSelectComponent,
+    MpicturegroupDetailPopComponent,
+    MpicturegroupDetailSelComponent,
     MfilegroupListSelectComponent,
     MfilegroupDetailPopComponent,
     MfilegroupDetailSelComponent,
+    MpicturegroupEditComponent,
     MfilegroupEditComponent,
   ]
 })

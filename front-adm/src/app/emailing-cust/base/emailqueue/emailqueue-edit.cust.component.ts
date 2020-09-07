@@ -8,7 +8,7 @@ import { EmailqueueComponent } from '../../../emailing/emailqueue/emailqueue.com
 export class EmailqueueEditCustComponent extends EmailqueueComponent {        
 }
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Fri Sep 04 2020 21:56:42 GMT-0700 (Pacific Daylight Time)
+**Date: Mon Sep 07 2020 12:16:24 GMT-0700 (Pacific Daylight Time)
 
 import {
   Input,

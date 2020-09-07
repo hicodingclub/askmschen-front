@@ -6,7 +6,7 @@
       <div class="list-info">
         <div class="list-fields" [ngClass]="{pointer: clickItemAction}" (click)="clickOneItem(i)">
           <div class="list-head-picture">
-            <lib-mdds-file-display [downloadUrl]="detail['signaturePicture']" [isLarge]="false" [aspectRatio]=""></lib-mdds-file-display>
+            <lib-mdds-picture-display [downloadUrl]="detail['signaturePicture']" [isLarge]="false" [aspectRatio]=""></lib-mdds-picture-display>
           </div>
           <div class="list-body-fields">
             <h5>
@@ -16,8 +16,8 @@
             </h5>
             <div>
               <div *ngIf="fieldHasValue(detail['publishDate'])" class="mr-3 d-inline-flex flex-wrap">
-                <div><label>Publish Date:</label></div>
-                <div class="ml-3"> {{detail['publishDate']? (detail['publishDate']['originalValue'] | date:'medium') : ''}}
+                <div class="mr-3"><label>Publish Date:</label></div>
+                <div> {{detail['publishDate']? (detail['publishDate']['originalValue'] | date:'medium') : ''}}
                 </div>
               </div>
             </div>

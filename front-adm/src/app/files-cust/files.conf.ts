@@ -6,6 +6,8 @@ import { FilesComponent } from '../files/files.component';
 import { 
   mfileRoutingCorePath,
   mfilegroupRoutingCorePath,
+  mpictureRoutingCorePath,
+  mpicturegroupRoutingCorePath,
 } from '../files/files-routing.core.path';
 
 export const FilesCoreRoutes: Routes = [
@@ -27,6 +29,20 @@ export const FilesCoreRoutes: Routes = [
       { path: 'mfilegroup',
         children: mfilegroupRoutingCorePath,
         data: {mraLevel: 1, item: 'mfilegroup'}
+      },{
+        path: 'mpicture',
+        children: mpictureRoutingCorePath,
+        data: {
+          mraLevel: 1,
+          item: 'mpicture'
+        }
+      }, {
+        path: 'mpicturegroup',
+        children: mpicturegroupRoutingCorePath,
+        data: {
+          mraLevel: 1,
+          item: 'mpicturegroup'
+        }
       },
     ]
   },
@@ -45,7 +61,7 @@ export const FilesRoutes: Routes = [
     children: FilesRoutingCustPath,
   },
 ];/*>>> Please check this recent updates and merge with existing ones***
-**Date: Fri Sep 04 2020 21:56:43 GMT-0700 (Pacific Daylight Time)
+**Date: Mon Sep 07 2020 12:16:25 GMT-0700 (Pacific Daylight Time)
 
 import {
   Routes
@@ -55,6 +71,8 @@ import {
 } from '../files/files.component';
 //Import routing paths
 import {
+  mpictureRoutingCorePath,
+  mpicturegroupRoutingCorePath,
   mfileRoutingCorePath,
   mfilegroupRoutingCorePath,
 } from '../files/files-routing.core.path';
@@ -67,8 +85,22 @@ export const FilesCoreRoutes: Routes = [{
   component: FilesComponent,
   children: [{
     path: '',
-    redirectTo: 'mfile',
+    redirectTo: 'mpicture',
     pathMatch: 'full'
+  }, {
+    path: 'mpicture',
+    children: mpictureRoutingCorePath,
+    data: {
+      mraLevel: 1,
+      item: 'mpicture'
+    }
+  }, {
+    path: 'mpicturegroup',
+    children: mpicturegroupRoutingCorePath,
+    data: {
+      mraLevel: 1,
+      item: 'mpicturegroup'
+    }
   }, {
     path: 'mfile',
     children: mfileRoutingCorePath,

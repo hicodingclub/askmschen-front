@@ -5,7 +5,7 @@
       <div class="grid-fields" [ngClass]="{pointer: clickItemAction}" (click)="clickOneItem(i)">
         <div class="card-header grid-head">
           <div class="grid-head-picture">
-            <lib-mdds-file-display [downloadUrl]="detail['signaturePicture']" [isLarge]="false" [aspectRatio]=""></lib-mdds-file-display>
+            <lib-mdds-picture-display [downloadUrl]="detail['signaturePicture']" [isLarge]="false" [aspectRatio]=""></lib-mdds-picture-display>
           </div>
           <div>
             <h5>
@@ -17,12 +17,12 @@
         </div>
         <div class="card-body">
           <div *ngIf="fieldHasValue(detail['publishDate'])" class="d-flex flex-wrap">
-            <div class=""><label>Publish Date:</label></div>
-            <div class="ml-3"> {{detail['publishDate']? (detail['publishDate']['originalValue'] | date:'medium') : ''}}</div>
+            <div class="mr-3"><label>Publish Date:</label></div>
+            <div> {{detail['publishDate']? (detail['publishDate']['originalValue'] | date:'medium') : ''}}</div>
           </div>
           <div *ngIf="fieldHasValue(detail['topicTags'])" class="d-flex flex-wrap">
-            <div class=""><label>Topic Tags:</label></div>
-            <div class="ml-3">
+            <div class="mr-3"><label>Topic Tags:</label></div>
+            <div>
               <div *ngIf="detail['topicTags'] && detail['topicTags']['selection']">
                 <ng-template ngFor let-element [ngForOf]="detail['topicTags']['selection']" let-idx="index">
                   <div class="badge badge-pill badge-secondary">
@@ -33,8 +33,8 @@
             </div>
           </div>
           <div *ngIf="fieldHasValue(detail['hot'])" class="d-flex flex-wrap">
-            <div class=""><label>Hot:</label></div>
-            <div class="ml-3">{{detail['hot']}} </div>
+            <div class="mr-3"><label>Hot:</label></div>
+            <div>{{detail['hot']}} </div>
           </div>
         </div>
       </div>

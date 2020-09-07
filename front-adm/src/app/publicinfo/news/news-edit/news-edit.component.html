@@ -42,7 +42,7 @@
                             'ng-invalid': !detail['signaturePicture']}">
                 <input type="text" class="form-control rounded" id="EditSignaturePicture" style="display: none;" required [(ngModel)]="detail['signaturePicture']" name="EditSignaturePicture" #EditSignaturePicture="ngModel">
                 <div style="display: inline-block; width: 80%;">
-                  <lib-mdds-file-select [(downloadUrl)]="detail['signaturePicture']" [aspectRatio]=""></lib-mdds-file-select>
+                  <lib-mdds-picture-select [(downloadUrl)]="detail['signaturePicture']" [aspectRatio]=""></lib-mdds-picture-select>
                 </div>
                 <span *ngIf="detail['signaturePicture']" class="icon-clear" (click)="clearValueFromDetail('signaturePicture')">
                   <i class="fas fa-times-circle" title="Clear"></i>
@@ -105,7 +105,7 @@
                             'ng-invalid': !detail['signaturePicture']}">
                 <input type="text" class="form-control rounded" id="EditSignaturePicture" style="display: none;" required [(ngModel)]="detail['signaturePicture']" name="EditSignaturePicture" #EditSignaturePicture="ngModel">
                 <div style="display: inline-block; width: 80%;">
-                  <lib-mdds-file-select [(downloadUrl)]="detail['signaturePicture']" [aspectRatio]=""></lib-mdds-file-select>
+                  <lib-mdds-picture-select [(downloadUrl)]="detail['signaturePicture']" [aspectRatio]=""></lib-mdds-picture-select>
                 </div>
                 <span *ngIf="detail['signaturePicture']" class="icon-clear" (click)="clearValueFromDetail('signaturePicture')">
                   <i class="fas fa-times-circle" title="Clear"></i>

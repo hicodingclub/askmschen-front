@@ -8,7 +8,7 @@ import { MfilegroupComponent } from '../../../files/mfilegroup/mfilegroup.compon
 export class MfilegroupDetailCustComponent extends MfilegroupComponent {
 }
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Fri Sep 04 2020 21:56:43 GMT-0700 (Pacific Daylight Time)
+**Date: Mon Sep 07 2020 12:16:25 GMT-0700 (Pacific Daylight Time)
 
 import {
   Input,

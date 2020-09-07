@@ -71,8 +71,7 @@ export class SubscriptionListComponent extends SubscriptionListCustComponent imp
       'name': 'Name',
       'email': 'Email',
     };
-    this.stringFields.push('name');
-    this.stringFields.push('email');
+    this.stringFields = ['name', 'email', ];
     const listCategories = [];
     this.listCategory1 = listCategories[0] || {};
     this.listCategory2 = listCategories[1] || {};

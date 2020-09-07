@@ -79,7 +79,7 @@ export class EmailqueueListComponent extends EmailqueueListCustComponent impleme
       'sent': 'Sent',
       'createdAt': 'Created at',
     };
-    this.stringFields.push('subject');
+    this.stringFields = ['subject', ];
     this.dateFields = ['createdAt', ];
     this.numberFields = ['number', 'sent', ];
     this.setListSort('createdAt', 'Created at', 'desc');

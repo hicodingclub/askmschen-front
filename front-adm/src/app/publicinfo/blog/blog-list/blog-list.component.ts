@@ -79,8 +79,7 @@ export class BlogListComponent extends BlogListCustComponent implements OnInit {
       'topicTags': 'Topic Tags',
       'hot': 'Hot',
     };
-    this.stringFields.push('signaturePicture');
-    this.stringFields.push('title');
+    this.stringFields = ['signaturePicture', 'title', ];
     this.dateFields = ['publishDate', ];
     this.arrayFields = [
       ['topicTags', 'SchemaString'],

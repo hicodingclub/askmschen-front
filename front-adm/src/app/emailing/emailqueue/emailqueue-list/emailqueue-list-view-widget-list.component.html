@@ -13,25 +13,25 @@
             </h5>
             <div>
               <div *ngIf="fieldHasValue(detail['processed'])" class="mr-3 d-inline-flex flex-wrap">
-                <div><label>Processed:</label></div>
-                <div class="ml-3">{{detail['processed']}}
+                <div class="mr-3"><label>Processed:</label></div>
+                <div>{{detail['processed']}}
                 </div>
               </div>
               <div *ngIf="fieldHasValue(detail['number'])" class="mr-3 d-inline-flex flex-wrap">
-                <div><label>Number:</label></div>
-                <div class="ml-3">
+                <div class="mr-3"><label>Number:</label></div>
+                <div>
                   {{detail['number']}}
                 </div>
               </div>
               <div *ngIf="fieldHasValue(detail['sent'])" class="mr-3 d-inline-flex flex-wrap">
-                <div><label>Sent:</label></div>
-                <div class="ml-3">
+                <div class="mr-3"><label>Sent:</label></div>
+                <div>
                   {{detail['sent']}}
                 </div>
               </div>
               <div *ngIf="fieldHasValue(detail['createdAt'])" class="mr-3 d-inline-flex flex-wrap">
-                <div><label>Created at:</label></div>
-                <div class="ml-3"> {{detail['createdAt']? (detail['createdAt']['originalValue'] | date:'medium') : ''}}
+                <div class="mr-3"><label>Created at:</label></div>
+                <div> {{detail['createdAt']? (detail['createdAt']['originalValue'] | date:'medium') : ''}}
                 </div>
               </div>
             </div>

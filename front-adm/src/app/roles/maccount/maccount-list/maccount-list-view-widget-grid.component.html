@@ -14,42 +14,42 @@
         </div>
         <div class="card-body">
           <div *ngIf="fieldHasValue(detail['email'])" class="d-flex flex-wrap">
-            <div class=""><label>Email:</label></div>
-            <div class="ml-3">
+            <div class="mr-3"><label>Email:</label></div>
+            <div>
               {{detail['email']}}
             </div>
           </div>
           <div *ngIf="fieldHasValue(detail['phone'])" class="d-flex flex-wrap">
-            <div class=""><label>Phone:</label></div>
-            <div class="ml-3">
+            <div class="mr-3"><label>Phone:</label></div>
+            <div>
               {{detail['phone']}}
             </div>
           </div>
           <div *ngIf="fieldHasValue(detail['firstname'])" class="d-flex flex-wrap">
-            <div class=""><label>Firstname:</label></div>
-            <div class="ml-3">
+            <div class="mr-3"><label>Firstname:</label></div>
+            <div>
               {{detail['firstname']}}
             </div>
           </div>
           <div *ngIf="fieldHasValue(detail['lastname'])" class="d-flex flex-wrap">
-            <div class=""><label>Lastname:</label></div>
-            <div class="ml-3">
+            <div class="mr-3"><label>Lastname:</label></div>
+            <div>
               {{detail['lastname']}}
             </div>
           </div>
           <div *ngIf="fieldHasValue(detail['since'])" class="d-flex flex-wrap">
-            <div class=""><label>Since:</label></div>
-            <div class="ml-3"> {{detail['since']? (detail['since']['originalValue'] | date:'medium') : ''}}</div>
+            <div class="mr-3"><label>Since:</label></div>
+            <div> {{detail['since']? (detail['since']['originalValue'] | date:'medium') : ''}}</div>
           </div>
           <div *ngIf="fieldHasValue(detail['regtype'])" class="d-flex flex-wrap">
-            <div class=""><label>Regtype:</label></div>
-            <div class="ml-3">
+            <div class="mr-3"><label>Regtype:</label></div>
+            <div>
               {{detail['regtype']}}
             </div>
           </div>
           <div *ngIf="fieldHasValue(detail['status'])" class="d-flex flex-wrap">
-            <div class=""><label>Status:</label></div>
-            <div class="ml-3">
+            <div class="mr-3"><label>Status:</label></div>
+            <div>
               {{detail['status']}}
             </div>
           </div>

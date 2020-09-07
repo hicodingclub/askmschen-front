@@ -8,7 +8,7 @@ import {
   MraNgbDateFormatterService
 } from '@hicoder/angular-core';
 
-import { FileUploadModule } from '@hicoder/angular-file';
+import { FilesModule } from '@hicoder/angular-file';
 
 import { ActionEmailModule } from '@hicoder/angular-action-email';
 
@@ -41,7 +41,7 @@ import { PassswordEqualValidator } from './muser/muser-edit/muser-pass.component
     FormsModule,
     NgbModule,
     MddsCoreModule,
-    FileUploadModule,
+    FilesModule,
     ActionEmailModule,
 
     UsersRoutingModule

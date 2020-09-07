@@ -38,8 +38,7 @@ implements OnInit {
       'name': 'Name',
       'email': 'Email',
     };
-    this.stringFields.push('name');
-    this.stringFields.push('email');
+    this.stringFields = ['name', 'email', ];
   }
   ngOnInit() {
     if (!this.showFieldsStr) {

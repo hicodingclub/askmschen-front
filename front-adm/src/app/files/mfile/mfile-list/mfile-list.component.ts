@@ -35,11 +35,11 @@ export class MfileListComponent extends MfileListCustComponent implements OnInit
     list: {
       mobile: true
     },
-    grid: {
-      mobile: true
-    },
     table: {
       mobile: false
+    },
+    grid: {
+      mobile: true
     }
   };
   // used by association widget for the associated schema
@@ -82,9 +82,7 @@ export class MfileListComponent extends MfileListCustComponent implements OnInit
       'createdAt': 'Created at',
       'hasThumbnail': 'Has Thumbnail',
     };
-    this.stringFields.push('name');
-    this.stringFields.push('type');
-    this.stringFields.push('link');
+    this.stringFields = ['name', 'type', 'link', ];
     this.referenceFields = ['group', ];
     this.dateFields = ['createdAt', ];
     this.numberFields = ['size', ];

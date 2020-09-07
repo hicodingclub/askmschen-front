@@ -40,7 +40,7 @@ implements OnInit {
       'modulePermission': 'Module Permission',
       'resourcePermission': 'Resource Permission',
     };
-    this.stringFields.push('modulePermission');
+    this.stringFields = ['modulePermission', ];
     this.referenceFields = ['role', 'module', ];
     this.mapFields = [
       ['resourcePermission', 'SchemaString', '', '', , ''],

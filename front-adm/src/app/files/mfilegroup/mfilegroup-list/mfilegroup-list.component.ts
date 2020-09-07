@@ -78,7 +78,7 @@ export class MfilegroupListComponent extends MfilegroupListCustComponent impleme
     this.fieldDisplayNames = {
       'name': 'Name',
     };
-    this.stringFields.push('name');
+    this.stringFields = ['name', ];
     const listCategories = [];
     this.listCategory1 = listCategories[0] || {};
     this.listCategory2 = listCategories[1] || {};

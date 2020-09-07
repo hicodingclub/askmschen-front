@@ -46,7 +46,7 @@ export class MmoduleDetailComponent extends MmoduleDetailCustComponent implement
       'module': 'Module',
       'resources': 'Resources',
     };
-    this.stringFields.push('module');
+    this.stringFields = ['module', ];
     this.arrayFields = [
       ['resources', 'SchemaString'],
     ];

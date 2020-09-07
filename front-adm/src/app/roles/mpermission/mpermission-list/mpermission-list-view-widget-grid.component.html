@@ -16,16 +16,16 @@
         </div>
         <div class="card-body">
           <div *ngIf="fieldHasValue(detail['module'])" class="d-flex flex-wrap">
-            <div class=""><label>Module:</label></div>
-            <div class="ml-3">
+            <div class="mr-3"><label>Module:</label></div>
+            <div>
               <a routerLink="." (click)="onDisplayRefClicked('module', detail['module'], $event)">
                 {{detail['module']?detail['module']['valueMedium']:""}}
               </a>
             </div>
           </div>
           <div *ngIf="fieldHasValue(detail['modulePermission'])" class="d-flex flex-wrap">
-            <div class=""><label>Module Permission:</label></div>
-            <div class="ml-3">
+            <div class="mr-3"><label>Module Permission:</label></div>
+            <div>
               {{detail['modulePermission']}}
             </div>
           </div>

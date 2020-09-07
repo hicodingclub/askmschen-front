@@ -49,10 +49,7 @@ export class NewsDetailComponent extends NewsDetailCustComponent implements OnIn
       'publishDate': 'Publish Date',
       'content': 'Content',
     };
-    this.stringFields.push('signaturePicture');
-    this.stringFields.push('title');
-    this.stringFields.push('author');
-    this.stringFields.push('content');
+    this.stringFields = ['signaturePicture', 'title', 'author', 'content', ];
     this.dateFields = ['publishDate', ];
   }
   ngOnInit() {
