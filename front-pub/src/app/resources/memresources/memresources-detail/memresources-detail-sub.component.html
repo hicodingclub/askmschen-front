@@ -1,0 +1,29 @@
+<div *ngIf="detail">
+  <div class="card text-left">
+    <div class="card-body">
+      <div class="card-text">
+        <div class="card-body">
+          <div>
+            <div *ngIf="fieldHasValue(detail['description'])" class="d-inline-flex flex-wrap mx-2" style="min-width: 160px;">
+              <div class="mr-2"><label>Description:</label></div>
+              <div>
+                <div libMddsRichtextShow="memresourcesDetailDescription" [content]="detail['description']"></div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div *ngIf="fieldHasValue(detail['attachments'])" class="d-inline-flex flex-wrap mx-2" style="min-width: 160px;">
+              <div class="mr-2"><label>Attachments:</label></div>
+              <div>
+                <div class="" *ngIf="detail['attachments'] && detail['attachments']['selection']">
+                  <lib-mdds-files-display [downloadUrls]="detail['attachments']['selection']">
+                  </lib-mdds-files-display>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

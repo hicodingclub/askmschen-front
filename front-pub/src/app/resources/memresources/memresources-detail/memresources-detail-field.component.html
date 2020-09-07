@@ -1,0 +1,26 @@
+<div *ngIf="detail && showFields.includes('title')">
+  {{detail['title']}}
+</div>
+<div *ngIf="detail && showFields.includes('subTitle')">
+  {{detail['subTitle']}}
+</div>
+<div *ngIf="detail && showFields.includes('topicTags')">
+  <div *ngIf="detail['topicTags'] && detail['topicTags']['selection']">
+    <ng-template ngFor let-element [ngForOf]="detail['topicTags']['selection']" let-idx="index">
+      <div class="badge badge-pill badge-secondary">
+        {{element}}
+      </div>
+    </ng-template>
+  </div>
+</div>
+<div *ngIf="detail && showFields.includes('description')">
+  <div libMddsRichtextShow="memresourcesDetailDescription" [content]="detail['description']"></div>
+</div>
+<div *ngIf="detail && showFields.includes('attachments')">
+  <div class="" *ngIf="detail['attachments'] && detail['attachments']['selection']">
+    <lib-mdds-files-display [downloadUrls]="detail['attachments']['selection']">
+    </lib-mdds-files-display>
+  </div>
+</div>
+<div *ngIf="detail && showFields.includes('createdAt')"> {{detail['createdAt']? (detail['createdAt']['originalValue'] | date:'medium') : ''}}
+</div>

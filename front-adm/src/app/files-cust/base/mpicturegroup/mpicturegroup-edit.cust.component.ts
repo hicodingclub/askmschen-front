@@ -9,7 +9,7 @@ import {
   template: '',
 })
 export class MpicturegroupEditCustComponent extends MpicturegroupComponent {}/*>>> Please check this recent updates and merge with existing ones***
-**Date: Mon Sep 07 2020 12:16:25 GMT-0700 (Pacific Daylight Time)
+**Date: Mon Sep 07 2020 15:59:53 GMT-0700 (Pacific Daylight Time)
 
 import {
   Input,

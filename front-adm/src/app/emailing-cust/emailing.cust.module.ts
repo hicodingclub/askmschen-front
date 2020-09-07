@@ -24,7 +24,7 @@ import { EmailingCoreModule } from '../emailing/emailing.core.module';
 })
 export class EmailingCustModule { }
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Mon Sep 07 2020 12:16:24 GMT-0700 (Pacific Daylight Time)
+**Date: Mon Sep 07 2020 15:59:52 GMT-0700 (Pacific Daylight Time)
 
 import {
   NgModule

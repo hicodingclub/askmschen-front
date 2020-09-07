@@ -24,7 +24,7 @@ import { RolesCoreModule } from '../roles/roles.core.module';
 })
 export class RolesCustModule { }
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Mon Sep 07 2020 12:16:28 GMT-0700 (Pacific Daylight Time)
+**Date: Mon Sep 07 2020 15:59:55 GMT-0700 (Pacific Daylight Time)
 
 import {
   NgModule

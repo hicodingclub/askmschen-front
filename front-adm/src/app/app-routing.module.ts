@@ -14,6 +14,7 @@ const routes: Routes = [
 
   { path: 'home',  component: HomeComponent, canActivate: [AuthGuard] },
   { path: 'publicinfo', loadChildren: () => import('./publicinfo/publicinfo.module').then(m => m.PublicinfoModule) },
+  { path: 'resources', loadChildren: () => import('./resources/resources.module').then(m => m.ResourcesModule) },
 ];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

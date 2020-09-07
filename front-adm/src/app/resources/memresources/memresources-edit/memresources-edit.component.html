@@ -1,0 +1,261 @@
+<div class="edit" *ngIf="detail">
+  <div class="card" style="text-align: left;">
+    <div class="card-body">
+      <h4 class="card-title" *ngIf="!embeddedView && !options['title']">{{action}} Member Resources</h4>
+      <h4 class="card-title" *ngIf="options['title']" [ngStyle]="style['card-title']">
+        {{options['title']}}
+      </h4>
+      <p *ngIf="options['subtitle']" [ngStyle]="style['card-subtitle']">
+        {{options['subtitle']}}
+      </p>
+      <form (ngSubmit)="onSubmit()" #editForm="ngForm">
+        <ng-template [ngIf]="action == 'Edit'">
+          <ng-template [ngIf]="!hiddenFields.includes('title')">
+            <fieldset class="form-group">
+              <label for="EditTitle">Title</label>
+              <div class="input-group">
+                <input type="text" class="form-control rounded" id="EditTitle" required [(ngModel)]="detail['title']" name="EditTitle" #EditTitle="ngModel">
+                <div *ngIf="detail['title']" class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('title')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+                </div>
+              </div>
+              <div [hidden]="EditTitle.valid || EditTitle.pristine || EditTitle.errors.minlength" class="alert alert-danger">
+                <div *ngIf="EditTitle.errors && EditTitle.errors.required"> Title is required. </div>
+              </div>
+            </fieldset>
+          </ng-template>
+          <ng-template [ngIf]="!hiddenFields.includes('subTitle')">
+            <fieldset class="form-group">
+              <label for="EditSubTitle">Sub Title</label>
+              <div class="input-group">
+                <input type="text" class="form-control rounded" id="EditSubTitle" required [(ngModel)]="detail['subTitle']" name="EditSubTitle" #EditSubTitle="ngModel">
+                <div *ngIf="detail['subTitle']" class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('subTitle')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+                </div>
+              </div>
+              <div [hidden]="EditSubTitle.valid || EditSubTitle.pristine || EditSubTitle.errors.minlength" class="alert alert-danger">
+                <div *ngIf="EditSubTitle.errors && EditSubTitle.errors.required"> SubTitle is required. </div>
+              </div>
+            </fieldset>
+          </ng-template>
+          <ng-template [ngIf]="!hiddenFields.includes('topicTags')">
+            <fieldset class="form-group">
+              <label for="EditTopicTags">Topic Tags</label>
+              <div class="form-check" ngModelGroup="EditTopicTags" #EditTopicTags="ngModelGroup">
+                <div class="badge-group" *ngIf="detail['topicTags'] && detail['topicTags']['selection']">
+                  <div class="badge badge-pill badge-secondary" *ngFor="let element of detail['topicTags']['selection']; let i = index;">
+                    {{element}}
+                    <i class="fas fa-times-circle icon-clear-badge" (click)="clearValueFromArrayField('topicTags', i)" title="Remove"></i>
+                  </div>
+                  <span *ngIf="arraySelected('topicTags')" class="icon-clear" (click)="clearValueFromDetail('topicTags')">
+                    <i class="fas fa-times-circle" title="Clear"></i>
+                  </span>
+                </div>
+                <hr>
+                <div class="new-area">
+                  <div *ngIf="editHintFields['topicTags'].length > 0" style="font-size: 0.9rem;">Select from Available Topic Tags: </div>
+                  <ng-template ngFor let-hintEle [ngForOf]="editHintFields['topicTags']" let-i="index">
+                    <div class="badge badge-pill badge-primary pointer" *ngIf="!detail['topicTags']['selection'].includes(hintEle['_id'])" (click)="onAddArrayItemValue('topicTags', hintEle['_id'])">
+                      {{hintEle['_id']}}
+                    </div>
+                  </ng-template>
+                  <div class="mt-1">
+                    <a class="pointer" routerLink="." (click)="onAddArrayItemClicked('topicTags')" style="font-size: 0.75rem;">
+                      <i class="fas fa-plus-square" title="New"></i> New </a>
+                  </div>
+                </div>
+                <div *ngIf="detail['topicTags']['adding']" class="new-modal">
+                  <div class="card text-center new-card">
+                    <div class="card-body">
+                      <input type="search" class="form-control border" id="EditTopicTagsNew" #EditTopicTagsNew="ngModel" [(ngModel)]="detail['topicTags']['new']" [ngModelOptions]="{standalone: true}" (keydown.enter)="$event.target.blur();onAddArrayItem('topicTags');false">
+                      <div [hidden]="EditTopicTagsNew.valid
+                      || EditTopicTagsNew.pristine 
+                      || EditTopicTagsNew.errors.minlength" class="alert alert-danger small p-1">
+                      </div>
+                      <div class="d-flex my-3 justify-content-center">
+                        <button class="btn btn-outline-primary mx-1" [disabled]="!EditTopicTagsNew.valid" (click)="onAddArrayItem('topicTags')">Confirm</button>
+                        <button class="btn btn-outline-secondary mx-1" (click)="onAddArrayItemCancelled('topicTags')">Cancel</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- fake hidden input ngModel for directive to check the values-->
+                <input type="checkbox" name="EditTopicTagsSelection" style="display:none" id="EditTopicTagsSelection" [(ngModel)]="detail['topicTags']['selection'].length" #EditTopicTagsSelection="ngModel">
+              </div>
+              <div [hidden]="EditTopicTags.valid || EditTopicTags.pristine" class="alert alert-danger">
+              </div>
+            </fieldset>
+          </ng-template>
+          <ng-template [ngIf]="!hiddenFields.includes('description')">
+            <fieldset class="form-group">
+              <label for="EditDescription">Description</label>
+              <lib-richtext-editor [(ngModel)]="detail['description']" name="EditDescription" #EditDescription="ngModel">
+              </lib-richtext-editor>
+              <div [hidden]="EditDescription.valid" class="alert alert-danger">
+              </div>
+            </fieldset>
+          </ng-template>
+          <ng-template [ngIf]="!hiddenFields.includes('attachments')">
+            <fieldset class="form-group">
+              <label for="EditAttachments">Attachments</label>
+              <div class="form-check" ngModelGroup="EditAttachments" #EditAttachments="ngModelGroup">
+                <div class="d-flex align-items-center">
+                  <div>
+                    <div class="d-flex align-items-center" *ngFor="let element of detail['attachments']['selection']; let i = index;">
+                      <lib-mdds-files-display [downloadUrls]="[element]">
+                      </lib-mdds-files-display>
+                      <i class="fas fa-times-circle icon-clear-badge-light" (click)="clearValueFromArrayField('attachments', i)" title="Remove"></i>
+                    </div>
+                  </div>
+                  <span *ngIf="arraySelected('attachments') && detail['attachments']['selection'].length > 1" class="icon-clear" (click)="clearValueFromDetail('attachments')">
+                    <i class="fas fa-times-circle" title="Clear All"></i>
+                  </span>
+                </div>
+                <hr>
+                <div class="new-area">
+                  <div class="mt-1">
+                    <a class="pointer" routerLink="." (click)="onAddArrayItemClicked('attachments')" style="font-size: 0.75rem;">
+                      <i class="fas fa-plus-square" title="Upload"></i> Upload </a>
+                  </div>
+                </div>
+                <lib-mdds-files-upload [disableDisplay]="true" [askForSelect]="detail['attachments']['adding']" (downloadUrlChange)="detail['attachments']['new'] = $event; onAddArrayItem('attachments')">
+                </lib-mdds-files-upload>
+                <!-- fake hidden input ngModel for directive to check the values-->
+                <input type="checkbox" name="EditAttachmentsSelection" style="display:none" id="EditAttachmentsSelection" [(ngModel)]="detail['attachments']['selection'].length" #EditAttachmentsSelection="ngModel">
+              </div>
+              <div [hidden]="EditAttachments.valid || EditAttachments.pristine" class="alert alert-danger">
+              </div>
+            </fieldset>
+          </ng-template>
+          <div class="action-buttons-center">
+            <button type="submit" class="btn btn-success" [disabled]="!editForm.form.valid">Submit</button>
+            <button *ngIf="!options['disableCancel']" class="btn btn-outline-success" type="button" (click)="editCancel()">Cancel</button>
+          </div>
+        </ng-template>
+        <ng-template [ngIf]="action == 'Create' || action == 'Add' ">
+          <ng-template [ngIf]="!hiddenFields.includes('title')">
+            <fieldset class="form-group">
+              <label for="EditTitle">Title</label>
+              <div class="input-group">
+                <input type="text" class="form-control rounded" id="EditTitle" required [(ngModel)]="detail['title']" name="EditTitle" #EditTitle="ngModel">
+                <div *ngIf="detail['title']" class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('title')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+                </div>
+              </div>
+              <div [hidden]="EditTitle.valid || EditTitle.pristine || EditTitle.errors.minlength" class="alert alert-danger">
+                <div *ngIf="EditTitle.errors && EditTitle.errors.required"> Title is required. </div>
+              </div>
+            </fieldset>
+          </ng-template>
+          <ng-template [ngIf]="!hiddenFields.includes('subTitle')">
+            <fieldset class="form-group">
+              <label for="EditSubTitle">Sub Title</label>
+              <div class="input-group">
+                <input type="text" class="form-control rounded" id="EditSubTitle" required [(ngModel)]="detail['subTitle']" name="EditSubTitle" #EditSubTitle="ngModel">
+                <div *ngIf="detail['subTitle']" class="input-group-append icon-clear-inside " (click)="clearValueFromDetail('subTitle')">
+                  <i class="fas fa-times-circle" title="Clear"></i>
+                </div>
+              </div>
+              <div [hidden]="EditSubTitle.valid || EditSubTitle.pristine || EditSubTitle.errors.minlength" class="alert alert-danger">
+                <div *ngIf="EditSubTitle.errors && EditSubTitle.errors.required"> SubTitle is required. </div>
+              </div>
+            </fieldset>
+          </ng-template>
+          <ng-template [ngIf]="!hiddenFields.includes('topicTags')">
+            <fieldset class="form-group">
+              <label for="EditTopicTags">Topic Tags</label>
+              <div class="form-check" ngModelGroup="EditTopicTags" #EditTopicTags="ngModelGroup">
+                <div class="badge-group" *ngIf="detail['topicTags'] && detail['topicTags']['selection']">
+                  <div class="badge badge-pill badge-secondary" *ngFor="let element of detail['topicTags']['selection']; let i = index;">
+                    {{element}}
+                    <i class="fas fa-times-circle icon-clear-badge" (click)="clearValueFromArrayField('topicTags', i)" title="Remove"></i>
+                  </div>
+                  <span *ngIf="arraySelected('topicTags')" class="icon-clear" (click)="clearValueFromDetail('topicTags')">
+                    <i class="fas fa-times-circle" title="Clear"></i>
+                  </span>
+                </div>
+                <hr>
+                <div class="new-area">
+                  <div *ngIf="editHintFields['topicTags'].length > 0" style="font-size: 0.9rem;">Select from Available Topic Tags: </div>
+                  <ng-template ngFor let-hintEle [ngForOf]="editHintFields['topicTags']" let-i="index">
+                    <div class="badge badge-pill badge-primary pointer" *ngIf="!detail['topicTags']['selection'].includes(hintEle['_id'])" (click)="onAddArrayItemValue('topicTags', hintEle['_id'])">
+                      {{hintEle['_id']}}
+                    </div>
+                  </ng-template>
+                  <div class="mt-1">
+                    <a class="pointer" routerLink="." (click)="onAddArrayItemClicked('topicTags')" style="font-size: 0.75rem;">
+                      <i class="fas fa-plus-square" title="New"></i> New </a>
+                  </div>
+                </div>
+                <div *ngIf="detail['topicTags']['adding']" class="new-modal">
+                  <div class="card text-center new-card">
+                    <div class="card-body">
+                      <input type="search" class="form-control border" id="EditTopicTagsNew" #EditTopicTagsNew="ngModel" [(ngModel)]="detail['topicTags']['new']" [ngModelOptions]="{standalone: true}" (keydown.enter)="$event.target.blur();onAddArrayItem('topicTags');false">
+                      <div [hidden]="EditTopicTagsNew.valid
+                      || EditTopicTagsNew.pristine 
+                      || EditTopicTagsNew.errors.minlength" class="alert alert-danger small p-1">
+                      </div>
+                      <div class="d-flex my-3 justify-content-center">
+                        <button class="btn btn-outline-primary mx-1" [disabled]="!EditTopicTagsNew.valid" (click)="onAddArrayItem('topicTags')">Confirm</button>
+                        <button class="btn btn-outline-secondary mx-1" (click)="onAddArrayItemCancelled('topicTags')">Cancel</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- fake hidden input ngModel for directive to check the values-->
+                <input type="checkbox" name="EditTopicTagsSelection" style="display:none" id="EditTopicTagsSelection" [(ngModel)]="detail['topicTags']['selection'].length" #EditTopicTagsSelection="ngModel">
+              </div>
+              <div [hidden]="EditTopicTags.valid || EditTopicTags.pristine" class="alert alert-danger">
+              </div>
+            </fieldset>
+          </ng-template>
+          <ng-template [ngIf]="!hiddenFields.includes('description')">
+            <fieldset class="form-group">
+              <label for="EditDescription">Description</label>
+              <lib-richtext-editor [(ngModel)]="detail['description']" name="EditDescription" #EditDescription="ngModel">
+              </lib-richtext-editor>
+              <div [hidden]="EditDescription.valid" class="alert alert-danger">
+              </div>
+            </fieldset>
+          </ng-template>
+          <ng-template [ngIf]="!hiddenFields.includes('attachments')">
+            <fieldset class="form-group">
+              <label for="EditAttachments">Attachments</label>
+              <div class="form-check" ngModelGroup="EditAttachments" #EditAttachments="ngModelGroup">
+                <div class="d-flex align-items-center">
+                  <div>
+                    <div class="d-flex align-items-center" *ngFor="let element of detail['attachments']['selection']; let i = index;">
+                      <lib-mdds-files-display [downloadUrls]="[element]">
+                      </lib-mdds-files-display>
+                      <i class="fas fa-times-circle icon-clear-badge-light" (click)="clearValueFromArrayField('attachments', i)" title="Remove"></i>
+                    </div>
+                  </div>
+                  <span *ngIf="arraySelected('attachments') && detail['attachments']['selection'].length > 1" class="icon-clear" (click)="clearValueFromDetail('attachments')">
+                    <i class="fas fa-times-circle" title="Clear All"></i>
+                  </span>
+                </div>
+                <hr>
+                <div class="new-area">
+                  <div class="mt-1">
+                    <a class="pointer" routerLink="." (click)="onAddArrayItemClicked('attachments')" style="font-size: 0.75rem;">
+                      <i class="fas fa-plus-square" title="Upload"></i> Upload </a>
+                  </div>
+                </div>
+                <lib-mdds-files-upload [disableDisplay]="true" [askForSelect]="detail['attachments']['adding']" (downloadUrlChange)="detail['attachments']['new'] = $event; onAddArrayItem('attachments')">
+                </lib-mdds-files-upload>
+                <!-- fake hidden input ngModel for directive to check the values-->
+                <input type="checkbox" name="EditAttachmentsSelection" style="display:none" id="EditAttachmentsSelection" [(ngModel)]="detail['attachments']['selection'].length" #EditAttachmentsSelection="ngModel">
+              </div>
+              <div [hidden]="EditAttachments.valid || EditAttachments.pristine" class="alert alert-danger">
+              </div>
+            </fieldset>
+          </ng-template>
+          <div class="action-buttons-center">
+            <button type="submit" class="btn btn-success" [disabled]="!editForm.form.valid">Submit</button>
+            <button *ngIf="!options['disableCancel']" class="btn btn-outline-success" type="button" (click)="editCancel()">Cancel</button>
+          </div>
+        </ng-template>
+      </form>
+    </div>
+  </div>
+</div>

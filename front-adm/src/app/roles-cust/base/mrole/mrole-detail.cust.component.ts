@@ -8,7 +8,7 @@ import { MroleComponent } from '../../../roles/mrole/mrole.component';
 export class MroleDetailCustComponent extends MroleComponent {
 }
 /*>>> Please check this recent updates and merge with existing ones***
-**Date: Mon Sep 07 2020 12:16:27 GMT-0700 (Pacific Daylight Time)
+**Date: Mon Sep 07 2020 15:59:55 GMT-0700 (Pacific Daylight Time)
 
 import {
   Input,

@@ -47,7 +47,7 @@ export const PublicinfoRoutes: Routes = [{
   // path: 'publicinfo/cust',
   children: PublicinfoRoutingCustPath,
 }, ];/*>>> Please check this recent updates and merge with existing ones***
-**Date: Mon Sep 07 2020 12:16:41 GMT-0700 (Pacific Daylight Time)
+**Date: Mon Sep 07 2020 16:21:41 GMT-0700 (Pacific Daylight Time)
 
 import {
   Routes

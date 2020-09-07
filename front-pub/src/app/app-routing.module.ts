@@ -8,6 +8,7 @@ import { BlogComponent } from "./pages/blog/blog.component";
 const routes: Routes = [
     { path: '', component: HomepageComponent },
     { path: 'blog', component: BlogComponent },
+    { path: 'resources', loadChildren: () => import('./resources/resources.module').then(m => m.ResourcesModule) },
 ];
 
 @NgModule({

@@ -20,14 +20,12 @@
             <div>
               <a routerLink="." (click)="onDisplayRefClicked('module', detail['module'], $event)">
                 {{detail['module']?detail['module']['valueMedium']:""}}
-              </a>
-            </div>
+              </a></div>
           </div>
           <div *ngIf="fieldHasValue(detail['modulePermission'])" class="d-flex flex-wrap">
             <div class="mr-3"><label>Module Permission:</label></div>
             <div>
-              {{detail['modulePermission']}}
-            </div>
+              {{detail['modulePermission']}}</div>
           </div>
         </div>
       </div>
