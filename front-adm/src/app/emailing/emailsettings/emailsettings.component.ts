@@ -91,9 +91,10 @@ export class EmailsettingsComponent extends MddsBaseComponent implements OnInit 
   constructor(public emailsettingsService: EmailsettingsService, public injector: Injector, public router: Router, public route: ActivatedRoute, public location: Location) {
     super(emailsettingsService, injector, router, route, location);
     this.setItemNames(itemCamelName);
-    this.briefFieldsInfo = [];
-    this.briefFieldsInfo.push(['settingName', 'Setting Name']);
-    this.briefFieldsInfo.push(['defaultSender', 'Default Sender Email Address']);
+    this.briefFieldsInfo = [
+      ['settingName', 'Setting Name'],
+      ['defaultSender', 'Default Sender Email Address'],
+    ];
     this.requiredFields = ['defaultSender', 'settingName', ];
     this.schemaName = 'emailsettings';
     this.modulePath = 'emailing';

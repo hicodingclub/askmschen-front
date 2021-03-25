@@ -91,12 +91,13 @@ export class EmailqueueComponent extends MddsBaseComponent implements OnInit {
   constructor(public emailqueueService: EmailqueueService, public injector: Injector, public router: Router, public route: ActivatedRoute, public location: Location) {
     super(emailqueueService, injector, router, route, location);
     this.setItemNames(itemCamelName);
-    this.briefFieldsInfo = [];
-    this.briefFieldsInfo.push(['subject', 'Subject']);
-    this.briefFieldsInfo.push(['processed', 'Processed']);
-    this.briefFieldsInfo.push(['number', 'Number']);
-    this.briefFieldsInfo.push(['sent', 'Sent']);
-    this.briefFieldsInfo.push(['createdAt', 'Created at']);
+    this.briefFieldsInfo = [
+      ['subject', 'Subject'],
+      ['processed', 'Processed'],
+      ['number', 'Number'],
+      ['sent', 'Sent'],
+      ['createdAt', 'Created at'],
+    ];
     this.schemaName = 'emailqueue';
     this.dateFormat = 'MM-DD-YYYY';
     this.timeFormat = 'hh:mm:ss';

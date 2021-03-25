@@ -155,11 +155,53 @@ import {
   SubscriptionEditCustComponent
 } from '../publicinfo-cust/base/subscription/subscription-edit.cust.component';
 import {
+  QuestionComponent
+} from './question/question.component';
+import {
+  QuestionListComponent
+} from './question/question-list/question-list.component';
+import {
+  QuestionListViewComponent
+} from './question/question-list/question-list-view.component';
+import {
+  QuestionListCustComponent
+} from '../publicinfo-cust/base/question/question-list.cust.component';
+import {
+  QuestionListGeneralComponent
+} from './question/question-list/question-list-general.component';
+import {
+  QuestionListViewWidgetListComponent
+} from './question/question-list/question-list-view-widget-list.component';
+import {
+  QuestionListViewWidgetGridComponent
+} from './question/question-list/question-list-view-widget-grid.component';
+import {
+  QuestionListViewWidgetTableComponent
+} from './question/question-list/question-list-view-widget-table.component';
+import {
+  QuestionDetailComponent
+} from './question/question-detail/question-detail.component';
+import {
+  QuestionDetailCustComponent
+} from '../publicinfo-cust/base/question/question-detail.cust.component';
+import {
+  QuestionDetailFieldComponent
+} from './question/question-detail/question-detail-field.component';
+import {
+  QuestionEditComponent
+} from './question/question-edit/question-edit.component';
+import {
+  QuestionEditCustComponent
+} from '../publicinfo-cust/base/question/question-edit.cust.component';
+import {
   NewsDetailSubComponent
 } from './news/news-detail/news-detail-sub.component';
 import {
   BlogDetailSubComponent
 } from './blog/blog-detail/blog-detail-sub.component';
+import {
+  QuestionDetailSubComponent
+} from './question/question-detail/question-detail-sub.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -213,8 +255,22 @@ import {
     SubscriptionDetailFieldComponent,
     SubscriptionEditComponent,
     SubscriptionEditCustComponent,
+    QuestionComponent,
+    QuestionListComponent,
+    QuestionListViewComponent,
+    QuestionListCustComponent,
+    QuestionListGeneralComponent,
+    QuestionListViewWidgetListComponent,
+    QuestionListViewWidgetGridComponent,
+    QuestionListViewWidgetTableComponent,
+    QuestionDetailCustComponent,
+    QuestionDetailComponent,
+    QuestionDetailFieldComponent,
+    QuestionEditComponent,
+    QuestionEditCustComponent,
     NewsDetailSubComponent,
     BlogDetailSubComponent,
+    QuestionDetailSubComponent,
   ],
   exports: [
     PublicinfoComponent,
@@ -232,8 +288,13 @@ import {
     SubscriptionDetailComponent,
     SubscriptionDetailFieldComponent,
     SubscriptionEditComponent,
+    QuestionListGeneralComponent,
+    QuestionDetailComponent,
+    QuestionDetailFieldComponent,
+    QuestionEditComponent,
     NewsDetailSubComponent,
     BlogDetailSubComponent,
+    QuestionDetailSubComponent,
   ],
   providers: [{
     provide: MDDS_NGB_DATE_FORMAT,
@@ -248,6 +309,7 @@ import {
     BlogDetailWidgetPostComponent,
     BlogEditComponent,
     SubscriptionEditComponent,
+    QuestionEditComponent,
   ]
 })
 export class PublicinfoCoreModule {}

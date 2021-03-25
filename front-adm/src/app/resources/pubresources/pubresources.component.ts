@@ -91,11 +91,12 @@ export class PubresourcesComponent extends MddsBaseComponent implements OnInit {
   constructor(public pubresourcesService: PubresourcesService, public injector: Injector, public router: Router, public route: ActivatedRoute, public location: Location) {
     super(pubresourcesService, injector, router, route, location);
     this.setItemNames(itemCamelName);
-    this.briefFieldsInfo = [];
-    this.briefFieldsInfo.push(['title', 'Title']);
-    this.briefFieldsInfo.push(['subTitle', 'Sub Title']);
-    this.briefFieldsInfo.push(['topicTags', 'Topic Tags']);
-    this.briefFieldsInfo.push(['createdAt', 'Publish Date']);
+    this.briefFieldsInfo = [
+      ['title', 'Title'],
+      ['subTitle', 'Sub Title'],
+      ['topicTags', 'Topic Tags'],
+      ['createdAt', 'Publish Date'],
+    ];
     this.requiredFields = ['title', 'subTitle', ];
     this.schemaName = 'pubresources';
     this.dateFormat = 'MM-DD-YYYY';

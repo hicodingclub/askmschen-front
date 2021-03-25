@@ -22,7 +22,7 @@
   {{detail['size']}}
 </div>
 <div *ngIf="detail && showFields.includes('link')">
-  <a href="{{detail['link']}}">{{detail['link']}}</a>
+  <a href="{{detail['link']['url']}}" target="_blank">{{detail['link']['display'] || detail['link']['url']}}</a>
 </div>
 <div *ngIf="detail && showFields.includes('createdAt')"> {{detail['createdAt']? (detail['createdAt']['originalValue'] | date:'medium') : ''}}
 </div>

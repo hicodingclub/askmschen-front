@@ -2,7 +2,7 @@
 export const ResourcesRoutingCustPath = [
   // your customization goes here
 ];/*>>> Please check this recent updates and merge with existing ones***
-**Date: Mon Sep 07 2020 15:59:57 GMT-0700 (Pacific Daylight Time)
+**Date: Thu Feb 25 2021 00:24:46 GMT-0800 (Pacific Standard Time)
 
 // Path under resources/cust/
 export const ResourcesRoutingCustPath = [

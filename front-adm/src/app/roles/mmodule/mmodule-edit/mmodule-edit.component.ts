@@ -62,7 +62,10 @@ export class MmoduleEditComponent extends MmoduleEditCustComponent implements On
     };
     this.stringFields = ['module', ];
     this.arrayFields = [
-      ['resources', 'SchemaString'],
+      ['resources', 'SchemaString', {
+        "mraType": "",
+        "urlDisplay": ""
+      }, ],
     ];
     const detail = {};
     this.detail = this.formatDetail(detail);

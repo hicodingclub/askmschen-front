@@ -79,6 +79,7 @@ export class MfilegroupListComponent extends MfilegroupListCustComponent impleme
       'name': 'Name',
     };
     this.stringFields = ['name', ];
+    this.stringBoxFields = ['name', ];
     const listCategories = [];
     this.listCategory1 = listCategories[0] || {};
     this.listCategory2 = listCategories[1] || {};

@@ -62,7 +62,10 @@ export class MuserroleEditComponent extends MuserroleEditCustComponent implement
     };
     this.referenceFields = ['account', ];
     this.arrayFields = [
-      ['role', 'ObjectId'],
+      ['role', 'ObjectId', {
+        "mraType": "",
+        "urlDisplay": ""
+      }, ],
     ];
     this.referenceFieldsMap['role'] = 'mpubrole';
     this.referenceFieldsReverseMap['mpubrole'] = 'role';

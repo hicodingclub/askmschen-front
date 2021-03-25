@@ -91,12 +91,13 @@ export class BlogComponent extends MddsBaseComponent implements OnInit {
   constructor(public blogService: BlogService, public injector: Injector, public router: Router, public route: ActivatedRoute, public location: Location) {
     super(blogService, injector, router, route, location);
     this.setItemNames(itemCamelName);
-    this.briefFieldsInfo = [];
-    this.briefFieldsInfo.push(['signaturePicture', 'Signature Picture']);
-    this.briefFieldsInfo.push(['title', 'Title']);
-    this.briefFieldsInfo.push(['publishDate', 'Publish Date']);
-    this.briefFieldsInfo.push(['topicTags', 'Topic Tags']);
-    this.briefFieldsInfo.push(['hot', 'Hot']);
+    this.briefFieldsInfo = [
+      ['signaturePicture', 'Signature Picture'],
+      ['title', 'Title'],
+      ['publishDate', 'Publish Date'],
+      ['topicTags', 'Topic Tags'],
+      ['hot', 'Hot'],
+    ];
     this.requiredFields = ['title', 'content', 'signaturePicture', 'author', ];
     this.schemaName = 'blog';
     this.dateFormat = 'MM-DD-YYYY';

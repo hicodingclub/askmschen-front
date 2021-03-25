@@ -100,9 +100,10 @@ export class MroleComponent extends MddsBaseComponent implements OnInit {
   constructor(public mroleService: MroleService, public injector: Injector, public router: Router, public route: ActivatedRoute, public location: Location) {
     super(mroleService, injector, router, route, location);
     this.setItemNames(itemCamelName);
-    this.briefFieldsInfo = [];
-    this.briefFieldsInfo.push(['role', 'Role']);
-    this.briefFieldsInfo.push(['description', 'Description']);
+    this.briefFieldsInfo = [
+      ['role', 'Role'],
+      ['description', 'Description'],
+    ];
     this.requiredFields = ['role', ];
     this.schemaName = 'mrole';
     this.modulePath = 'roles';

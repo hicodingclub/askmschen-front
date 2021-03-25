@@ -100,8 +100,9 @@ export class MfilegroupComponent extends MddsBaseComponent implements OnInit {
   constructor(public mfilegroupService: MfilegroupService, public injector: Injector, public router: Router, public route: ActivatedRoute, public location: Location) {
     super(mfilegroupService, injector, router, route, location);
     this.setItemNames(itemCamelName);
-    this.briefFieldsInfo = [];
-    this.briefFieldsInfo.push(['name', 'Name']);
+    this.briefFieldsInfo = [
+      ['name', 'Name'],
+    ];
     this.requiredFields = ['name', ];
     this.schemaName = 'mfilegroup';
     this.dateFormat = 'MM/DD/YYYY';

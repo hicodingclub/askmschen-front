@@ -40,7 +40,10 @@ implements OnInit {
     };
     this.stringFields = ['module', ];
     this.arrayFields = [
-      ['resources', 'SchemaString'],
+      ['resources', 'SchemaString', {
+        "mraType": "",
+        "urlDisplay": ""
+      }, ],
     ];
   }
   ngOnInit() {

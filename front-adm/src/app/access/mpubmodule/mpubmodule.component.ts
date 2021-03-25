@@ -100,9 +100,10 @@ export class MpubmoduleComponent extends MddsBaseComponent implements OnInit {
   constructor(public mpubmoduleService: MpubmoduleService, public injector: Injector, public router: Router, public route: ActivatedRoute, public location: Location) {
     super(mpubmoduleService, injector, router, route, location);
     this.setItemNames(itemCamelName);
-    this.briefFieldsInfo = [];
-    this.briefFieldsInfo.push(['module', 'Module']);
-    this.briefFieldsInfo.push(['resources', 'Resources']);
+    this.briefFieldsInfo = [
+      ['module', 'Module'],
+      ['resources', 'Resources'],
+    ];
     this.requiredFields = ['module', ];
     this.schemaName = 'mpubmodule';
     this.modulePath = 'access';

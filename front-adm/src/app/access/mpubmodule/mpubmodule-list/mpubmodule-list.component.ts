@@ -73,8 +73,12 @@ export class MpubmoduleListComponent extends MpubmoduleListCustComponent impleme
     };
     this.stringFields = ['module', ];
     this.arrayFields = [
-      ['resources', 'SchemaString'],
+      ['resources', 'SchemaString', {
+        "mraType": "",
+        "urlDisplay": ""
+      }, ],
     ];
+    this.stringBoxFields = ['module', 'resources', ];
     const listCategories = [];
     this.listCategory1 = listCategories[0] || {};
     this.listCategory2 = listCategories[1] || {};

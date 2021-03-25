@@ -73,7 +73,7 @@
           </td>
           <td (click)="clickOneItem(i)" [ngClass]="{'pointer': clickItemAction}">
             <div class="">
-              <a href="{{detail['link']}}">{{detail['link']}}</a>
+              <a href="{{detail['link']['url']}}" target="_blank">{{detail['link']['display'] || detail['link']['url']}}</a>
             </div>
           </td>
           <td (click)="clickOneItem(i)" [ngClass]="{'pointer': clickItemAction}">

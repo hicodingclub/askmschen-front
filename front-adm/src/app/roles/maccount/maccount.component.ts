@@ -100,15 +100,16 @@ export class MaccountComponent extends MddsBaseComponent implements OnInit {
   constructor(public maccountService: MaccountService, public injector: Injector, public router: Router, public route: ActivatedRoute, public location: Location) {
     super(maccountService, injector, router, route, location);
     this.setItemNames(itemCamelName);
-    this.briefFieldsInfo = [];
-    this.briefFieldsInfo.push(['username', 'Username']);
-    this.briefFieldsInfo.push(['email', 'Email']);
-    this.briefFieldsInfo.push(['phone', 'Phone']);
-    this.briefFieldsInfo.push(['firstname', 'Firstname']);
-    this.briefFieldsInfo.push(['lastname', 'Lastname']);
-    this.briefFieldsInfo.push(['since', 'Since']);
-    this.briefFieldsInfo.push(['regtype', 'Regtype']);
-    this.briefFieldsInfo.push(['status', 'Status']);
+    this.briefFieldsInfo = [
+      ['username', 'Username'],
+      ['email', 'Email'],
+      ['phone', 'Phone'],
+      ['firstname', 'Firstname'],
+      ['lastname', 'Lastname'],
+      ['since', 'Since'],
+      ['regtype', 'Regtype'],
+      ['status', 'Status'],
+    ];
     this.requiredFields = ['username', 'password', ];
     this.emailFields = [
       ['Email', 'email'],

@@ -124,14 +124,17 @@ export class MaccountroleComponent extends MddsBaseComponent implements OnInit {
   constructor(public maccountroleService: MaccountroleService, public injector: Injector, public router: Router, public route: ActivatedRoute, public location: Location) {
     super(maccountroleService, injector, router, route, location);
     this.setItemNames(itemCamelName);
-    this.briefFieldsInfo = [];
-    this.briefFieldsInfo.push(['account', 'Account']);
-    this.briefFieldsInfo.push(['role', 'Role']);
+    this.briefFieldsInfo = [
+      ['account', 'Account'],
+      ['role', 'Role'],
+    ];
     this.referenceFieldsMap = {
       'account': 'maccount',
+      'role': 'mrole',
     };
     this.referenceFieldsReverseMap = {
       'maccount': 'account',
+      'mrole': 'role',
     };
     this.requiredFields = ['account', ];
     this.schemaName = 'maccountrole';

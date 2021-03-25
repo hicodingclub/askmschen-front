@@ -87,8 +87,13 @@ export class MpictureListComponent extends MpictureListCustComponent implements 
     this.dateFields = ['createdAt', ];
     this.numberFields = ['size', ];
     this.arrayFields = [
-      ['labels', 'SchemaString'],
+      ['labels', 'SchemaString', {
+        "mraType": "",
+        "urlDisplay": ""
+      }, ],
     ];
+    this.stringBoxFields = ['name', 'type', 'labels', ];
+    this.ownSearchFields = ['size', 'createdAt', 'hasThumbnail', ];
     const listCategories = [{
       "listCategoryField": "group",
       "showCategoryCounts": true,

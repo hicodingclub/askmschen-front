@@ -27,6 +27,15 @@ import {
   SubscriptionEditComponent
 } from './subscription/subscription-edit/subscription-edit.component';
 import {
+  QuestionListGeneralComponent
+} from './question/question-list/question-list-general.component';
+import {
+  QuestionDetailComponent
+} from './question/question-detail/question-detail.component';
+import {
+  QuestionEditComponent
+} from './question/question-edit/question-edit.component';
+import {
   AuthGuard
 } from '@hicoder/angular-auth';
 export const newsRoutingCorePath = [{
@@ -86,6 +95,27 @@ export const subscriptionRoutingCorePath = [{
 }, {
   path: 'new',
   component: SubscriptionEditComponent,
+  canActivate: [AuthGuard]
+}, {
+  path: '**',
+  redirectTo: 'list',
+  pathMatch: 'full'
+}];
+export const questionRoutingCorePath = [{
+  path: 'list',
+  component: QuestionListGeneralComponent,
+  canActivate: [AuthGuard]
+}, {
+  path: 'detail/:id',
+  component: QuestionDetailComponent,
+  canActivate: [AuthGuard]
+}, {
+  path: 'edit/:id',
+  component: QuestionEditComponent,
+  canActivate: [AuthGuard]
+}, {
+  path: 'new',
+  component: QuestionEditComponent,
   canActivate: [AuthGuard]
 }, {
   path: '**',

@@ -62,7 +62,10 @@ export class MaccountroleEditComponent extends MaccountroleEditCustComponent imp
     };
     this.referenceFields = ['account', ];
     this.arrayFields = [
-      ['role', 'ObjectId'],
+      ['role', 'ObjectId', {
+        "mraType": "",
+        "urlDisplay": ""
+      }, ],
     ];
     this.referenceFieldsMap['role'] = 'mrole';
     this.referenceFieldsReverseMap['mrole'] = 'role';

@@ -64,7 +64,10 @@ export class MfileEditComponent extends MfileEditCustComponent implements OnInit
     this.stringFields = ['name', ];
     this.referenceFields = ['group', ];
     this.arrayFields = [
-      ['labels', 'SchemaString'],
+      ['labels', 'SchemaString', {
+        "mraType": "",
+        "urlDisplay": ""
+      }, ],
     ];
     const detail = {};
     this.detail = this.formatDetail(detail);

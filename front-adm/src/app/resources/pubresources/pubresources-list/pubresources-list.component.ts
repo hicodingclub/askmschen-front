@@ -81,11 +81,16 @@ export class PubresourcesListComponent extends PubresourcesListCustComponent imp
     this.stringFields = ['title', 'subTitle', ];
     this.dateFields = ['createdAt', ];
     this.arrayFields = [
-      ['topicTags', 'SchemaString'],
+      ['topicTags', 'SchemaString', {
+        "mraType": "",
+        "urlDisplay": ""
+      }, ],
     ];
     this.editHintFields = {
       'topicTags': [],
     };
+    this.stringBoxFields = ['title', 'subTitle', ];
+    this.ownSearchFields = ['topicTags', 'createdAt', ];
     const listCategories = [];
     this.listCategory1 = listCategories[0] || {};
     this.listCategory2 = listCategories[1] || {};

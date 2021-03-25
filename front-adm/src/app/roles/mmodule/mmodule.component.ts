@@ -100,9 +100,10 @@ export class MmoduleComponent extends MddsBaseComponent implements OnInit {
   constructor(public mmoduleService: MmoduleService, public injector: Injector, public router: Router, public route: ActivatedRoute, public location: Location) {
     super(mmoduleService, injector, router, route, location);
     this.setItemNames(itemCamelName);
-    this.briefFieldsInfo = [];
-    this.briefFieldsInfo.push(['module', 'Module']);
-    this.briefFieldsInfo.push(['resources', 'Resources']);
+    this.briefFieldsInfo = [
+      ['module', 'Module'],
+      ['resources', 'Resources'],
+    ];
     this.requiredFields = ['module', ];
     this.schemaName = 'mmodule';
     this.modulePath = 'roles';

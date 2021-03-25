@@ -72,6 +72,7 @@ export class MroleListComponent extends MroleListCustComponent implements OnInit
       'description': 'Description',
     };
     this.stringFields = ['role', 'description', ];
+    this.stringBoxFields = ['role', 'description', ];
     const listCategories = [];
     this.listCategory1 = listCategories[0] || {};
     this.listCategory2 = listCategories[1] || {};

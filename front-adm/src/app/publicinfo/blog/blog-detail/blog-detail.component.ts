@@ -54,7 +54,10 @@ export class BlogDetailComponent extends BlogDetailCustComponent implements OnIn
     this.stringFields = ['signaturePicture', 'title', 'author', 'content', ];
     this.dateFields = ['publishDate', ];
     this.arrayFields = [
-      ['topicTags', 'SchemaString'],
+      ['topicTags', 'SchemaString', {
+        "mraType": "",
+        "urlDisplay": ""
+      }, ],
     ];
   }
   ngOnInit() {

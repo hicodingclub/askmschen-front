@@ -65,8 +65,14 @@ export class PubresourcesEditComponent extends PubresourcesEditCustComponent imp
     };
     this.stringFields = ['title', 'subTitle', 'description', ];
     this.arrayFields = [
-      ['topicTags', 'SchemaString'],
-      ['attachments', 'SchemaString'],
+      ['topicTags', 'SchemaString', {
+        "mraType": "",
+        "urlDisplay": ""
+      }, ],
+      ['attachments', 'SchemaString', {
+        "mraType": "file",
+        "urlDisplay": ""
+      }, ],
     ];
     this.editHintFields = {
       'topicTags': [],

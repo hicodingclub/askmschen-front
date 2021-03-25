@@ -87,8 +87,16 @@ export class MfileListComponent extends MfileListCustComponent implements OnInit
     this.dateFields = ['createdAt', ];
     this.numberFields = ['size', ];
     this.arrayFields = [
-      ['labels', 'SchemaString'],
+      ['labels', 'SchemaString', {
+        "mraType": "",
+        "urlDisplay": ""
+      }, ],
     ];
+    this.httpurlFields = [
+      ['link', ''],
+    ];
+    this.stringBoxFields = ['name', 'type', 'labels', 'link', ];
+    this.ownSearchFields = ['size', 'createdAt', 'hasThumbnail', ];
     const listCategories = [{
       "listCategoryField": "group",
       "showCategoryCounts": true,

@@ -124,14 +124,17 @@ export class MuserroleComponent extends MddsBaseComponent implements OnInit {
   constructor(public muserroleService: MuserroleService, public injector: Injector, public router: Router, public route: ActivatedRoute, public location: Location) {
     super(muserroleService, injector, router, route, location);
     this.setItemNames(itemCamelName);
-    this.briefFieldsInfo = [];
-    this.briefFieldsInfo.push(['account', 'Account']);
-    this.briefFieldsInfo.push(['role', 'Role']);
+    this.briefFieldsInfo = [
+      ['account', 'Account'],
+      ['role', 'Role'],
+    ];
     this.referenceFieldsMap = {
       'account': 'muser',
+      'role': 'mpubrole',
     };
     this.referenceFieldsReverseMap = {
       'muser': 'account',
+      'mpubrole': 'role',
     };
     this.requiredFields = ['account', ];
     this.schemaName = 'muserrole';

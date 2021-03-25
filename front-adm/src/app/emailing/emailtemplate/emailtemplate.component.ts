@@ -91,11 +91,12 @@ export class EmailtemplateComponent extends MddsBaseComponent implements OnInit 
   constructor(public emailtemplateService: EmailtemplateService, public injector: Injector, public router: Router, public route: ActivatedRoute, public location: Location) {
     super(emailtemplateService, injector, router, route, location);
     this.setItemNames(itemCamelName);
-    this.briefFieldsInfo = [];
-    this.briefFieldsInfo.push(['templateName', 'Template Name']);
-    this.briefFieldsInfo.push(['fromEmail', 'From Email']);
-    this.briefFieldsInfo.push(['subject', 'Subject']);
-    this.briefFieldsInfo.push(['tag', 'Tag']);
+    this.briefFieldsInfo = [
+      ['templateName', 'Template Name'],
+      ['fromEmail', 'From Email'],
+      ['subject', 'Subject'],
+      ['tag', 'Tag'],
+    ];
     this.requiredFields = ['templateName', 'subject', 'content', 'tag', ];
     this.schemaName = 'emailtemplate';
     this.modulePath = 'emailing';

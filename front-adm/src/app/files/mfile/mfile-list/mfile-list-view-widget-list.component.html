@@ -39,7 +39,7 @@
               <div *ngIf="fieldHasValue(detail['link'])" class="mr-3 d-inline-flex flex-wrap">
                 <div class="mr-3"><label>Link:</label></div>
                 <div>
-                  <a href="{{detail['link']}}">{{detail['link']}}</a>
+                  <a href="{{detail['link']['url']}}" target="_blank">{{detail['link']['display'] || detail['link']['url']}}</a>
                 </div>
               </div>
               <div *ngIf="fieldHasValue(detail['createdAt'])" class="mr-3 d-inline-flex flex-wrap">

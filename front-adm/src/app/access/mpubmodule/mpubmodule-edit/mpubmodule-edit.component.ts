@@ -62,7 +62,10 @@ export class MpubmoduleEditComponent extends MpubmoduleEditCustComponent impleme
     };
     this.stringFields = ['module', ];
     this.arrayFields = [
-      ['resources', 'SchemaString'],
+      ['resources', 'SchemaString', {
+        "mraType": "",
+        "urlDisplay": ""
+      }, ],
     ];
     const detail = {};
     this.detail = this.formatDetail(detail);

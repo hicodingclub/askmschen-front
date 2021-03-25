@@ -22,6 +22,10 @@
     color: rgba(255, 255, 255, 1);
 }
 
+.dropdown-item.active {
+    background-image: linear-gradient(to right, rgba(23, 162, 184, 1), #118bb4)
+}
+
 .logo {
     max-width: 60px;
 }

@@ -91,9 +91,10 @@ export class SubscriptionComponent extends MddsBaseComponent implements OnInit {
   constructor(public subscriptionService: SubscriptionService, public injector: Injector, public router: Router, public route: ActivatedRoute, public location: Location) {
     super(subscriptionService, injector, router, route, location);
     this.setItemNames(itemCamelName);
-    this.briefFieldsInfo = [];
-    this.briefFieldsInfo.push(['name', 'Name']);
-    this.briefFieldsInfo.push(['email', 'Email']);
+    this.briefFieldsInfo = [
+      ['name', 'Name'],
+      ['email', 'Email'],
+    ];
     this.requiredFields = ['name', 'email', ];
     this.emailFields = [
       ['Email', 'email'],

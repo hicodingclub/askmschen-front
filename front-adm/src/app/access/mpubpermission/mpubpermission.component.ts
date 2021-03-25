@@ -124,10 +124,11 @@ export class MpubpermissionComponent extends MddsBaseComponent implements OnInit
   constructor(public mpubpermissionService: MpubpermissionService, public injector: Injector, public router: Router, public route: ActivatedRoute, public location: Location) {
     super(mpubpermissionService, injector, router, route, location);
     this.setItemNames(itemCamelName);
-    this.briefFieldsInfo = [];
-    this.briefFieldsInfo.push(['role', 'Role']);
-    this.briefFieldsInfo.push(['module', 'Module']);
-    this.briefFieldsInfo.push(['modulePermission', 'Module Permission']);
+    this.briefFieldsInfo = [
+      ['role', 'Role'],
+      ['module', 'Module'],
+      ['modulePermission', 'Module Permission'],
+    ];
     this.referenceFieldsMap = {
       'role': 'mpubrole',
       'module': 'mpubmodule',

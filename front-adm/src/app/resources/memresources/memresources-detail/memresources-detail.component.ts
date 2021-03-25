@@ -53,8 +53,14 @@ export class MemresourcesDetailComponent extends MemresourcesDetailCustComponent
     this.stringFields = ['title', 'subTitle', 'description', ];
     this.dateFields = ['createdAt', ];
     this.arrayFields = [
-      ['topicTags', 'SchemaString'],
-      ['attachments', 'SchemaString'],
+      ['topicTags', 'SchemaString', {
+        "mraType": "",
+        "urlDisplay": ""
+      }, ],
+      ['attachments', 'SchemaString', {
+        "mraType": "file",
+        "urlDisplay": ""
+      }, ],
     ];
   }
   ngOnInit() {

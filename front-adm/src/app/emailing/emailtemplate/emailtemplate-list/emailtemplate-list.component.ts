@@ -74,6 +74,7 @@ export class EmailtemplateListComponent extends EmailtemplateListCustComponent i
       'tag': 'Tag',
     };
     this.stringFields = ['templateName', 'fromEmail', 'subject', 'tag', ];
+    this.stringBoxFields = ['templateName', 'fromEmail', 'subject', 'tag', ];
     const listCategories = [];
     this.listCategory1 = listCategories[0] || {};
     this.listCategory2 = listCategories[1] || {};

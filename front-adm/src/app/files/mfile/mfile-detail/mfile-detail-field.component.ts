@@ -49,7 +49,13 @@ implements OnInit {
     this.dateFields = ['createdAt', ];
     this.numberFields = ['size', ];
     this.arrayFields = [
-      ['labels', 'SchemaString'],
+      ['labels', 'SchemaString', {
+        "mraType": "",
+        "urlDisplay": ""
+      }, ],
+    ];
+    this.httpurlFields = [
+      ['link', ''],
     ];
   }
   ngOnInit() {

@@ -12,7 +12,7 @@
     <div class="row" *ngIf="!options['disableListSearch']">
       <div class="col">
         <div class="input-group">
-          <input type="search" class="form-control border border-secondary" id="mpubpermissionTextSearch" #mpubpermissionTextSearch [(ngModel)]="searchText" (search)="$event.target.blur();searchList();" placeholder="Search for module permission">
+          <input type="search" class="form-control border border-secondary" id="mpubpermissionTextSearch" #mpubpermissionTextSearch [(ngModel)]="searchText" (search)="$event.target.blur();searchList();" placeholder="Search for Module Permission">
           <div *ngIf="searchText" class="input-group-append icon-search-clear">
             <span>
               <i class="fas fa-times-circle" (click)="onSearchTextClear()" title="Clear"></i>

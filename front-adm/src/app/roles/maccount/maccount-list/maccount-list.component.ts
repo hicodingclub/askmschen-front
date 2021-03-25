@@ -85,6 +85,8 @@ export class MaccountListComponent extends MaccountListCustComponent implements 
     this.enums['status'] = ['Enabled', 'Disabled', 'Pending', ];
     this.stringFields = ['username', 'email', 'phone', 'firstname', 'lastname', 'regtype', 'status', ];
     this.dateFields = ['since', ];
+    this.stringBoxFields = ['username', 'email', 'phone', 'firstname', 'lastname', 'regtype', 'status', ];
+    this.ownSearchFields = ['since', ];
     const listCategories = [];
     this.listCategory1 = listCategories[0] || {};
     this.listCategory2 = listCategories[1] || {};

@@ -48,7 +48,10 @@ export class MmoduleDetailComponent extends MmoduleDetailCustComponent implement
     };
     this.stringFields = ['module', ];
     this.arrayFields = [
-      ['resources', 'SchemaString'],
+      ['resources', 'SchemaString', {
+        "mraType": "",
+        "urlDisplay": ""
+      }, ],
     ];
   }
   ngOnInit() {

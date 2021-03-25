@@ -20,27 +20,22 @@
                       Services
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="#">US Homestay</a>
-                        <a class="dropdown-item" href="#">Education Planning</a>
-                        <a class="dropdown-item" href="#">Travel and Camps</a>
-                        <a class="dropdown-item" href="#">School Application and Transfer</a>
+                        <a class="dropdown-item" routerLinkActive="active" routerLink="/services/homestay">US Homestay</a>
+                        <a class="dropdown-item" routerLinkActive="active" routerLink="/services/planning">Education Planning</a>
+                        <a class="dropdown-item" routerLinkActive="active" routerLink="/services/collegeApps">School Application and Transfer</a>
+                        <a class="dropdown-item" routerLinkActive="active" routerLink="/services/camps">Travel and Camps</a>
                     </div>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" routerLinkActive="active" routerLink="/contact">Product</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link"
-                        [ngClass]="{'active': currentUrl === '/blog' || currentUrl.startsWith('/publicinfo/blog') }"
-                        routerLink="/blog"
-                    >
+                    <a class="nav-link" [ngClass]="{'active': currentUrl === '/blog' || currentUrl.startsWith('/publicinfo/blog') }" routerLink="/blog">
                         Blog
                     </a>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
-                        [ngClass]="{'active': currentUrl.startsWith('/resources') }"
-                    >
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" [ngClass]="{'active': currentUrl.startsWith('/resources') }">
                       Resources
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">

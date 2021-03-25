@@ -91,11 +91,12 @@ export class MemresourcesComponent extends MddsBaseComponent implements OnInit {
   constructor(public memresourcesService: MemresourcesService, public injector: Injector, public router: Router, public route: ActivatedRoute, public location: Location) {
     super(memresourcesService, injector, router, route, location);
     this.setItemNames(itemCamelName);
-    this.briefFieldsInfo = [];
-    this.briefFieldsInfo.push(['title', 'Title']);
-    this.briefFieldsInfo.push(['subTitle', 'Sub Title']);
-    this.briefFieldsInfo.push(['topicTags', 'Topic Tags']);
-    this.briefFieldsInfo.push(['createdAt', 'Publish Date']);
+    this.briefFieldsInfo = [
+      ['title', 'Title'],
+      ['subTitle', 'Sub Title'],
+      ['topicTags', 'Topic Tags'],
+      ['createdAt', 'Publish Date'],
+    ];
     this.requiredFields = ['title', 'subTitle', ];
     this.schemaName = 'memresources';
     this.dateFormat = 'MM-DD-YYYY';

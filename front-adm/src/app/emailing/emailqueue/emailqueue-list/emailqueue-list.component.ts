@@ -82,6 +82,8 @@ export class EmailqueueListComponent extends EmailqueueListCustComponent impleme
     this.stringFields = ['subject', ];
     this.dateFields = ['createdAt', ];
     this.numberFields = ['number', 'sent', ];
+    this.stringBoxFields = ['subject', ];
+    this.ownSearchFields = ['processed', 'number', 'sent', 'createdAt', ];
     this.setListSort('createdAt', 'Created at', 'desc');
     const listCategories = [];
     this.listCategory1 = listCategories[0] || {};

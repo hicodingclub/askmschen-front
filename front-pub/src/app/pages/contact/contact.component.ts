@@ -6,9 +6,20 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./contact.component.css']
 })
 export class ContactComponent implements OnInit {
+
+  public showSubscription: boolean = true;
+
   constructor() {
   }
 
   ngOnInit() {
   }
+
+  subscriptionDone(result: boolean) {
+    this.showSubscription = false;
+    setTimeout(() => {
+      this.showSubscription = true;
+    }, 10);
+}
+
 }

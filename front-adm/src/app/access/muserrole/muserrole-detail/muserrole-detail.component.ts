@@ -48,7 +48,10 @@ export class MuserroleDetailComponent extends MuserroleDetailCustComponent imple
     };
     this.referenceFields = ['account', ];
     this.arrayFields = [
-      ['role', 'ObjectId'],
+      ['role', 'ObjectId', {
+        "mraType": "",
+        "urlDisplay": ""
+      }, ],
     ];
     this.referenceFieldsMap['role'] = 'mpubrole';
     this.referenceFieldsReverseMap['mpubrole'] = 'role';

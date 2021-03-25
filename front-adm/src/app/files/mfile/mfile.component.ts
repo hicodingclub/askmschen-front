@@ -113,15 +113,16 @@ export class MfileComponent extends MddsBaseComponent implements OnInit {
   constructor(public mfileService: MfileService, public injector: Injector, public router: Router, public route: ActivatedRoute, public location: Location) {
     super(mfileService, injector, router, route, location);
     this.setItemNames(itemCamelName);
-    this.briefFieldsInfo = [];
-    this.briefFieldsInfo.push(['name', 'Name']);
-    this.briefFieldsInfo.push(['type', 'Type']);
-    this.briefFieldsInfo.push(['group', 'Group']);
-    this.briefFieldsInfo.push(['labels', 'Labels']);
-    this.briefFieldsInfo.push(['size', 'Size']);
-    this.briefFieldsInfo.push(['link', 'Link']);
-    this.briefFieldsInfo.push(['createdAt', 'Created at']);
-    this.briefFieldsInfo.push(['hasThumbnail', 'Has Thumbnail']);
+    this.briefFieldsInfo = [
+      ['name', 'Name'],
+      ['type', 'Type'],
+      ['group', 'Group'],
+      ['labels', 'Labels'],
+      ['size', 'Size'],
+      ['link', 'Link'],
+      ['createdAt', 'Created at'],
+      ['hasThumbnail', 'Has Thumbnail'],
+    ];
     this.referenceFieldsMap = {
       'group': 'mfilegroup',
     };

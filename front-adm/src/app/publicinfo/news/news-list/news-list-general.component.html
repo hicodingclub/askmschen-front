@@ -12,7 +12,7 @@
     <div class="row" *ngIf="!options['disableListSearch']">
       <div class="col">
         <div class="input-group">
-          <input type="search" class="form-control border border-secondary" id="newsTextSearch" #newsTextSearch [(ngModel)]="searchText" (search)="$event.target.blur();searchList();" placeholder="Search for title">
+          <input type="search" class="form-control border border-secondary" id="newsTextSearch" #newsTextSearch [(ngModel)]="searchText" (search)="$event.target.blur();searchList();" placeholder="Search for Title">
           <div *ngIf="searchText" class="input-group-append icon-search-clear">
             <span>
               <i class="fas fa-times-circle" (click)="onSearchTextClear()" title="Clear"></i>

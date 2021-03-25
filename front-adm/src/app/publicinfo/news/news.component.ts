@@ -91,10 +91,11 @@ export class NewsComponent extends MddsBaseComponent implements OnInit {
   constructor(public newsService: NewsService, public injector: Injector, public router: Router, public route: ActivatedRoute, public location: Location) {
     super(newsService, injector, router, route, location);
     this.setItemNames(itemCamelName);
-    this.briefFieldsInfo = [];
-    this.briefFieldsInfo.push(['signaturePicture', 'Signature Picture']);
-    this.briefFieldsInfo.push(['title', 'Title']);
-    this.briefFieldsInfo.push(['publishDate', 'Publish Date']);
+    this.briefFieldsInfo = [
+      ['signaturePicture', 'Signature Picture'],
+      ['title', 'Title'],
+      ['publishDate', 'Publish Date'],
+    ];
     this.requiredFields = ['title', 'content', 'signaturePicture', ];
     this.schemaName = 'news';
     this.dateFormat = 'MM-DD-YYYY';

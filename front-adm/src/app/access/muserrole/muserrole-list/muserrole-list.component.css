@@ -226,8 +226,9 @@ tr:hover td i.fa-trash-alt:hover,
 }
 
 div.badge-click:hover {
-  background-color: #495057 !important;
-  text-decoration: underline;
+  color: #fff;
+  text-decoration: none;
+  background-color: #0062cc;
 }
 
 /* Grid/List view filter
@@ -494,10 +495,16 @@ input:checked+.slider:before {
 }
 
 .new-card {
-  width: 400px;
+  width: 500px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+@media screen and (max-width: 576px) {
+  .new-card {
+    width: 90%;
+  }
 }
 
 .badge-group {

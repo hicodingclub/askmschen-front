@@ -66,7 +66,10 @@ export class BlogEditComponent extends BlogEditCustComponent implements OnInit, 
     };
     this.stringFields = ['title', 'content', 'signaturePicture', 'author', ];
     this.arrayFields = [
-      ['topicTags', 'SchemaString'],
+      ['topicTags', 'SchemaString', {
+        "mraType": "",
+        "urlDisplay": ""
+      }, ],
     ];
     this.editHintFields = {
       'topicTags': [],

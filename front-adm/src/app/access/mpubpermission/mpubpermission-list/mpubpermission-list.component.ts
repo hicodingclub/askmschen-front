@@ -74,6 +74,8 @@ export class MpubpermissionListComponent extends MpubpermissionListCustComponent
     };
     this.stringFields = ['modulePermission', ];
     this.referenceFields = ['role', 'module', ];
+    this.stringBoxFields = ['modulePermission', ];
+    this.ownSearchFields = ['role', 'module', ];
     const listCategories = [];
     this.listCategory1 = listCategories[0] || {};
     this.listCategory2 = listCategories[1] || {};
