@@ -78,6 +78,11 @@ td {
     border-radius: 25px;
     color: white;
     font-family: 'Raleway', sans-serif;
+    cursor: pointer;
+}
+
+.contact-button:hover {
+    background-color: #278cad;
 }
 
 @media (max-width: 768px) {

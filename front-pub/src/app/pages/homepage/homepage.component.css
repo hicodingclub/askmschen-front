@@ -65,7 +65,7 @@ hr {
 }
 
 #profile-pic-mobile {
-    width: 70%;
+    width: 50%;
     margin-right: auto;
     margin-left: auto;
     display: none;
@@ -218,5 +218,8 @@ hr {
     .links-container img {
         width: 40%;
         margin-bottom: 10px;
+    }
+    .carousel-inner img {
+        height: 30vh;
     }
 }

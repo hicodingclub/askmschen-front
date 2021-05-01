@@ -6,24 +6,21 @@
     </ol>
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img src="../../../assets/homepageslide1.jpg" class="d-block w-100" alt="...">
+            <img src="../../../assets/homepageSlide/1.jpeg" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
                 <h5>Be Yourself</h5>
-                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
             </div>
         </div>
         <div class="carousel-item">
-            <img src="../../../assets/homepageslide1.jpg" class="d-block w-100" alt="...">
+            <img src="../../../assets/homepageSlide/2.jpeg" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
                 <h5>Show Yourself</h5>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
             </div>
         </div>
         <div class="carousel-item">
-            <img src="../../../assets/homepageslide1.jpg" class="d-block w-100" alt="...">
+            <img src="../../../assets/homepageSlide/3.jpeg" class="d-block w-100" alt="...">
             <div class="carousel-caption d-none d-md-block">
                 <h5>Distinguish Yourself</h5>
-                <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
             </div>
         </div>
     </div>
@@ -64,10 +61,10 @@
         <div class="section">
             <div class="title">Getting Started</div>
             <div class="links-container">
-                <img src="../../../assets/homepage-links/services.jpg">
-                <img src="../../../assets/homepage-links/products.jpg">
+                <img src="../../../assets/homepage-links/services.jpg" onclick="window.scrollTo(0,3000);">
+                <img src="../../../assets/homepage-links/products.jpg" routerLink="/contact">
                 <img src="../../../assets/homepage-links/blog.jpg" routerLink="/blog">
-                <img src="../../../assets/homepage-links/resources.jpg">
+                <img src="../../../assets/homepage-links/resources.jpg" routerLink="/resources/pubresources/list">
             </div>
         </div>
     </div>
@@ -108,13 +105,11 @@
 
     <div class="section">
         <div class="title">Latest Updates</div>
-        <app-news-list-general
-        [options]="{
+        <app-news-list-general [options]="{
             includeSubDetail: false,
             disableCatetory: true, disablePagination: true,
             disbleActionButtons: true, disableListSearch: true, disableTitle: true, disableRefs: true,
-            disableListHead: true, disableTitleRow: true}"
-        [queryParams]="{perPage: 3, listSortOrder: 'desc', listSortField: 'publishDate'}">
+            disableListHead: true, disableTitleRow: true}" [queryParams]="{perPage: 3, listSortOrder: 'desc', listSortField: 'publishDate'}">
         </app-news-list-general>
         <div style="text-align: center; font-family: Georgia; font-size: 20px;"><a routerLink="/publicinfo/news">More Posts</a></div>
 
@@ -124,10 +119,10 @@
         <div class="section">
             <div class="title">Services</div>
             <div class="links-container">
-                <img src="../../../assets/homepage-links/homestay.jpeg">
-                <img src="../../../assets/homepage-links/calendar.jpeg">
-                <img src="../../../assets/homepage-links/camp.jpeg">
-                <img src="../../../assets/homepage-links/collegeapp.jpeg">
+                <img src="../../../assets/homepage-links/homestay.jpeg" routerLink="/services/homestay">
+                <img src="../../../assets/homepage-links/calendar.jpeg" routerLink="/services/planning">
+                <img src="../../../assets/homepage-links/camp.jpeg" routerLink="/services/camps">
+                <img src="../../../assets/homepage-links/collegeapp.jpeg" routerLink="/services/collegeApps">
             </div>
         </div>
     </div>
@@ -142,11 +137,11 @@
 
         <div class="contact">
             <div>
-                <div ><i class="fas fa-envelope-open-text"></i> Email Us: abcdefg@gmail.com</div>
-                <div><i class="fas fa-phone-volume" style="width: 1.5rem;"></i> Call Us: 123456789</div>   
+                <div><i class="fas fa-envelope-open-text"></i> Email Us: abcdefg@gmail.com</div>
+                <div><i class="fas fa-phone-volume" style="width: 1.5rem;"></i> Call Us: 4083654998</div>
             </div>
         </div>
- 
+
         <div class="subscription-container">
             <div class="mission-title" style="font-family: 'Raleway', sans-serif">Subscribe to Ms. Chen's Newsletter</div>
             <app-subscription-edit *ngIf="showSubscription" [options]="{disableCancel: true}" [embeddedView]="true" (done)="subscriptionDone($event)"></app-subscription-edit>
